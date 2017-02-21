@@ -1,0 +1,388 @@
+{
+    "candidates": [
+        {
+            "id": 1,
+            "mturk_id": 1,
+            "name": "Jason",
+            "stage": 1,
+            "session": 1,
+            "date": "2016-01-02",
+            "basic_information" : {
+                "gender" : "Male",
+                "age" : 24,
+                "country" : "U.S.A",
+                "ethnicity" : "Asian",
+                "education" : "Master",
+                "job_besides_mturk" : "yes",
+                "field" : "computer science",
+                "mturk_since_date" : "01/01/2014",
+                "approved_hits" : 500,
+                "approved_hits_rate" : 99
+            },
+            "personality" : {         
+                "ocean": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "openness" : 5,
+                        "conscientiousness" : 4,
+                        "extraversion" : 3,
+                        "agreeableness" : 4,
+                        "neuroticism" : 1
+                    }
+                },
+                "disc": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "dominance" : 5,
+                        "influence" : 4,
+                        "steadiness" : 3,
+                        "compliance" : 4
+                    }
+                },
+                "other_questions": [
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 1:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 2:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 3:",
+                        "answer": "Yes"
+                    }
+                ]
+            },
+            "performance" : {
+
+            }
+        },
+        {
+            "id": 2,
+            "mturk_id": 1,
+            "name": "Jason2",
+            "stage": 1,
+            "session": 1,
+            "date": "2016-01-02",
+            "basic_information" : {
+                "gender" : "Male",
+                "age" : 24,
+                "country" : "U.S.A",
+                "ethnicity" : "Asian",
+                "education" : "Master",
+                "job_besides_mturk" : "yes",
+                "field" : "computer science",
+                "mturk_since_date" : "01/01/2014",
+                "approved_hits" : 500,
+                "approved_hits_rate" : 99
+            },
+            "personality" : {         
+                "ocean": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "openness" : 5,
+                        "conscientiousness" : 4,
+                        "extraversion" : 3,
+                        "agreeableness" : 4,
+                        "neuroticism" : 1
+                    }
+                },
+                "disc": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "dominance" : 5,
+                        "influence" : 4,
+                        "steadiness" : 3,
+                        "compliance" : 4
+                    }
+                },
+                "other_questions": [
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 1:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 2:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 3:",
+                        "answer": "Yes"
+                    }
+                ]
+            },
+            "performance" : {
+
+            }
+        },
+        {
+            "id": 3,
+            "mturk_id": 1,
+            "name": "Jason3",
+            "stage": 1,
+            "session": 1,
+            "date": "2016-01-02",
+            "basic_information" : {
+                "gender" : "Male",
+                "age" : 24,
+                "country" : "U.S.A",
+                "ethnicity" : "Asian",
+                "education" : "Master",
+                "job_besides_mturk" : "yes",
+                "field" : "computer science",
+                "mturk_since_date" : "01/01/2014",
+                "approved_hits" : 500,
+                "approved_hits_rate" : 99
+            },
+            "personality" : {         
+                "ocean": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "openness" : 5,
+                        "conscientiousness" : 4,
+                        "extraversion" : 3,
+                        "agreeableness" : 4,
+                        "neuroticism" : 1
+                    }
+                },
+                "disc": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "dominance" : 5,
+                        "influence" : 4,
+                        "steadiness" : 3,
+                        "compliance" : 4
+                    }
+                },
+                "other_questions": [
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 1:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 2:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 3:",
+                        "answer": "Yes"
+                    }
+                ]
+            },
+            "performance" : {
+
+            }
+        },
+        {
+            "id": 4,
+            "mturk_id": 1,
+            "name": "Jason4",
+            "stage": 1,
+            "session": 1,
+            "date": "2016-01-02",
+            "basic_information" : {
+                "gender" : "Male",
+                "age" : 24,
+                "country" : "U.S.A",
+                "ethnicity" : "Asian",
+                "education" : "Master",
+                "job_besides_mturk" : "yes",
+                "field" : "computer science",
+                "mturk_since_date" : "01/01/2014",
+                "approved_hits" : 500,
+                "approved_hits_rate" : 99
+            },
+            "personality" : {         
+                "ocean": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "question_type": "basic",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "openness" : 5,
+                        "conscientiousness" : 4,
+                        "extraversion" : 3,
+                        "agreeableness" : 4,
+                        "neuroticism" : 1
+                    }
+                },
+                "disc": {
+                    "questions" : [
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 1:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 2:",
+                            "answer": "Yes"
+                        },
+                        {
+                            "question_content": "Do you like the team?",
+                            "question_diplay": "question 3:",
+                            "answer": "Yes"
+                        }
+                    ],
+                    "graph_data" : {
+                        "dominance" : 5,
+                        "influence" : 4,
+                        "steadiness" : 3,
+                        "compliance" : 4
+                    }
+                },
+                "other_questions": [
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 1:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 2:",
+                        "answer": "Yes"
+                    },
+                    {
+                        "question_content": "Do you like the team?",
+                        "question_diplay": "question 3:",
+                        "answer": "Yes"
+                    }
+                ]
+            },
+            "performance" : {
+
+            }
+        }
+    ]
+}
