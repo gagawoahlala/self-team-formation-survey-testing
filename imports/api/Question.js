@@ -6,6 +6,6 @@ Question.schema = new SimpleSchema({
   content: {type: String},
   block_id: {type: String},
   answer_type: {type: String}, // "string", "int"
-  display_content: {type: String}
+  display_content: {type: String},
   show: {type: Boolean}
 });

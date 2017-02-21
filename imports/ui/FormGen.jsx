@@ -24,7 +24,7 @@ export default class FormGen extends Component {
     if(type === "Array"){
       field = (<textarea className="form-control" rows="2" ref={(x) => {this.input[k]=x;}} defaultValue="[]"></textarea>);
     }else{
-      field = <input type={type === "String"?"text":"number"}
+      field = <input type={type === "Number"?"number":"text"}
         className="form-control" placeholder={k} ref={(x) => {this.input[k] = x;}}/>;
     }
     return (
@@ -75,11 +75,11 @@ export default class FormGen extends Component {
     }
     try{
       this.props.schema.validate(res);
+      this.props.addCallback(res);
       this.setState({popState: 2, popMsg: SUCCESS});
     }catch(err){
       this.setState({popState: 1, popMsg: err.reason});
     }
-    this.props.addCallback(res);
   }
   render() {
     return (

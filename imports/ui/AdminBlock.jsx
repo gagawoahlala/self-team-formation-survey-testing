@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
-import {Candidate} from '../api/Candidate.js';
+import {Block} from '../api/Block.js';
 import MongoConsole from './MongoConsole.jsx';
 
-class AdminCandidate extends Component{
+class AdminBlock extends Component{
   render(){
     return (
       <div>
-        <MongoConsole model={Candidate} items={this.props.candidates}/>
+        <MongoConsole model={Block} items={this.props.blocks}/>
       </div>
     );
   }
@@ -15,6 +15,6 @@ class AdminCandidate extends Component{
 
 export default createContainer(() => {
   return {
-    candidates: Candidate.find({}).fetch(),
+    blocks: Block.find({}).fetch(),
   };
-}, AdminCandidate);
+}, AdminBlock);

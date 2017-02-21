@@ -14,7 +14,7 @@ export default class ElmtDisplay extends Component {
   }
 }
 
-// ElmtDisplay.propTypes = {
-//   element: PropTypes.object.isRequired,
-//   deleteCallback: PropTypes.func.isRequired,
-// };
+ElmtDisplay.propTypes = {
+  element: PropTypes.object.isRequired,
+  deleteCallback: PropTypes.func.isRequired,
+};

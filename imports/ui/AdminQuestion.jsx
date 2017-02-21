@@ -1,9 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
+import {Question} from '../api/Question.js';
+import MongoConsole from './MongoConsole.jsx';
 
-export default class AdminQuestion extends Component {
-  render() {
+class AdminQuestion extends Component{
+  render(){
     return (
-      <div>admin question page</div>
-    )
+      <div>
+        <MongoConsole model={Question} items={this.props.questions}/>
+      </div>
+    );
   }
 }
+
+export default createContainer(() => {
+  return {
+    questions: Question.find({}).fetch(),
+  };
+}, AdminQuestion);
