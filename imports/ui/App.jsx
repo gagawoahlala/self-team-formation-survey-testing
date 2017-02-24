@@ -16,6 +16,8 @@ export default class App extends Component {
     this.state = {
       currentPage: 1,
       ratings: {},
+      testerMturkId: "",
+      testerName: "",
       selected_order: {"first" : "", "second" : "", "third" : ""},
       showNext: false
     }
@@ -23,6 +25,8 @@ export default class App extends Component {
     this.approveNext = this.approveNext.bind(this);
     this.advanceNext = this.advanceNext.bind(this);
     this.prepareData = this.prepareData.bind(this);
+    this.updateTesterMturkId = this.updateTesterMturkId.bind(this);
+    this.updateTesterName = this.updateTesterName.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +42,14 @@ export default class App extends Component {
     for (var i = candidatesData.candidates.length - 1; i >= 0; i--) {
       this.state.ratings[candidatesData.candidates[i].id] = 0;
     }
+  }
+
+  updateTesterMturkId(mturkId) {
+    this.setState({testerMturkId: mturkId});
+  }
+
+  updateTesterName(name) {
+    this.setState({testerName: name});
   }
 
   determinePage() {
@@ -57,8 +69,11 @@ export default class App extends Component {
                 />);
     }else {
       curPage = (<IntroPage 
-                  data={this.props.data["intro"]}
+                  mturkId={this.state.testerMturkId}
+                  name={this.state.testerName}
                   callBack={this.approveNext}
+                  updateTesterMturkId={this.updateTesterMturkId}
+                  updateTesterName={this.updateTesterName}
                 />);
     }
     return curPage;
@@ -86,5 +101,4 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  data: React.PropTypes.object.isRequired
 }
