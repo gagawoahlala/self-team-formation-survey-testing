@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
+import Introduction from './Introduction.jsx';
+
 export default class IntroPage extends Component {
   constructor(props){
     super(props);
-    this.hendleMturkIdChange = this.hendleMturkIdChange.bind(this);
-    this.hendleNameChange = this.hendleNameChange.bind(this);
+    this.handleMturkIdChange = this.handleMturkIdChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -17,15 +19,17 @@ export default class IntroPage extends Component {
 
   componentDidUpdate() {
     if (this.couldNext()){
-      this.props.callBack();
+      this.props.callBack(true);
+    } else {
+      this.props.callBack(false);
     }
   }
 
-  hendleMturkIdChange(event) {
+  handleMturkIdChange(event) {
     this.props.updateTesterMturkId(event.target.value);
   }
 
-  hendleNameChange(event) {
+  handleNameChange(event) {
     this.props.updateTesterName(event.target.value);
   }
 
@@ -37,11 +41,20 @@ export default class IntroPage extends Component {
   render() {
     return (
       <div className="intro-page">
+        <Introduction />
         <div className="input-group">
-          <input type="text" className="form-control" name="mturk_id" onChange={this.hendleMturkIdChange}
-            placeholder="MTurk Id" aria-describedby="basic-addon1"/>
-          <input type="text" className="form-control" name="name" onChange={this.hendleNameChange}
-            placeholder="Your Name" aria-describedby="basic-addon1"/>
+          <input type="text" 
+                 className="form-control tester-info-input"
+                 name="mturk_id"
+                 onChange={this.handleMturkIdChange}
+                 placeholder="MTurk Id"
+                 aria-describedby="basic-addon1"/>
+          <input type="text"
+                 className="form-control tester-info-input"
+                 name="name"
+                 onChange={this.handleNameChange}
+                 placeholder="Your Name"
+                 aria-describedby="basic-addon1"/>
         </div>
       </div>
     );

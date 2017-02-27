@@ -1,0 +1,41 @@
+.candidate-card {
+	background: #DCDCDC;
+	border-radius: 10px;
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	height: 90px;
+	width: 230px;
+}
+
+.candidate-card-left {
+	display: inline-block;
+	vertical-align: middle;
+	width: 130px;
+}
+
+.candidate-card-right {
+	display: inline-block;
+	vertical-align: middle;
+	width: 80px;
+}
+
+.control-btn {
+	height: 25px;
+	font-size: 12px;
+	margin: 5px;
+	padding-top: 3px;
+	padding-left: 10px;
+	width: 70px;
+}
+
+.no-rating-warning {
+	background: #E46D74;
+	border-radius: 6px;
+	color: white;
+	font-size: 9px;
+	height: 16px;
+	margin-left: 70px;
+	padding: 2px 5px 2px 5px;
+	position:absolute;
+}

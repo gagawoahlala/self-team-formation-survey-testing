@@ -1,20 +1,26 @@
 import React, { Component, PropTypes } from 'react';
+import CandidatesViewBasicInfo from './CandidatesViewBasicInfo.jsx';
+import CandidatesViewPersonality from './CandidatesViewPersonality.jsx';
+import CandidatesViewPerformance from './CandidatesViewPerformance.jsx';
 
 export default class CandidatesViewPage extends Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   candidates: this.props.candidates,
-    // };
-    // this.candidatesControl = this.candidatesControl.bind(this);
   }
 
   render() {
-    // console.log(this.props.candidate);
-    // console.log(this.props.tester);
     return (
-      <div className="">
-        CandidatesViewPage - {this.props.candidate.name} - rating: {this.props.rating}
+      <div className="candidate-view">
+        <h3 className="candidate-name">{this.props.candidate.name}</h3>
+        <CandidatesViewBasicInfo
+          basicInfo={this.props.candidate.basic_information}
+        />
+        <CandidatesViewPersonality
+          personality={this.props.candidate.personality}
+        />
+        <CandidatesViewPerformance
+          performance={this.props.candidate.performance}
+        />
       </div>
     );
   }

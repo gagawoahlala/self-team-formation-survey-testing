@@ -1,0 +1,44 @@
+.candidates-rating-and-control {
+	background: #EEEEEE;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 10px 10px 10px 0;
+	width: 100%;
+}
+
+.candidates-rating {
+	display: inline-block;
+	text-align: center;
+	width: 40%;
+	min-width: 350px;
+	vertical-align: middle;
+}
+
+.stars {
+	padding-left: 30%;
+	width: 100%;
+}
+
+.candidates-control {
+	text-align: right;
+	display: inline-block;
+	right: 0em;
+	margin: 10px;
+	width: 50%;
+	min-width: 400px;
+	vertical-align: middle;
+}
+
+.candidates-progress-bar {
+	display: inline-block;
+	margin: 5px;
+	vertical-align: middle;
+	width: 50%;
+}
+
+.candidates-control-btn {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	width: 90px;
+}

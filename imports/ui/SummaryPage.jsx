@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import CandidateCard from './CandidateCard.jsx';
 
-const maxSelection = 3;
+const MAX_SELECTION = 3;
 
 export default class SummaryPage extends Component {
   constructor(props){
@@ -16,14 +16,18 @@ export default class SummaryPage extends Component {
     this.onSelectCallback = this.onSelectCallback.bind(this);
     this.onUnselectCallback = this.onUnselectCallback.bind(this);
     this.orderSelectedCandidates = this.orderSelectedCandidates.bind(this);
+  }
 
+  componentWillMount() {
     this.prepareData();
   }
 
   prepareData() {
+    tempSelection = {}
     for (var i = this.props.candidates.length - 1; i >= 0; i--) {
-      this.state.selection[this.props.candidates[i].id] = false;
+      tempSelection[this.props.candidates[i].id] = false;
     }
+    this.setState({selection: tempSelection});
   }
 
   showCandidates() {
@@ -32,7 +36,7 @@ export default class SummaryPage extends Component {
         key={candidate.id}
         candidate={candidate}
         rating={this.props.ratings[candidate.id]}
-        isFull={this.state.currSelection == maxSelection}
+        isFull={this.state.currSelection == MAX_SELECTION}
         isSelected={this.state.selection[candidate.id]}
         onSelectCallback={this.onSelectCallback}
         onUnselectCallback={this.onUnselectCallback}
@@ -61,7 +65,8 @@ export default class SummaryPage extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="summary-page">
+        <h4>Please Choose 3 Teammate Candidates:</h4>
         {this.showCandidates()}
         {this.orderSelectedCandidates()}
       </div>
