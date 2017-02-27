@@ -59,7 +59,6 @@ export default class App extends Component {
     var tempRatings = this.state.ratings;
     tempRatings[candidateId] = rating;
     this.setState({ratings: tempRatings});
-    console.log(this.state.ratings);
   }
 
   determinePage() {

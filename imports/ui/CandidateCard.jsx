@@ -37,7 +37,7 @@ export default class CandidateCard extends Component {
         // CandidateCard - {this.props.candidate.name} - {this.props.rating}
     return (
       <div className="candidate-card">
-        {!this.props.ratting &&
+        {!this.props.rating &&
           <span className="no-rating-warning">No Rating</span>}
         <div className="candidate-card-left">
           <span><h4>{this.props.candidate.name}</h4></span>
