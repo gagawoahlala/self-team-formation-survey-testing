@@ -3,7 +3,7 @@ import CandidatesViewBasicInfo from './CandidatesViewBasicInfo.jsx';
 import CandidatesViewPersonality from './CandidatesViewPersonality.jsx';
 import CandidatesViewPerformance from './CandidatesViewPerformance.jsx';
 
-export default class CandidatesViewPage extends Component {
+export default class CandidateViewPage extends Component {
   constructor(props){
     super(props);
   }
@@ -26,8 +26,7 @@ export default class CandidatesViewPage extends Component {
   }
 }
 
-CandidatesViewPage.propTypes = {
-  candidate: React.PropTypes.object.isRequired,
+CandidateViewPage.propTypes = {
+  candidate: React.PropTypes.object,
   tester: React.PropTypes.object.isRequired,
-  rating: React.PropTypes.number.isRequired
 }

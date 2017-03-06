@@ -18,7 +18,7 @@ export default class App extends Component {
       ratings: {},
       testerMturkId: "",
       testerName: "",
-      selected_order: {"first" : "", "second" : "", "third" : ""},
+      selectedOrder: [],
       showNext: false
     }
 
@@ -28,6 +28,7 @@ export default class App extends Component {
     this.updateTesterMturkId = this.updateTesterMturkId.bind(this);
     this.updateTesterName = this.updateTesterName.bind(this);
     this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
+    this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +62,10 @@ export default class App extends Component {
     this.setState({ratings: tempRatings});
   }
 
+  updateCandidatesOrding(newList) {
+    this.setState({selectedOrder: newList});
+  }
+
   determinePage() {
     let curPage;
     if(this.state.currentPage === 2){
@@ -75,7 +80,10 @@ export default class App extends Component {
       curPage = (<SummaryPage 
                   candidates={this.state.candidates}
                   ratings={this.state.ratings}
+                  tester={this.state.tester}
                   selection={this.state.selection}
+                  updateCandidatesRating={this.updateCandidatesRating}
+                  updateCandidatesOrding={this.updateCandidatesOrding}
                 />);
     }else {
       curPage = (<IntroPage 

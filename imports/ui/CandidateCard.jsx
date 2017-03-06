@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import CandidatesRatingStars from './CandidatesRatingStars.jsx';
 import ReactStars from 'react-stars';
 
 const STAR_AMOUNT = 5;
@@ -52,7 +51,8 @@ export default class CandidateCard extends Component {
         <div className="candidate-card-right">
           {this.candidateSelection()}
           <button
-            className="control-btn btn btn-default btn-primary">
+            className="control-btn btn btn-default btn-primary"
+            onClick={this.props.onCandidateViewClick.bind(null, this.props.candidate)}>
             View
           </button>
         </div>
@@ -67,5 +67,7 @@ CandidateCard.propTypes = {
   isFull: React.PropTypes.bool.isRequired,
   isSelected: React.PropTypes.bool.isRequired,
   onSelectCallback: React.PropTypes.func.isRequired,
-  onUnselectCallback: React.PropTypes.func.isRequired
+  onUnselectCallback: React.PropTypes.func.isRequired,
+  updateCandidatesRating: React.PropTypes.func.isRequired,
+  onCandidateViewClick: React.PropTypes.func.isRequired,
 }

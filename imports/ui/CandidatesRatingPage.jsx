@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import ReactStars from 'react-stars';
-import CandidatesViewPage from './CandidateViewPage.jsx';
-import CandidatesRatingStars from './CandidatesRatingStars.jsx';
+
+import CandidateViewPage from './CandidateViewPage.jsx';
 
 const STAR_AMOUNT = 5;
 const STAR_SIZE = 26;
@@ -105,7 +105,7 @@ export default class CandidatesRatingPage extends Component {
   render() {
     return (
       <div className="">
-        <CandidatesViewPage 
+        <CandidateViewPage 
           candidate={this.state.candidates[this.state.currIndex]}
           tester={this.props.tester}
           rating={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
