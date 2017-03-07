@@ -8,16 +8,16 @@
             "session": 1,
             "date": "2016-01-02",
             "basic_information" : {
-                "gender" : "Male",
-                "age" : 24,
-                "country" : "U.S.A",
-                "ethnicity" : "Asian",
-                "education" : "Master",
-                "job_besides_mturk" : "yes",
-                "field" : "computer science",
-                "mturk_since_date" : "01/01/2014",
-                "approved_hits" : 500,
-                "approved_hits_rate" : 99
+                "Gender" : "Male",
+                "Age" : 24,
+                "Country" : "U.S.A",
+                "Ethnicity" : "Asian",
+                "Education" : "Master",
+                "Job Besides Mturk" : "yes",
+                "Field" : "computer science",
+                "Mturk Since Date" : "01/01/2014",
+                "Approved Hits" : 500,
+                "Approved Hits Rate" : "99%"
             },
             "personality" : {         
                 "ocean": {
@@ -104,16 +104,16 @@
             "session": 1,
             "date": "2016-01-02",
             "basic_information" : {
-                "gender" : "Male",
-                "age" : 24,
-                "country" : "U.S.A",
-                "ethnicity" : "Asian",
-                "education" : "Master",
-                "job_besides_mturk" : "yes",
-                "field" : "computer science",
-                "mturk_since_date" : "01/01/2014",
-                "approved_hits" : 500,
-                "approved_hits_rate" : 99
+                "Gender" : "Male",
+                "Age" : 24,
+                "Country" : "U.S.A",
+                "Ethnicity" : "Asian",
+                "Education" : "Master",
+                "Job Besides Mturk" : "yes",
+                "Field" : "computer science",
+                "Mturk Since Date" : "01/01/2014",
+                "Approved Hits" : 500,
+                "Approved Hits Rate" : "99%"
             },
             "personality" : {         
                 "ocean": {
@@ -200,16 +200,16 @@
             "session": 1,
             "date": "2016-01-02",
             "basic_information" : {
-                "gender" : "Male",
-                "age" : 24,
-                "country" : "U.S.A",
-                "ethnicity" : "Asian",
-                "education" : "Master",
-                "job_besides_mturk" : "yes",
-                "field" : "computer science",
-                "mturk_since_date" : "01/01/2014",
-                "approved_hits" : 500,
-                "approved_hits_rate" : 99
+                "Gender" : "Male",
+                "Age" : 24,
+                "Country" : "U.S.A",
+                "Ethnicity" : "Asian",
+                "Education" : "Master",
+                "Job Besides Mturk" : "yes",
+                "Field" : "computer science",
+                "Mturk Since Date" : "01/01/2014",
+                "Approved Hits" : 500,
+                "Approved Hits Rate" : "99%"
             },
             "personality" : {         
                 "ocean": {
@@ -296,16 +296,16 @@
             "session": 1,
             "date": "2016-01-02",
             "basic_information" : {
-                "gender" : "Male",
-                "age" : 24,
-                "country" : "U.S.A",
-                "ethnicity" : "Asian",
-                "education" : "Master",
-                "job_besides_mturk" : "yes",
-                "field" : "computer science",
-                "mturk_since_date" : "01/01/2014",
-                "approved_hits" : 500,
-                "approved_hits_rate" : 99
+                "Gender" : "Male",
+                "Age" : 24,
+                "Country" : "U.S.A",
+                "Ethnicity" : "Asian",
+                "Education" : "Master",
+                "Job Besides Mturk" : "yes",
+                "Field" : "computer science",
+                "Mturk Since Date" : "01/01/2014",
+                "Approved Hits" : 500,
+                "Approved Hits Rate" : "99%"
             },
             "personality" : {         
                 "ocean": {

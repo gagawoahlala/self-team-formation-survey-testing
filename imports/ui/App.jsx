@@ -18,7 +18,7 @@ export default class App extends Component {
       ratings: {},
       testerMturkId: "",
       testerName: "",
-      selected_order: {"first" : "", "second" : "", "third" : ""},
+      selectedOrder: [],
       showNext: false
     }
 
@@ -27,6 +27,8 @@ export default class App extends Component {
     this.prepareData = this.prepareData.bind(this);
     this.updateTesterMturkId = this.updateTesterMturkId.bind(this);
     this.updateTesterName = this.updateTesterName.bind(this);
+    this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
+    this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
   }
 
   componentDidMount() {
@@ -39,9 +41,11 @@ export default class App extends Component {
       tester : testerData.tester
     });
 
+    tempRatings = {}
     for (var i = candidatesData.candidates.length - 1; i >= 0; i--) {
-      this.state.ratings[candidatesData.candidates[i].id] = 0;
+      tempRatings[candidatesData.candidates[i].id] = 0;
     }
+    this.setState({ratings: tempRatings});
   }
 
   updateTesterMturkId(mturkId) {
@@ -52,6 +56,16 @@ export default class App extends Component {
     this.setState({testerName: name});
   }
 
+  updateCandidatesRating(candidateId, rating) {
+    var tempRatings = this.state.ratings;
+    tempRatings[candidateId] = rating;
+    this.setState({ratings: tempRatings});
+  }
+
+  updateCandidatesOrding(newList) {
+    this.setState({selectedOrder: newList});
+  }
+
   determinePage() {
     let curPage;
     if(this.state.currentPage === 2){
@@ -60,12 +74,16 @@ export default class App extends Component {
                   tester={this.state.tester}
                   ratings={this.state.ratings}
                   callBack={this.approveNext}
+                  updateCandidatesRating={this.updateCandidatesRating}
                 />);
     }else if(this.state.currentPage === 3 ){
       curPage = (<SummaryPage 
                   candidates={this.state.candidates}
                   ratings={this.state.ratings}
+                  tester={this.state.tester}
                   selection={this.state.selection}
+                  updateCandidatesRating={this.updateCandidatesRating}
+                  updateCandidatesOrding={this.updateCandidatesOrding}
                 />);
     }else {
       curPage = (<IntroPage 
@@ -79,8 +97,8 @@ export default class App extends Component {
     return curPage;
   }
 
-  approveNext() {
-    this.setState({showNext: true});
+  approveNext(decision) {
+    this.setState({showNext: decision});
   }
 
   advanceNext() {
