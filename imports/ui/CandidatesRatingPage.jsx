@@ -63,7 +63,7 @@ export default class CandidatesRatingPage extends Component {
     return (
       <div className="candidates-rating-and-control">
         <div className="candidates-rating">
-          <h5>Would you like to cooperate with this person?</h5>
+          <h5>How well do you think you can work together?</h5>
           <div className="stars">
             <ReactStars 
               value={this.props.ratings[this.state.candidates[this.state.currIndex].id]}

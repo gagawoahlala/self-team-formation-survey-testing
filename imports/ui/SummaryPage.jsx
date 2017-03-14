@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
+import * as Const from './Constants/Constants.jsx';
 import CandidateCard from './CandidateCard.jsx';
 import CandidateDNDTag from './CandidateDNDTag.jsx';
 import CandidateViewModal from './CandidateViewModal.jsx';
-
-const MAX_SELECTION = 3;
 
 export default class SummaryPage extends Component {
   constructor(props){
@@ -25,13 +24,35 @@ export default class SummaryPage extends Component {
     this.onCandidateModalClose = this.onCandidateModalClose.bind(this);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.state.selection == nextState.selection &&
+        this.state.currSelection == nextState.currSelection &&
+        this.state.show == nextState.show &&
+        this.state.candidate == nextState.candidate &&
+        this.props.candidates == nextProps.candidates &&
+        this.props.ratings == nextProps.ratings &&
+        this.props.tester == nextProps.tester) {
+      return false;
+    }
+    return true;
+  }
+
+  componentDidUpdate() {
+    if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE &&
+        !Object.values(this.props.ratings).includes(0)) {
+      this.props.callBack(true);
+    } else {
+      this.props.callBack(false);
+    }
+  }
+
   showCandidates() {
     return (this.props.candidates.map((candidate) => 
       <CandidateCard 
         key={candidate.id}
         candidate={candidate}
         rating={this.props.ratings[candidate.id]}
-        isFull={this.state.currSelection == MAX_SELECTION}
+        isFull={this.state.currSelection == Const.MAX_CANDIDATES_CHOOSE}
         isSelected={this.state.selection.filter((c) => (c.id == candidate.id)).length > 0}
         onSelectCallback={this.onSelectCallback}
         onUnselectCallback={this.onUnselectCallback}
@@ -61,7 +82,6 @@ export default class SummaryPage extends Component {
   }
 
   updateCandidatesOrding(newList) {
-    console.log("updateCandidatesOrding");
     this.setState({selection : newList});
     this.props.updateCandidatesOrding(newList);
   }
@@ -87,7 +107,7 @@ export default class SummaryPage extends Component {
     return (
       <div className="summary-page">
         <div className="candidate-cards-container">
-          <h4>Please Choose 3 Teammate Candidates:</h4>
+          <h4>Please Rate All Candidates and Choose 3 Potential Teamates:</h4>
           {this.showCandidates()}
         </div>
         <div className="candidates-order-container">
@@ -111,6 +131,7 @@ SummaryPage.propTypes = {
   candidates: React.PropTypes.array.isRequired,
   ratings: React.PropTypes.object.isRequired,
   tester: React.PropTypes.object.isRequired,
+  callBack: React.PropTypes.func.isRequired,
   updateCandidatesRating: React.PropTypes.func.isRequired,
   updateCandidatesOrding: React.PropTypes.func.isRequired,
 }
