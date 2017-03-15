@@ -18,22 +18,22 @@ export default class FormGen extends Component {
   getKeys(){
     return this.props.schema._schemaKeys.filter((k) => (!k.endsWith(".$")));
   }
-  getFieldInput(k){
-    let type = this.props.schema._schema[k].type.name;
-    let field = null;
-    if(type === "Array"){
-      field = (<textarea className="form-control" rows="2" ref={(x) => {this.input[k]=x;}} defaultValue="[]"></textarea>);
-    }else{
-      field = <input type={type === "Number"?"number":"text"}
-        className="form-control" placeholder={k} ref={(x) => {this.input[k] = x;}}/>;
-    }
-    return (
-      <div className="form-group" key={k}>
-        <label>{k}</label>
-        {field}
-      </div>
-    );
-  }
+  // getFieldInput(k){
+  //   let type = this.props.schema._schema[k].type.name;
+  //   let field = null;
+  //   if(type === "Array"){
+  //     field = (<textarea className="form-control" rows="2" ref={(x) => {this.input[k]=x;}} defaultValue="[]"></textarea>);
+  //   }else{
+  //     field = <input type={type === "Number"?"number":"text"}
+  //       className="form-control" placeholder={k} ref={(x) => {this.input[k] = x;}}/>;
+  //   }
+  //   return (
+  //     <div className="form-group" key={k}>
+  //       <label>{k}</label>
+  //       {field}
+  //     </div>
+  //   );
+  // }
   dismissAlert(){
     this.setState({popState: 0});
   }
@@ -63,18 +63,31 @@ export default class FormGen extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    let res = {};
-    for(var i = 0; i < this.fields.length; i++){
-      let field = this.fields[i];
-      try{
-        res[field] = JSON5.parse(this.input[field].value);
-      }catch(err){
-        this.setState({popState: 1, popMsg: MALINPUT});
-        throw err;
-      }
+    // let res = {};
+    // for(var i = 0; i < this.fields.length; i++){
+    //   let field = this.fields[i];
+    //   try{
+    //     res[field] = JSON5.parse(this.input[field].value);
+    //   }catch(err){
+    //     this.setState({popState: 1, popMsg: MALINPUT});
+    //     throw err;
+    //   }
+    // }
+    // try{
+    //   this.props.schema.validate(res);
+    //   this.props.addCallback(res);
+    //   this.setState({popState: 2, popMsg: SUCCESS});
+    // }catch(err){
+    //   this.setState({popState: 1, popMsg: err.reason});
+    // }
+    let res;
+    try{
+      res = JSON.parse(this.input.value);
+    }catch(err){
+      this.setState({popState: 1, popMsg: MALINPUT});
+      throw err;
     }
     try{
-      this.props.schema.validate(res);
       this.props.addCallback(res);
       this.setState({popState: 2, popMsg: SUCCESS});
     }catch(err){
@@ -86,7 +99,7 @@ export default class FormGen extends Component {
       <div>
         {this.renderAlert(this.state.popMsg)}
         <form>
-          {this.fields.map((k) => this.getFieldInput(k))}
+          <textarea className="form-control" rows="20" defaultValue="[]" ref={(x) => {this.input=x;}}></textarea>
           <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>

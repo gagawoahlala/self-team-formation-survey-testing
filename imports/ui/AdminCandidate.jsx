@@ -26,7 +26,6 @@ class AdminCandidate extends Component{
     return (
       <div>
         <button onClick={this.randomGen.bind(this)}> random generate candidate </button>
-        <button> upload questions </button>
         <MongoConsole model={Candidate} items={this.props.candidates}/>
       </div>
     );

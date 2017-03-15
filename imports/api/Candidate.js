@@ -8,10 +8,10 @@ Candidate.schema = new SimpleSchema({
   name: {type: String},
   mturk_id: {type: String},
   stage: {type: Number},
-  session: {type: Number},
   answers: {type: [Object]},
   selection: {type: [String]},
-  rating: {type: [Object]}  // [{userId: rating, block_order: [2,1,3]}]
+  rating: {type: [Object]},  // [{userId: rating, block_order: [2,1,3]}]
+  blocks: {type: [String]}
 });
 
 Candidate.randGen = {
@@ -21,5 +21,6 @@ Candidate.randGen = {
   session: (() => 1),
   answers: (() => []),
   selection: (() => []),
-  rating: (() => [])
+  rating: (() => []),
+  blocks: (() => []),
 }
