@@ -24,3 +24,4 @@ mrt:bootstrap-3
 aldeed:simple-schema
 react-meteor-data
 pfafman:filesaver
+fourseven:scss

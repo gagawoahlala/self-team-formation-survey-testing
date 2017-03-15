@@ -11,7 +11,7 @@ export default class PageControl extends Component {
   }
 
   buttonClassName(){
-    let defaultClass = "btn btn-default";
+    let defaultClass = "page-control-btn btn btn-default";
     if(!this.props.showNext){
       defaultClass += " disabled"
     }

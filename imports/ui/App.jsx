@@ -18,13 +18,19 @@ class App extends Component {
     this.state = {
       currentPage: 1,
       ratings: {},
-      selected_order: {"first" : "", "second" : "", "third" : ""},
+      testerMturkId: "",
+      testerName: "",
+      selectedOrder: [],
       showNext: false
     }
 
     this.approveNext = this.approveNext.bind(this);
     this.advanceNext = this.advanceNext.bind(this);
     this.prepareData = this.prepareData.bind(this);
+    this.updateTesterMturkId = this.updateTesterMturkId.bind(this);
+    this.updateTesterName = this.updateTesterName.bind(this);
+    this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
+    this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
   }
 
   componentDidMount() {
@@ -37,9 +43,29 @@ class App extends Component {
       tester : testerData.tester
     });
 
+    tempRatings = {}
     for (var i = candidatesData.candidates.length - 1; i >= 0; i--) {
-      this.state.ratings[candidatesData.candidates[i].id] = 0;
+      tempRatings[candidatesData.candidates[i].id] = 0;
     }
+    this.setState({ratings: tempRatings});
+  }
+
+  updateTesterMturkId(mturkId) {
+    this.setState({testerMturkId: mturkId});
+  }
+
+  updateTesterName(name) {
+    this.setState({testerName: name});
+  }
+
+  updateCandidatesRating(candidateId, rating) {
+    var tempRatings = this.state.ratings;
+    tempRatings[candidateId] = rating;
+    this.setState({ratings: tempRatings});
+  }
+
+  updateCandidatesOrding(newList) {
+    this.setState({selectedOrder: newList});
   }
 
   determinePage() {
@@ -50,24 +76,31 @@ class App extends Component {
                   tester={this.state.tester}
                   ratings={this.state.ratings}
                   callBack={this.approveNext}
+                  updateCandidatesRating={this.updateCandidatesRating}
                 />);
     }else if(this.state.currentPage === 3 ){
       curPage = (<SummaryPage
                   candidates={this.state.candidates}
                   ratings={this.state.ratings}
+                  tester={this.state.tester}
                   selection={this.state.selection}
+                  updateCandidatesRating={this.updateCandidatesRating}
+                  updateCandidatesOrding={this.updateCandidatesOrding}
                 />);
     }else {
       curPage = (<IntroPage
-                  data={this.props.data["intro"]}
+                  mturkId={this.state.testerMturkId}
+                  name={this.state.testerName}
                   callBack={this.approveNext}
+                  updateTesterMturkId={this.updateTesterMturkId}
+                  updateTesterName={this.updateTesterName}
                 />);
     }
     return curPage;
   }
 
-  approveNext() {
-    this.setState({showNext: true});
+  approveNext(decision) {
+    this.setState({showNext: decision});
   }
 
   advanceNext() {
@@ -88,7 +121,6 @@ class App extends Component {
 }
 
 App.propTypes = {
-  data: React.PropTypes.object.isRequired
 }
 
 export default createContainer(() => {
