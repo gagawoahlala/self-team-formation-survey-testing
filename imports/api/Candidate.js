@@ -1,5 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+// import {faker} from 'meteor/digilord:faker';
+faker = require('faker');
 
 export const Candidate = new Mongo.Collection('candidates');
 Candidate.schema = new SimpleSchema({
@@ -11,3 +13,13 @@ Candidate.schema = new SimpleSchema({
   selection: {type: [String]},
   rating: {type: [Object]}  // [{userId: rating, block_order: [2,1,3]}]
 });
+
+Candidate.randGen = {
+  name: faker.name.findName,
+  mturk_id: faker.random.uuid,
+  stage: (() => 1),
+  session: (() => 1),
+  answers: (() => []),
+  selection: (() => []),
+  rating: (() => [])
+}

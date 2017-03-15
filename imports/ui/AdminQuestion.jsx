@@ -15,6 +15,6 @@ class AdminQuestion extends Component{
 
 export default createContainer(() => {
   return {
-    questions: Question.find({}).fetch(),
+    questions: Question.find({}).fetch().reverse(),
   };
 }, AdminQuestion);

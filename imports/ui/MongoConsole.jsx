@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ElmtDisplay from './ElmtDisplay.jsx'
 import FormGen from './FormGen.jsx';
+var FileSaver = require('file-saver');
 
 export default class MongoConsole extends Component {
   addItem(item){
@@ -15,6 +16,14 @@ export default class MongoConsole extends Component {
     return this.props.items.map((c) =>
       <ElmtDisplay key={c._id} element={c} deleteCallback={this.deleteItem.bind(this)}/>);
   }
+  downloadItems(){
+    var blob = new Blob([JSON.stringify(this.props.items)], {type: "application/json;charset=utf-8"});
+    FileSaver.saveAs(blob, "result.json");
+  }
+  // uploadItems(){
+  //
+  // }
+
   render() {
     return (
       <div className="container">
@@ -22,6 +31,7 @@ export default class MongoConsole extends Component {
           <FormGen schema={this.props.model.schema} addCallback={this.addItem.bind(this)}/>
         </div>
         <div className="col-sm-6">
+          <button onClick={this.downloadItems.bind(this)}> download </button>
           <ul className="list-group">
             {this.renderItems()}
           </ul>

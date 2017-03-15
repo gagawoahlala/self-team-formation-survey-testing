@@ -2,13 +2,15 @@ import candidatesData from '../../candidates.json';
 import testerData from '../../tester.json';
 
 import React, { Component } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
+
 import IntroPage from './IntroPage.jsx';
 import PageControl from './PageControl.jsx';
 import CandidatesRatingPage from './CandidatesRatingPage.jsx';
 import SummaryPage from './SummaryPage.jsx';
 
 // App component - represents the whole app
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -50,13 +52,13 @@ export default class App extends Component {
                   callBack={this.approveNext}
                 />);
     }else if(this.state.currentPage === 3 ){
-      curPage = (<SummaryPage 
+      curPage = (<SummaryPage
                   candidates={this.state.candidates}
                   ratings={this.state.ratings}
                   selection={this.state.selection}
                 />);
     }else {
-      curPage = (<IntroPage 
+      curPage = (<IntroPage
                   data={this.props.data["intro"]}
                   callBack={this.approveNext}
                 />);
@@ -88,3 +90,9 @@ export default class App extends Component {
 App.propTypes = {
   data: React.PropTypes.object.isRequired
 }
+
+export default createContainer(() => {
+  return {
+    data: {"intro": {"mturk_id": "", "name": ""}},
+  };
+}, App);
