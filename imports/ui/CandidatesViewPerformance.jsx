@@ -8,7 +8,7 @@ export default class CandidatesViewPerformance extends Component {
   render() {
     return (
       <div className="performance">
-        CandidatesViewPerformance
+        <h5><b>Performance:</b></h5>
       </div>
     );
   }

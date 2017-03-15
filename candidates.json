@@ -19,82 +19,341 @@
                 "Approved Hits" : 500,
                 "Approved Hits Rate" : "99%"
             },
-            "personality" : {         
-                "ocean": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "openness" : 5,
-                        "conscientiousness" : 4,
-                        "extraversion" : 3,
-                        "agreeableness" : 4,
-                        "neuroticism" : 1
-                    }
-                },
-                "disc": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "dominance" : 5,
-                        "influence" : 4,
-                        "steadiness" : 3,
-                        "compliance" : 4
-                    }
-                },
-                "other_questions": [
+        "personality" : {         
+            "ocean": {
+                "score" : 4,
+                "questions" : [
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 1:",
-                        "answer": "Yes"
+                        "question_content": "Is talkative",
+                        "question_diplay": "Is talkative",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 2:",
-                        "answer": "Yes"
+                        "question_content": "Tends to find fault with others",
+                        "question_diplay": "Tends to find fault with others",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 3:",
-                        "answer": "Yes"
+                        "question_content": "Does a thorough job",
+                        "question_diplay": "Does a thorough job",
+                        "answer": 5
+                    },
+                    {
+                        "question_content": "Is depressed, blue",
+                        "question_diplay": "Is depressed, blue",
+                        "answer": 4
+                    },
+                    {
+                        "question_content": "Is original, comes up with new ideas",
+                        "question_diplay": "Is original, comes up with new ideas",
+                        "answer": 3
+                    },
+                    {
+                        "question_content": "Is reserved",
+                        "question_diplay": "Is reserved",
+                        "answer": 2
+                    },
+                    {
+                        "question_content": "Is helpful and unselfish with others",
+                        "question_diplay": "Is helpful and unselfish with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be somewhat careless",
+                        "question_diplay": "Can be somewhat careless",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is relaxed, handles stress well",
+                        "question_diplay": "Is relaxed, handles stress well",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is curious about many different things",
+                        "question_diplay": "Is curious about many different things",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is full of energy",
+                        "question_diplay": "Is full of energy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Starts quarrels with others",
+                        "question_diplay": "Starts quarrels with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is a reliable worker",
+                        "question_diplay": "Is a reliable worker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be tense",
+                        "question_diplay": "Can be tense",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is ingenious, a deep thinker",
+                        "question_diplay": "Is ingenious, a deep thinker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Generates a lot of enthusiasm",
+                        "question_diplay": "Generates a lot of enthusiasm",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has a forgiving nature",
+                        "question_diplay": "Has a forgiving nature",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be disorganized",
+                        "question_diplay": "Tends to be disorganized",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Worries a lot",
+                        "question_diplay": "Worries a lot",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an active imagination",
+                        "question_diplay": "Has an active imagination",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be quiet",
+                        "question_diplay": "Tends to be quiet",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is generally trusting",
+                        "question_diplay": "Is generally trusting",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be lazy",
+                        "question_diplay": "Tends to be lazy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is emotionally stable, not easily upset",
+                        "question_diplay": "Is emotionally stable, not easily upset",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is inventive",
+                        "question_diplay": "Is inventive",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an assertive personality",
+                        "question_diplay": "Has an assertive personality",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be cold and aloof",
+                        "question_diplay": "Can be cold and aloof",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Perseveres until the task is finished",
+                        "question_diplay": "Perseveres until the task is finished",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be moody",
+                        "question_diplay": "Can be moody",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Values artistic, aesthetic experiences",
+                        "question_diplay": "Values artistic, aesthetic experiences",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes shy, inhibited",
+                        "question_diplay": "Is sometimes shy, inhibited",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is considerate and kind to almost everyone",
+                        "question_diplay": "Is considerate and kind to almost everyone",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Does things efficiently",
+                        "question_diplay": "Does things efficiently",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Remains calm in tense situations",
+                        "question_diplay": "Remains calm in tense situations",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Prefers work that is routine",
+                        "question_diplay": "Prefers work that is routine",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is outgoing, sociable",
+                        "question_diplay": "Is outgoing, sociable",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes rude to others",
+                        "question_diplay": "Is sometimes rude to others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Makes plans and follows through with them",
+                        "question_diplay": "Makes plans and follows through with them",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Gets nervous easily",
+                        "question_diplay": "Gets nervous easily",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to reflect, play with ideas",
+                        "question_diplay": "Likes to reflect, play with ideas",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has few artistic interests",
+                        "question_diplay": "Has few artistic interests",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to cooperate with others",
+                        "question_diplay": "Likes to cooperate with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is easily distracted",
+                        "question_diplay": "Is easily distracted",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sophisticated in art, music, or literature",
+                        "question_diplay": "Is sophisticated in art, music, or literature",
+                        "answer": 1
                     }
                 ]
             },
-            "performance" : {
-
+            "specially_designed_questions": [
+                {
+                    "question_content": "I prefer to work on a project start to finish",
+                    "question_diplay": "Prefer to work on a project start to finish",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I prefer to lead a project",
+                    "question_diplay": "Prefer to lead a project",
+                    "answer": 2
+                },
+                {
+                    "question_content": "Working on projects I believe in are an important motivation",
+                    "question_diplay": "Working on projects I believe in are an important motivation",
+                    "answer": 4
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by alignment with my values",
+                    "question_diplay": "When doing a task I'm motivated mostly by alignment with my values",
+                    "answer": 2
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by financial reward",
+                    "question_diplay": "When doing a task I'm motivated mostly by financial reward",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I create working relationships easily",
+                    "question_diplay": "I create working relationships easily",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I have a positive attitude about work",
+                    "question_diplay": "I have a positive attitude about work",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I am a good communicator",
+                    "question_diplay": "I am a good communicator",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good writer",
+                    "question_diplay": "I am a good writer",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good analytical thinker",
+                    "question_diplay": "I am a good analytical thinker",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am empathetic",
+                    "question_diplay": "I am empathetic",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am creative",
+                    "question_diplay": "I am creative",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am competitive",
+                    "question_diplay": "I am competitive",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am usually correct in my judgement",
+                    "question_diplay": "I am usually correct in my judgement",
+                    "answer": 5
+                }
+            ],
+            "other_questions": [
+                {
+                    "question_content": "Do you like to work in teams?",
+                    "question_diplay": "Do you like to work in teams?",
+                    "answer": "yes. bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What makes you a good team member?",
+                    "question_diplay": "What makes you a good team member?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What are you looking for in other team members?",
+                    "question_diplay": "What are you looking for in other team members?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "question_diplay": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                }
+            ]
+        },
+        "performance": {
+            "Future" : {
+                "question_diplay" : "Where do you see yourself in 5 years? Please write an answer of at least 200 characters. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
+            },
+            "words" : {
+                "question_diplay" : "Found words",
+                "words_found" : ["A","ABC","ACB","ASDS"]
+            },
+            "advertisement" : {
+                "question_diplay" : "Write an advertisement describing a new coffee maker? Please write an answer of at least 75 words. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
             }
+        }
         },
         {
             "id": 2,
@@ -115,82 +374,341 @@
                 "Approved Hits" : 500,
                 "Approved Hits Rate" : "99%"
             },
-            "personality" : {         
-                "ocean": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "openness" : 5,
-                        "conscientiousness" : 4,
-                        "extraversion" : 3,
-                        "agreeableness" : 4,
-                        "neuroticism" : 1
-                    }
-                },
-                "disc": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "dominance" : 5,
-                        "influence" : 4,
-                        "steadiness" : 3,
-                        "compliance" : 4
-                    }
-                },
-                "other_questions": [
+        "personality" : {         
+            "ocean": {
+                "score" : 4,
+                "questions" : [
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 1:",
-                        "answer": "Yes"
+                        "question_content": "Is talkative",
+                        "question_diplay": "Is talkative",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 2:",
-                        "answer": "Yes"
+                        "question_content": "Tends to find fault with others",
+                        "question_diplay": "Tends to find fault with others",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 3:",
-                        "answer": "Yes"
+                        "question_content": "Does a thorough job",
+                        "question_diplay": "Does a thorough job",
+                        "answer": 5
+                    },
+                    {
+                        "question_content": "Is depressed, blue",
+                        "question_diplay": "Is depressed, blue",
+                        "answer": 4
+                    },
+                    {
+                        "question_content": "Is original, comes up with new ideas",
+                        "question_diplay": "Is original, comes up with new ideas",
+                        "answer": 3
+                    },
+                    {
+                        "question_content": "Is reserved",
+                        "question_diplay": "Is reserved",
+                        "answer": 2
+                    },
+                    {
+                        "question_content": "Is helpful and unselfish with others",
+                        "question_diplay": "Is helpful and unselfish with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be somewhat careless",
+                        "question_diplay": "Can be somewhat careless",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is relaxed, handles stress well",
+                        "question_diplay": "Is relaxed, handles stress well",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is curious about many different things",
+                        "question_diplay": "Is curious about many different things",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is full of energy",
+                        "question_diplay": "Is full of energy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Starts quarrels with others",
+                        "question_diplay": "Starts quarrels with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is a reliable worker",
+                        "question_diplay": "Is a reliable worker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be tense",
+                        "question_diplay": "Can be tense",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is ingenious, a deep thinker",
+                        "question_diplay": "Is ingenious, a deep thinker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Generates a lot of enthusiasm",
+                        "question_diplay": "Generates a lot of enthusiasm",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has a forgiving nature",
+                        "question_diplay": "Has a forgiving nature",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be disorganized",
+                        "question_diplay": "Tends to be disorganized",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Worries a lot",
+                        "question_diplay": "Worries a lot",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an active imagination",
+                        "question_diplay": "Has an active imagination",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be quiet",
+                        "question_diplay": "Tends to be quiet",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is generally trusting",
+                        "question_diplay": "Is generally trusting",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be lazy",
+                        "question_diplay": "Tends to be lazy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is emotionally stable, not easily upset",
+                        "question_diplay": "Is emotionally stable, not easily upset",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is inventive",
+                        "question_diplay": "Is inventive",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an assertive personality",
+                        "question_diplay": "Has an assertive personality",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be cold and aloof",
+                        "question_diplay": "Can be cold and aloof",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Perseveres until the task is finished",
+                        "question_diplay": "Perseveres until the task is finished",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be moody",
+                        "question_diplay": "Can be moody",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Values artistic, aesthetic experiences",
+                        "question_diplay": "Values artistic, aesthetic experiences",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes shy, inhibited",
+                        "question_diplay": "Is sometimes shy, inhibited",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is considerate and kind to almost everyone",
+                        "question_diplay": "Is considerate and kind to almost everyone",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Does things efficiently",
+                        "question_diplay": "Does things efficiently",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Remains calm in tense situations",
+                        "question_diplay": "Remains calm in tense situations",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Prefers work that is routine",
+                        "question_diplay": "Prefers work that is routine",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is outgoing, sociable",
+                        "question_diplay": "Is outgoing, sociable",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes rude to others",
+                        "question_diplay": "Is sometimes rude to others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Makes plans and follows through with them",
+                        "question_diplay": "Makes plans and follows through with them",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Gets nervous easily",
+                        "question_diplay": "Gets nervous easily",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to reflect, play with ideas",
+                        "question_diplay": "Likes to reflect, play with ideas",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has few artistic interests",
+                        "question_diplay": "Has few artistic interests",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to cooperate with others",
+                        "question_diplay": "Likes to cooperate with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is easily distracted",
+                        "question_diplay": "Is easily distracted",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sophisticated in art, music, or literature",
+                        "question_diplay": "Is sophisticated in art, music, or literature",
+                        "answer": 1
                     }
                 ]
             },
-            "performance" : {
-
+            "specially_designed_questions": [
+                {
+                    "question_content": "I prefer to work on a project start to finish",
+                    "question_diplay": "Prefer to work on a project start to finish",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I prefer to lead a project",
+                    "question_diplay": "Prefer to lead a project",
+                    "answer": 2
+                },
+                {
+                    "question_content": "Working on projects I believe in are an important motivation",
+                    "question_diplay": "Working on projects I believe in are an important motivation",
+                    "answer": 4
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by alignment with my values",
+                    "question_diplay": "When doing a task I'm motivated mostly by alignment with my values",
+                    "answer": 2
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by financial reward",
+                    "question_diplay": "When doing a task I'm motivated mostly by financial reward",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I create working relationships easily",
+                    "question_diplay": "I create working relationships easily",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I have a positive attitude about work",
+                    "question_diplay": "I have a positive attitude about work",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I am a good communicator",
+                    "question_diplay": "I am a good communicator",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good writer",
+                    "question_diplay": "I am a good writer",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good analytical thinker",
+                    "question_diplay": "I am a good analytical thinker",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am empathetic",
+                    "question_diplay": "I am empathetic",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am creative",
+                    "question_diplay": "I am creative",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am competitive",
+                    "question_diplay": "I am competitive",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am usually correct in my judgement",
+                    "question_diplay": "I am usually correct in my judgement",
+                    "answer": 5
+                }
+            ],
+            "other_questions": [
+                {
+                    "question_content": "Do you like to work in teams?",
+                    "question_diplay": "Do you like to work in teams?",
+                    "answer": "yes. bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What makes you a good team member?",
+                    "question_diplay": "What makes you a good team member?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What are you looking for in other team members?",
+                    "question_diplay": "What are you looking for in other team members?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "question_diplay": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                }
+            ]
+        },
+        "performance": {
+            "Future" : {
+                "question_diplay" : "Where do you see yourself in 5 years? Please write an answer of at least 200 characters. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
+            },
+            "words" : {
+                "question_diplay" : "Found words",
+                "words_found" : ["A","ABC","ACB","ASDS"]
+            },
+            "advertisement" : {
+                "question_diplay" : "Write an advertisement describing a new coffee maker? Please write an answer of at least 75 words. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
             }
+        }
         },
         {
             "id": 3,
@@ -211,82 +729,341 @@
                 "Approved Hits" : 500,
                 "Approved Hits Rate" : "99%"
             },
-            "personality" : {         
-                "ocean": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "openness" : 5,
-                        "conscientiousness" : 4,
-                        "extraversion" : 3,
-                        "agreeableness" : 4,
-                        "neuroticism" : 1
-                    }
-                },
-                "disc": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "dominance" : 5,
-                        "influence" : 4,
-                        "steadiness" : 3,
-                        "compliance" : 4
-                    }
-                },
-                "other_questions": [
+        "personality" : {         
+            "ocean": {
+                "score" : 4,
+                "questions" : [
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 1:",
-                        "answer": "Yes"
+                        "question_content": "Is talkative",
+                        "question_diplay": "Is talkative",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 2:",
-                        "answer": "Yes"
+                        "question_content": "Tends to find fault with others",
+                        "question_diplay": "Tends to find fault with others",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 3:",
-                        "answer": "Yes"
+                        "question_content": "Does a thorough job",
+                        "question_diplay": "Does a thorough job",
+                        "answer": 5
+                    },
+                    {
+                        "question_content": "Is depressed, blue",
+                        "question_diplay": "Is depressed, blue",
+                        "answer": 4
+                    },
+                    {
+                        "question_content": "Is original, comes up with new ideas",
+                        "question_diplay": "Is original, comes up with new ideas",
+                        "answer": 3
+                    },
+                    {
+                        "question_content": "Is reserved",
+                        "question_diplay": "Is reserved",
+                        "answer": 2
+                    },
+                    {
+                        "question_content": "Is helpful and unselfish with others",
+                        "question_diplay": "Is helpful and unselfish with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be somewhat careless",
+                        "question_diplay": "Can be somewhat careless",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is relaxed, handles stress well",
+                        "question_diplay": "Is relaxed, handles stress well",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is curious about many different things",
+                        "question_diplay": "Is curious about many different things",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is full of energy",
+                        "question_diplay": "Is full of energy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Starts quarrels with others",
+                        "question_diplay": "Starts quarrels with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is a reliable worker",
+                        "question_diplay": "Is a reliable worker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be tense",
+                        "question_diplay": "Can be tense",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is ingenious, a deep thinker",
+                        "question_diplay": "Is ingenious, a deep thinker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Generates a lot of enthusiasm",
+                        "question_diplay": "Generates a lot of enthusiasm",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has a forgiving nature",
+                        "question_diplay": "Has a forgiving nature",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be disorganized",
+                        "question_diplay": "Tends to be disorganized",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Worries a lot",
+                        "question_diplay": "Worries a lot",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an active imagination",
+                        "question_diplay": "Has an active imagination",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be quiet",
+                        "question_diplay": "Tends to be quiet",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is generally trusting",
+                        "question_diplay": "Is generally trusting",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be lazy",
+                        "question_diplay": "Tends to be lazy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is emotionally stable, not easily upset",
+                        "question_diplay": "Is emotionally stable, not easily upset",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is inventive",
+                        "question_diplay": "Is inventive",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an assertive personality",
+                        "question_diplay": "Has an assertive personality",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be cold and aloof",
+                        "question_diplay": "Can be cold and aloof",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Perseveres until the task is finished",
+                        "question_diplay": "Perseveres until the task is finished",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be moody",
+                        "question_diplay": "Can be moody",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Values artistic, aesthetic experiences",
+                        "question_diplay": "Values artistic, aesthetic experiences",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes shy, inhibited",
+                        "question_diplay": "Is sometimes shy, inhibited",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is considerate and kind to almost everyone",
+                        "question_diplay": "Is considerate and kind to almost everyone",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Does things efficiently",
+                        "question_diplay": "Does things efficiently",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Remains calm in tense situations",
+                        "question_diplay": "Remains calm in tense situations",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Prefers work that is routine",
+                        "question_diplay": "Prefers work that is routine",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is outgoing, sociable",
+                        "question_diplay": "Is outgoing, sociable",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes rude to others",
+                        "question_diplay": "Is sometimes rude to others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Makes plans and follows through with them",
+                        "question_diplay": "Makes plans and follows through with them",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Gets nervous easily",
+                        "question_diplay": "Gets nervous easily",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to reflect, play with ideas",
+                        "question_diplay": "Likes to reflect, play with ideas",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has few artistic interests",
+                        "question_diplay": "Has few artistic interests",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to cooperate with others",
+                        "question_diplay": "Likes to cooperate with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is easily distracted",
+                        "question_diplay": "Is easily distracted",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sophisticated in art, music, or literature",
+                        "question_diplay": "Is sophisticated in art, music, or literature",
+                        "answer": 1
                     }
                 ]
             },
-            "performance" : {
-
+            "specially_designed_questions": [
+                {
+                    "question_content": "I prefer to work on a project start to finish",
+                    "question_diplay": "Prefer to work on a project start to finish",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I prefer to lead a project",
+                    "question_diplay": "Prefer to lead a project",
+                    "answer": 2
+                },
+                {
+                    "question_content": "Working on projects I believe in are an important motivation",
+                    "question_diplay": "Working on projects I believe in are an important motivation",
+                    "answer": 4
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by alignment with my values",
+                    "question_diplay": "When doing a task I'm motivated mostly by alignment with my values",
+                    "answer": 2
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by financial reward",
+                    "question_diplay": "When doing a task I'm motivated mostly by financial reward",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I create working relationships easily",
+                    "question_diplay": "I create working relationships easily",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I have a positive attitude about work",
+                    "question_diplay": "I have a positive attitude about work",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I am a good communicator",
+                    "question_diplay": "I am a good communicator",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good writer",
+                    "question_diplay": "I am a good writer",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good analytical thinker",
+                    "question_diplay": "I am a good analytical thinker",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am empathetic",
+                    "question_diplay": "I am empathetic",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am creative",
+                    "question_diplay": "I am creative",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am competitive",
+                    "question_diplay": "I am competitive",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am usually correct in my judgement",
+                    "question_diplay": "I am usually correct in my judgement",
+                    "answer": 5
+                }
+            ],
+            "other_questions": [
+                {
+                    "question_content": "Do you like to work in teams?",
+                    "question_diplay": "Do you like to work in teams?",
+                    "answer": "yes. bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What makes you a good team member?",
+                    "question_diplay": "What makes you a good team member?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What are you looking for in other team members?",
+                    "question_diplay": "What are you looking for in other team members?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "question_diplay": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                }
+            ]
+        },
+        "performance": {
+            "Future" : {
+                "question_diplay" : "Where do you see yourself in 5 years? Please write an answer of at least 200 characters. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
+            },
+            "words" : {
+                "question_diplay" : "Found words",
+                "words_found" : ["A","ABC","ACB","ASDS"]
+            },
+            "advertisement" : {
+                "question_diplay" : "Write an advertisement describing a new coffee maker? Please write an answer of at least 75 words. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
             }
+        }
         },
         {
             "id": 4,
@@ -307,82 +1084,341 @@
                 "Approved Hits" : 500,
                 "Approved Hits Rate" : "99%"
             },
-            "personality" : {         
-                "ocean": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "question_type": "basic",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "openness" : 5,
-                        "conscientiousness" : 4,
-                        "extraversion" : 3,
-                        "agreeableness" : 4,
-                        "neuroticism" : 1
-                    }
-                },
-                "disc": {
-                    "questions" : [
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 1:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 2:",
-                            "answer": "Yes"
-                        },
-                        {
-                            "question_content": "Do you like the team?",
-                            "question_diplay": "question 3:",
-                            "answer": "Yes"
-                        }
-                    ],
-                    "graph_data" : {
-                        "dominance" : 5,
-                        "influence" : 4,
-                        "steadiness" : 3,
-                        "compliance" : 4
-                    }
-                },
-                "other_questions": [
+        "personality" : {         
+            "ocean": {
+                "score" : 4,
+                "questions" : [
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 1:",
-                        "answer": "Yes"
+                        "question_content": "Is talkative",
+                        "question_diplay": "Is talkative",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 2:",
-                        "answer": "Yes"
+                        "question_content": "Tends to find fault with others",
+                        "question_diplay": "Tends to find fault with others",
+                        "answer": 5
                     },
                     {
-                        "question_content": "Do you like the team?",
-                        "question_diplay": "question 3:",
-                        "answer": "Yes"
+                        "question_content": "Does a thorough job",
+                        "question_diplay": "Does a thorough job",
+                        "answer": 5
+                    },
+                    {
+                        "question_content": "Is depressed, blue",
+                        "question_diplay": "Is depressed, blue",
+                        "answer": 4
+                    },
+                    {
+                        "question_content": "Is original, comes up with new ideas",
+                        "question_diplay": "Is original, comes up with new ideas",
+                        "answer": 3
+                    },
+                    {
+                        "question_content": "Is reserved",
+                        "question_diplay": "Is reserved",
+                        "answer": 2
+                    },
+                    {
+                        "question_content": "Is helpful and unselfish with others",
+                        "question_diplay": "Is helpful and unselfish with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be somewhat careless",
+                        "question_diplay": "Can be somewhat careless",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is relaxed, handles stress well",
+                        "question_diplay": "Is relaxed, handles stress well",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is curious about many different things",
+                        "question_diplay": "Is curious about many different things",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is full of energy",
+                        "question_diplay": "Is full of energy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Starts quarrels with others",
+                        "question_diplay": "Starts quarrels with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is a reliable worker",
+                        "question_diplay": "Is a reliable worker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be tense",
+                        "question_diplay": "Can be tense",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is ingenious, a deep thinker",
+                        "question_diplay": "Is ingenious, a deep thinker",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Generates a lot of enthusiasm",
+                        "question_diplay": "Generates a lot of enthusiasm",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has a forgiving nature",
+                        "question_diplay": "Has a forgiving nature",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be disorganized",
+                        "question_diplay": "Tends to be disorganized",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Worries a lot",
+                        "question_diplay": "Worries a lot",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an active imagination",
+                        "question_diplay": "Has an active imagination",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be quiet",
+                        "question_diplay": "Tends to be quiet",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is generally trusting",
+                        "question_diplay": "Is generally trusting",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Tends to be lazy",
+                        "question_diplay": "Tends to be lazy",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is emotionally stable, not easily upset",
+                        "question_diplay": "Is emotionally stable, not easily upset",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is inventive",
+                        "question_diplay": "Is inventive",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has an assertive personality",
+                        "question_diplay": "Has an assertive personality",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be cold and aloof",
+                        "question_diplay": "Can be cold and aloof",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Perseveres until the task is finished",
+                        "question_diplay": "Perseveres until the task is finished",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Can be moody",
+                        "question_diplay": "Can be moody",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Values artistic, aesthetic experiences",
+                        "question_diplay": "Values artistic, aesthetic experiences",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes shy, inhibited",
+                        "question_diplay": "Is sometimes shy, inhibited",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is considerate and kind to almost everyone",
+                        "question_diplay": "Is considerate and kind to almost everyone",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Does things efficiently",
+                        "question_diplay": "Does things efficiently",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Remains calm in tense situations",
+                        "question_diplay": "Remains calm in tense situations",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Prefers work that is routine",
+                        "question_diplay": "Prefers work that is routine",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is outgoing, sociable",
+                        "question_diplay": "Is outgoing, sociable",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sometimes rude to others",
+                        "question_diplay": "Is sometimes rude to others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Makes plans and follows through with them",
+                        "question_diplay": "Makes plans and follows through with them",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Gets nervous easily",
+                        "question_diplay": "Gets nervous easily",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to reflect, play with ideas",
+                        "question_diplay": "Likes to reflect, play with ideas",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Has few artistic interests",
+                        "question_diplay": "Has few artistic interests",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Likes to cooperate with others",
+                        "question_diplay": "Likes to cooperate with others",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is easily distracted",
+                        "question_diplay": "Is easily distracted",
+                        "answer": 1
+                    },
+                    {
+                        "question_content": "Is sophisticated in art, music, or literature",
+                        "question_diplay": "Is sophisticated in art, music, or literature",
+                        "answer": 1
                     }
                 ]
             },
-            "performance" : {
-
+            "specially_designed_questions": [
+                {
+                    "question_content": "I prefer to work on a project start to finish",
+                    "question_diplay": "Prefer to work on a project start to finish",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I prefer to lead a project",
+                    "question_diplay": "Prefer to lead a project",
+                    "answer": 2
+                },
+                {
+                    "question_content": "Working on projects I believe in are an important motivation",
+                    "question_diplay": "Working on projects I believe in are an important motivation",
+                    "answer": 4
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by alignment with my values",
+                    "question_diplay": "When doing a task I'm motivated mostly by alignment with my values",
+                    "answer": 2
+                },
+                {
+                    "question_content": "When doing a task I'm motivated mostly by financial reward",
+                    "question_diplay": "When doing a task I'm motivated mostly by financial reward",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I create working relationships easily",
+                    "question_diplay": "I create working relationships easily",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I have a positive attitude about work",
+                    "question_diplay": "I have a positive attitude about work",
+                    "answer": 2
+                },
+                {
+                    "question_content": "I am a good communicator",
+                    "question_diplay": "I am a good communicator",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good writer",
+                    "question_diplay": "I am a good writer",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am a good analytical thinker",
+                    "question_diplay": "I am a good analytical thinker",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am empathetic",
+                    "question_diplay": "I am empathetic",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am creative",
+                    "question_diplay": "I am creative",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am competitive",
+                    "question_diplay": "I am competitive",
+                    "answer": 5
+                },
+                {
+                    "question_content": "I am usually correct in my judgement",
+                    "question_diplay": "I am usually correct in my judgement",
+                    "answer": 5
+                }
+            ],
+            "other_questions": [
+                {
+                    "question_content": "Do you like to work in teams?",
+                    "question_diplay": "Do you like to work in teams?",
+                    "answer": "yes. bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What makes you a good team member?",
+                    "question_diplay": "What makes you a good team member?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "What are you looking for in other team members?",
+                    "question_diplay": "What are you looking for in other team members?",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                },
+                {
+                    "question_content": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "question_diplay": "From your previous experience, describe the kind of people you absolutely can't work together with.",
+                    "answer": "bla bla bla bla bla bla blabla bla"
+                }
+            ]
+        },
+        "performance": {
+            "Future" : {
+                "question_diplay" : "Where do you see yourself in 5 years? Please write an answer of at least 200 characters. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
+            },
+            "words" : {
+                "question_diplay" : "Found words",
+                "words_found" : ["A","ABC","ACB","ASDS"]
+            },
+            "advertisement" : {
+                "question_diplay" : "Write an advertisement describing a new coffee maker? Please write an answer of at least 75 words. Take about 5 minutes.",
+                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
             }
+        }
         }
     ]
 }

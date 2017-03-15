@@ -1,7 +1,25 @@
 .personality {
-	background: #DCDCDC;
+	background: #FFFFFF;
 	border-radius: 5px;
 	margin-bottom: 5px;
 	padding: 10px;
 	width: 100%;
+}
+
+.table {
+	width: 100%;
+	background: #EEEEEE;
+}
+
+.likert-scale-div {
+	height: 15px;
+	opacity: 0.6;
+}
+
+.likert-scale-div:hover {
+	opacity: 1;
+}
+
+.likert-scale {
+	height: 100%;
 }
