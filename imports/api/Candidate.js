@@ -8,9 +8,9 @@ Candidate.schema = new SimpleSchema({
   name: {type: String},
   mturk_id: {type: String},
   stage: {type: Number},
-  answers: {type: [Object]},
+  answers: {type: [Object], blackbox: true},
   selection: {type: [String]},
-  rating: {type: [Object]},  // [{userId: rating, block_order: [2,1,3]}]
+  rating: {type: [Object], blackbox: true},  // [{userId: rating, block_order: [2,1,3]}]
   blocks: {type: [String]}
 });
 

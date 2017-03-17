@@ -16,7 +16,7 @@ class AdminCandidate extends Component{
     let questions = Question.find({}).fetch();
     item.answers = questions.map(function(q){
       let obj = {};
-      obj[q._id] = faker.lorem.sentence();
+      obj[q.qid] = faker.lorem.sentence();
       return obj;
     });
     // questions.map( (q)=> faker.lorem.sentence();

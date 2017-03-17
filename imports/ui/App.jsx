@@ -40,7 +40,7 @@ class App extends Component {
   prepareData() {
     this.setState({
       candidates : candidatesData.candidates,
-      tester : testerData.tester
+      tester : testerData.tester,
     });
 
     tempRatings = {}
@@ -48,6 +48,13 @@ class App extends Component {
       tempRatings[candidatesData.candidates[i].id] = 0;
     }
     this.setState({ratings: tempRatings});
+    this.processInparams();
+  }
+
+  processInparams(){
+    query = this.props.location.query;
+    console.log(query);
+    this.setState({myanswers: query});
   }
 
   updateTesterMturkId(mturkId) {

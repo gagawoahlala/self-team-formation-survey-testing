@@ -7,4 +7,5 @@ Question.schema = new SimpleSchema({
   block: {type: String},
   answertype: {type: String}, // "string", "int"
   // display_content: {type: String}
+  qid: {type: String}
 });
