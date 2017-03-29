@@ -20,7 +20,11 @@
         },
         "personality" : {         
             "ocean": {
-                "score" : 4,
+                "Openness" : 1,
+                "Conscientiousness" : 2,
+                "Extraversion" : 3,
+                "Agreeableness" : 4,
+                "Neuroticism" : 5,
                 "questions" : [
                     {
                         "question_content": "Is talkative",
@@ -340,9 +344,9 @@
             ]
         },
         "performance": {
-            "Future" : {
+            "future" : {
                 "question_diplay" : "Where do you see yourself in 5 years? Please write an answer of at least 200 characters. Take about 5 minutes.",
-                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
+                "answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
             },
             "words" : {
                 "question_diplay" : "Found words",
@@ -350,7 +354,7 @@
             },
             "advertisement" : {
                 "question_diplay" : "Write an advertisement describing a new coffee maker? Please write an answer of at least 75 words. Take about 5 minutes.",
-                "Answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
+                "answer" : "bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla blabla bla"
             }
         }
     }

@@ -1,7 +1,14 @@
 .candidate-view-modal {
-	width: 99%;
+	width: 90%;
 }
 
 .starContainer {
-	float: left;
+	display: inline-block;
+	margin-right: 100px;
+	vertical-align: middle;
+}
+
+.modal-btn {
+	display: inline-block;
+	vertical-align: middle;
 }

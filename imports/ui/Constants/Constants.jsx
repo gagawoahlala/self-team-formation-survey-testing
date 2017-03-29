@@ -12,3 +12,10 @@ export const LIKERT_SCALE = {
 								4:"Somewhat Agree",
 								5:"Strong Agree"
 							};
+export const OCEAN = [
+						"Openness",
+                		"Conscientiousness",
+                		"Extraversion",
+                		"Agreeableness",
+                		"Neuroticism"
+                	 ]

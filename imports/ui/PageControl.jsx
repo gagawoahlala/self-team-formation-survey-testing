@@ -11,7 +11,7 @@ export default class PageControl extends Component {
   }
 
   buttonClassName(){
-    let defaultClass = "page-control-btn btn btn-primary";
+    let defaultClass = "page-control-btn btn btn-success";
     if(this.props.shouldHide){
       defaultClass += " hidden";
     }
@@ -23,7 +23,7 @@ export default class PageControl extends Component {
 
   render(){
     return (
-      <div>
+      <div className="page-control">
         <button
           type="submit"
           className={this.buttonClassName()}

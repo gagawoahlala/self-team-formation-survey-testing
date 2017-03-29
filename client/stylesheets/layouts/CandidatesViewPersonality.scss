@@ -11,15 +11,44 @@
 	background: #EEEEEE;
 }
 
-.likert-scale-div {
-	height: 15px;
-	opacity: 0.6;
+.progress-bar-div {
+	height: 5px;
 }
 
-.likert-scale-div:hover {
+.progress-bar {
+	background: #E46D74;
+}
+
+.likert-scale-container {
+	border-radius: 5px;
+	color: white;
+	opacity: 0.8;
+	margin: 0 12px 0 12px;
+	padding: 0 2px 0 2px;
+	text-align: center;
+	width: 140px;
+}
+
+.likert-scale-container:hover {
 	opacity: 1;
 }
 
-.likert-scale {
-	height: 100%;
+.likert-scale-container-1 {
+	background: #D9534F;
+}
+
+.likert-scale-container-2 {
+	background: #F0AD4E;
+}
+
+.likert-scale-container-3 {
+	background: #5BC0DE;
+}
+
+.likert-scale-container-4 {
+	background: #337AB7;
+}
+
+.likert-scale-container-5 {
+	background: #5CB85C;
 }

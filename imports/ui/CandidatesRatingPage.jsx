@@ -79,6 +79,7 @@ export default class CandidatesRatingPage extends Component {
             className={this.previousBtnClassName()}
             onClick={() => {
               this.setState({ currIndex : this.state.currIndex-1 });
+              window.scrollTo(0, 0);
             }}>
             Previous
           </button>
@@ -90,6 +91,7 @@ export default class CandidatesRatingPage extends Component {
             className={this.nextBtnClassName()} 
             onClick={() => {
               this.setState({ currIndex : this.state.currIndex+1 });
+              window.scrollTo(0, 0);
             }}>
             Next
           </button>
