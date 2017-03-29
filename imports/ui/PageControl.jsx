@@ -11,21 +11,31 @@ export default class PageControl extends Component {
   }
 
   buttonClassName(){
-    let defaultClass = "page-control-btn btn btn-default";
+    let defaultClass = "page-control-btn btn btn-success";
+    if(this.props.shouldHide){
+      defaultClass += " hidden";
+    }
     if(!this.props.showNext){
-      defaultClass += " disabled"
+      defaultClass += " disabled";
     }
     return defaultClass;
   }
 
   render(){
     return (
-      <button type="submit" className={this.buttonClassName()} onClick={this.handleClick}>Submit</button>
+      <div className="page-control">
+        <button
+          type="submit"
+          className={this.buttonClassName()}
+          onClick={this.handleClick}>Submit
+        </button>
+      </div>
     )
   }
 }
 
 PageControl.propTypes = {
+  shouldHide: React.PropTypes.bool.isRequired,
   showNext: React.PropTypes.bool.isRequired,
-  callBack: React.PropTypes.func.isRequired
+  callBack: React.PropTypes.func.isRequired,
 }

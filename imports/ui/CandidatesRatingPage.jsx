@@ -63,7 +63,7 @@ export default class CandidatesRatingPage extends Component {
     return (
       <div className="candidates-rating-and-control">
         <div className="candidates-rating">
-          <h5>Would you like to cooperate with this person?</h5>
+          <h5>How well do you think you can work together?</h5>
           <div className="stars">
             <ReactStars 
               value={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
@@ -79,6 +79,7 @@ export default class CandidatesRatingPage extends Component {
             className={this.previousBtnClassName()}
             onClick={() => {
               this.setState({ currIndex : this.state.currIndex-1 });
+              window.scrollTo(0, 0);
             }}>
             Previous
           </button>
@@ -90,6 +91,7 @@ export default class CandidatesRatingPage extends Component {
             className={this.nextBtnClassName()} 
             onClick={() => {
               this.setState({ currIndex : this.state.currIndex+1 });
+              window.scrollTo(0, 0);
             }}>
             Next
           </button>

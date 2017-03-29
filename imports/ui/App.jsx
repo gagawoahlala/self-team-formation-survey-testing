@@ -1,6 +1,7 @@
 import candidatesData from '../../candidates.json';
 import testerData from '../../tester.json';
 
+import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
@@ -8,10 +9,9 @@ import IntroPage from './IntroPage.jsx';
 import PageControl from './PageControl.jsx';
 import CandidatesRatingPage from './CandidatesRatingPage.jsx';
 import SummaryPage from './SummaryPage.jsx';
+import FinishPage from './FinishPage.jsx';
 
-// App component - represents the whole app
 class App extends Component {
-
   constructor(props) {
     super(props);
 
@@ -77,7 +77,7 @@ class App extends Component {
 
   determinePage() {
     let curPage;
-    if(this.state.currentPage === 2){
+    if(this.state.currentPage === Const.CANDIDATES_RATING_PAGE){
       curPage = (<CandidatesRatingPage
                   candidates={this.state.candidates}
                   tester={this.state.tester}
@@ -85,15 +85,18 @@ class App extends Component {
                   callBack={this.approveNext}
                   updateCandidatesRating={this.updateCandidatesRating}
                 />);
-    }else if(this.state.currentPage === 3 ){
-      curPage = (<SummaryPage
+    }else if(this.state.currentPage === Const.SUMMARY_PAGE){
+      curPage = (<SummaryPage 
                   candidates={this.state.candidates}
                   ratings={this.state.ratings}
                   tester={this.state.tester}
                   selection={this.state.selection}
+                  callBack={this.approveNext}
                   updateCandidatesRating={this.updateCandidatesRating}
                   updateCandidatesOrding={this.updateCandidatesOrding}
                 />);
+    }else if(this.state.currentPage === Const.FINISH_PAGE){
+      curPage = (<FinishPage />);
     }else {
       curPage = (<IntroPage
                   mturkId={this.state.testerMturkId}
@@ -121,7 +124,11 @@ class App extends Component {
     return (
       <div className="container">
         {this.determinePage()}
-        <PageControl showNext={this.state.showNext} callBack={this.advanceNext}/>
+        <PageControl
+          shouldHide={this.state.currentPage===Const.LAST_PAGE}
+          showNext={this.state.showNext}
+          callBack={this.advanceNext}
+        />
     </div>
     );
   }
