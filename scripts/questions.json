@@ -1,0 +1,401 @@
+[
+    {
+        "qualtricsid": "Q1",
+        "content": "Gender",
+        "qid": "q1",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q3",
+        "content": "Age (in years)",
+        "qid": "q2",
+        "block": "basic_info",
+        "answertype": "number"
+    },
+    {
+        "qualtricsid": "Q5",
+        "content": "Country of residence",
+        "qid": "q3",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q7",
+        "content": "What is the highest degree or level of education you have completed?",
+        "qid": "q4",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q6",
+        "content": "Ethnicity",
+        "qid": "q5",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q8",
+        "content": "Do you have a job besides working on Amazon Mechanical Turk?",
+        "qid": "q6",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q9",
+        "content": "In which field/industry are you working?",
+        "qid": "q7",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q10",
+        "content": "Registered on Mechanical Turk since:",
+        "qid": "q8",
+        "block": "basic_info",
+        "answertype": "number"
+    },
+    {
+        "qualtricsid": "Q11",
+        "content": "Number of approved HITs:",
+        "qid": "q9",
+        "block": "basic_info",
+        "answertype": "number"
+    },
+    {
+        "qualtricsid": "Q12",
+        "content": "Rate of approved HITs (in %):",
+        "qid": "q10",
+        "block": "basic_info",
+        "answertype": "number"
+    },
+    {
+        "qualtricsid": "Q70_6",
+        "content": "I see Myself as Someone Who... - Is talkative",
+        "qid": "q11",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q70_7",
+        "content": "I see Myself as Someone Who... - Tends to find fault with others",
+        "qid": "q12",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q70_8",
+        "content": "I see Myself as Someone Who... - Does a thorough job",
+        "qid": "q13",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q70_9",
+        "content": "I see Myself as Someone Who... - Is depressed, blue",
+        "qid": "q14",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q70_10",
+        "content": "I see Myself as Someone Who... - Is original, comes up with new ideas",
+        "qid": "q15",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q71_1",
+        "content": "I see Myself as Someone Who... - Is reserved",
+        "qid": "q16",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q71_2",
+        "content": "I see Myself as Someone Who... - Is helpful and unselfish with others",
+        "qid": "q17",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q71_3",
+        "content": "I see Myself as Someone Who... - Can be somewhat careless",
+        "qid": "q18",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q71_4",
+        "content": "I see Myself as Someone Who... - Is relaxed, handles stress well",
+        "qid": "q19",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q71_5",
+        "content": "I see Myself as Someone Who... - Is curious about many different things",
+        "qid": "q20",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q78_4",
+        "content": "I see Myself as Someone Who... - Is full of energy",
+        "qid": "q21",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q78_5",
+        "content": "I see Myself as Someone Who... - Starts quarrels with others",
+        "qid": "q22",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q78_6",
+        "content": "I see Myself as Someone Who... - Is a reliable worker",
+        "qid": "q23",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q78_7",
+        "content": "I see Myself as Someone Who... - Can be tense",
+        "qid": "q24",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q78_8",
+        "content": "I see Myself as Someone Who... - Is ingenious, a deep thinker",
+        "qid": "q25",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q79_4",
+        "content": "I see Myself as Someone Who... - Generates a lot of enthusiasm",
+        "qid": "q26",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q79_5",
+        "content": "I see Myself as Someone Who... - Has a forgiving nature",
+        "qid": "q27",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q79_6",
+        "content": "I see Myself as Someone Who... - Tends to be disorganized",
+        "qid": "q28",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q79_7",
+        "content": "I see Myself as Someone Who... - Worries a lot",
+        "qid": "q29",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q79_8",
+        "content": "I see Myself as Someone Who... - Has an active imagination",
+        "qid": "q30",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q80_4",
+        "content": "I see Myself as Someone Who... - Tends to be quiet",
+        "qid": "q31",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q80_5",
+        "content": "I see Myself as Someone Who... - Is generally trusting",
+        "qid": "q32",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q80_6",
+        "content": "I see Myself as Someone Who... - Tends to be lazy",
+        "qid": "q33",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q80_7",
+        "content": "I see Myself as Someone Who... - Is emotionally stable, not easily upset",
+        "qid": "q34",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q80_8",
+        "content": "I see Myself as Someone Who... - Is inventive",
+        "qid": "q35",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q81_4",
+        "content": "I see Myself as Someone Who... - Has an assertive personality",
+        "qid": "q36",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q81_5",
+        "content": "I see Myself as Someone Who... - Can be cold and aloof",
+        "qid": "q37",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q81_6",
+        "content": "I see Myself as Someone Who... - Perseveres until the task is finished",
+        "qid": "q38",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q81_7",
+        "content": "I see Myself as Someone Who... - Can be moody",
+        "qid": "q39",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q81_8",
+        "content": "I see Myself as Someone Who... - Values artistic, aesthetic experiences",
+        "qid": "q40",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q82_4",
+        "content": "I see Myself as Someone Who... - Is sometimes shy, inhibited",
+        "qid": "q41",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q82_5",
+        "content": "I see Myself as Someone Who... - Is considerate and kind to almost everyone",
+        "qid": "q42",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q82_6",
+        "content": "I see Myself as Someone Who... - Does things efficiently",
+        "qid": "q43",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q82_7",
+        "content": "I see Myself as Someone Who... - Remains calm in tense situations",
+        "qid": "q44",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q82_8",
+        "content": "I see Myself as Someone Who... - Prefers work that is routine",
+        "qid": "q45",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q83_4",
+        "content": "I see Myself as Someone Who... - Is outgoing, sociable",
+        "qid": "q46",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q83_5",
+        "content": "I see Myself as Someone Who... - Is sometimes rude to others",
+        "qid": "q47",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q83_6",
+        "content": "I see Myself as Someone Who... - Makes plans and follows through with them",
+        "qid": "q48",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q83_7",
+        "content": "I see Myself as Someone Who... - Gets nervous easily",
+        "qid": "q49",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q83_8",
+        "content": "I see Myself as Someone Who... - Likes to reflect, play with ideas",
+        "qid": "q50",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q84_4",
+        "content": "I see Myself as Someone Who... - Has few artistic interests",
+        "qid": "q51",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q84_5",
+        "content": "I see Myself as Someone Who... - Likes to cooperate with others",
+        "qid": "q52",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q84_6",
+        "content": "I see Myself as Someone Who... - Is easily distracted",
+        "qid": "q53",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q84_7",
+        "content": "I see Myself as Someone Who... - Is sophisticated in art, music, or literature",
+        "qid": "q54",
+        "block": "personality",
+        "answertype": "5_likert"
+    },
+    {
+        "qualtricsid": "Q20",
+        "content": "Writing Task Please answer the following question, your answer should be at least 500 characters long.You can take as much time as you need. Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life.- What will be your definition of success in measuring the achievement of those goals? Count: 0",
+        "qid": "q55",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q86",
+        "content": "Advertisement slogan",
+        "qid": "q56",
+        "block": "performance",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q23",
+        "content": "Found words (using one line per word) This form will automatically submit after the 5min countdown has run out.",
+        "qid": "q57",
+        "block": "performance",
+        "answertype": "string"
+    }
+]
