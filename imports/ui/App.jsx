@@ -11,6 +11,9 @@ import CandidatesRatingPage from './CandidatesRatingPage.jsx';
 import SummaryPage from './SummaryPage.jsx';
 import FinishPage from './FinishPage.jsx';
 
+import DataManager from '../api/DataManager.js';
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +38,7 @@ class App extends Component {
 
   componentDidMount() {
     this.prepareData();
+    // DataManager.prepareCandidates();
   }
 
   prepareData() {
@@ -86,7 +90,7 @@ class App extends Component {
                   updateCandidatesRating={this.updateCandidatesRating}
                 />);
     }else if(this.state.currentPage === Const.SUMMARY_PAGE){
-      curPage = (<SummaryPage 
+      curPage = (<SummaryPage
                   candidates={this.state.candidates}
                   ratings={this.state.ratings}
                   tester={this.state.tester}
@@ -121,6 +125,8 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.stage1candidates);
+
     return (
       <div className="container">
         {this.determinePage()}
@@ -140,5 +146,6 @@ App.propTypes = {
 export default createContainer(() => {
   return {
     data: {"intro": {"mturk_id": "", "name": ""}},
+    stage1candidates: DataManager.prepareCandidates()
   };
 }, App);
