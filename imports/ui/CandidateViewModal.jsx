@@ -52,6 +52,7 @@ export default class CandidateViewModal extends Component {
           />
           <Modal.Footer>
             <div className="starContainer">
+              <h5>How well do you think you can work together?</h5>
               <ReactStars 
                 value={this.state.rating}
                 count={STAR_AMOUNT} 
@@ -60,11 +61,15 @@ export default class CandidateViewModal extends Component {
                 onChange={this.onStarChage}
               />
             </div>
-            <Button bsStyle="primary"
+            <Button className="modal-btn"
+                    bsStyle="primary"
                     onClick={this.onModalSave}>
                     Save Rating
             </Button>
-            <Button onClick={this.props.onModalClose}>Close</Button>
+            <Button className="modal-btn"
+                    onClick={this.props.onModalClose}>
+                    Close
+            </Button>
           </Modal.Footer>
         </Modal>
       </div>

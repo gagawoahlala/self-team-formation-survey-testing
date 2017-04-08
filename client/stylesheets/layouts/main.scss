@@ -4,12 +4,15 @@ body {
 
 .header {
 	padding: 10px;
-	background: #EEEEEE;
+	background: #F9F9F9;
 	text-align: left;
+	border-bottom: thick solid #E46D74;
 }
 
 .site-logo {
-	height: 50px;
+	color: #E46D74;
+	font-family:Arial Black;
+	letter-spacing: 2px;
 }
 
 .render-target {
