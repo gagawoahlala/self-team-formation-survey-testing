@@ -34,6 +34,7 @@ class App extends Component {
     this.updateTesterName = this.updateTesterName.bind(this);
     this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
     this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
+    this.submitRatingData = this.submitRatingData.bind(this);
   }
 
   componentDidMount() {
@@ -122,6 +123,18 @@ class App extends Component {
       currentPage: prevState.currentPage + 1,
       showNext: false
     }));
+
+    if (this.state.currentPage === Const.SUMMARY_PAGE) {
+      console.log("finish");
+      this.submitRatingData();
+    }
+  }
+
+  submitRatingData() {
+    console.log(this.state.testerMturkId);
+    console.log(this.state.testerName);
+    console.log(this.state.selectedOrder);
+    console.log(this.state.ratings);
   }
 
   render() {
