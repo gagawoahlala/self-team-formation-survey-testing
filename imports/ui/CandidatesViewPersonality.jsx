@@ -26,13 +26,13 @@ export default class CandidatesViewPersonality extends Component {
     );
   }
 
-  displayBar(value) {
+  displayBar(value, attr) {
     return(
       <div className="progress-bar-div">
         <ProgressBar
           now={value}
-          label={`${value} / 5`}
-          max={5}
+          label={`${value} / ${Const.OCEAN[attr]}`}
+          max={Const.OCEAN[attr]}
         />
       </div>
     );
@@ -49,14 +49,14 @@ export default class CandidatesViewPersonality extends Component {
 
   displayOCEAN() {
     return (
-      Const.OCEAN.map((attr) =>       
+      Object.keys(Const.OCEAN).map((attr) =>       
         <tr key={attr}>
-          <td>{attr} Score:</td>
+          <td>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</td>
           <td>
-            {this.displayBar(this.props.candidatePersonality.ocean[attr])}
+            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr)}
           </td>
           <td>
-            {this.displayBar(this.props.testerPersonality.ocean[attr])}
+            {this.displayBar(this.props.testerPersonality.ocean[attr], attr)}
           </td>
         </tr>
       )
@@ -107,14 +107,12 @@ export default class CandidatesViewPersonality extends Component {
           <thead>
             <tr>
               <th>Question</th>
-              <th>{this.props.name+"'"}s Answer</th>
+              <th>{this.props.name+"'"}s Score</th>
               <th>My Answer</th>
             </tr>
           </thead>
           <tbody>
             {this.displayOCEAN()}
-            {this.displaySpeciallyDesignedQuestions()}
-            {this.displayOtherQuestions()}
           </tbody>
         </table>
       </div>

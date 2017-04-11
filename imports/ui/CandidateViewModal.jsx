@@ -26,7 +26,7 @@ export default class CandidateViewModal extends Component {
   }
 
   onModalSave() {
-    this.props.updateCandidatesRating(this.props.candidate.id,
+    this.props.updateCandidatesRating(this.props.candidate.mturk_id,
                                       this.state.rating);
     this.props.onModalClose();
   }

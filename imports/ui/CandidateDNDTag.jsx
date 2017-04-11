@@ -8,7 +8,7 @@ const SortableList = SortableContainer(({items}) => {
 	return (
 		<ul>
 			{items.map((c, index) =>
-				<SortableItem key={c.id} index={index} value={c.name} />
+				<SortableItem key={c.mturk_id} index={index} value={c.name} />
 				)}
 		</ul>
 	);

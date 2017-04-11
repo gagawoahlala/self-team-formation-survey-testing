@@ -38,10 +38,8 @@ export default class CandidatesRatingPage extends Component {
   }
 
   updatePercentage() {
-    var percentage = (this.state.currIndex + 1) / this.state.candidates.length;
-    percentage = percentage.toFixed(2);
-    percentage *= 100;
-    return percentage;
+    var percentage = (this.state.currIndex + 1) * 100 / this.state.candidates.length;
+    return Math.floor(percentage);
   }
 
   previousBtnClassName() {
@@ -55,7 +53,7 @@ export default class CandidatesRatingPage extends Component {
   }
 
   ratingChanged(newRating) {
-    this.props.updateCandidatesRating(this.state.candidates[this.state.currIndex].id,
+    this.props.updateCandidatesRating(this.state.candidates[this.state.currIndex].mturk_id,
                                       newRating);
   }
 
@@ -66,7 +64,7 @@ export default class CandidatesRatingPage extends Component {
           <h5>How well do you think you can work together?</h5>
           <div className="stars">
             <ReactStars 
-              value={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
+              value={this.props.ratings[this.state.candidates[this.state.currIndex].mturk_id]}
               count={STAR_AMOUNT} 
               size={STAR_SIZE} 
               color2={STAR_COLOR}

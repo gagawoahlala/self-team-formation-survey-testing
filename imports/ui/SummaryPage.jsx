@@ -49,11 +49,11 @@ export default class SummaryPage extends Component {
   showCandidates() {
     return (this.props.candidates.map((candidate) => 
       <CandidateCard 
-        key={candidate.id}
+        key={candidate.mturk_id}
         candidate={candidate}
-        rating={this.props.ratings[candidate.id]}
+        rating={this.props.ratings[candidate.mturk_id]}
         isFull={this.state.currSelection == Const.MAX_CANDIDATES_CHOOSE}
-        isSelected={this.state.selection.filter((c) => (c.id == candidate.id)).length > 0}
+        isSelected={this.state.selection.filter((c) => (c.mturk_id == candidate.mturk_id)).length > 0}
         onSelectCallback={this.onSelectCallback}
         onUnselectCallback={this.onUnselectCallback}
         updateCandidatesRating={this.props.updateCandidatesRating}
@@ -96,7 +96,7 @@ export default class SummaryPage extends Component {
 
   onUnselectCallback(user) {
     var tempSelection = this.state.selection.filter(function(candidate){
-      return candidate.id != user.id;
+      return candidate.mturk_id != user.mturk_id;
     });
     this.setState({selection: tempSelection});
     this.setState({currSelection : this.state.currSelection - 1})
@@ -118,7 +118,7 @@ export default class SummaryPage extends Component {
           candidate={this.state.candidate}
           show={this.state.show}
           onModalClose={this.onCandidateModalClose}
-          rating={this.state.candidate ? this.props.ratings[this.state.candidate.id] : 0}
+          rating={this.state.candidate ? this.props.ratings[this.state.candidate.mturk_id] : 0}
           tester={this.props.tester}
           updateCandidatesRating={this.props.updateCandidatesRating}
         />

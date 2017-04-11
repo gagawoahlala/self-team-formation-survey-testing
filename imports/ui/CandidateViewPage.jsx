@@ -13,7 +13,7 @@ export default class CandidateViewPage extends Component {
       <div className="candidate-view">
         <h3 className="candidate-name">{this.props.candidate.name}</h3>
         <CandidatesViewBasicInfo
-          basicInfo={this.props.candidate.basic_information}
+          basicInfo={this.props.candidate.basic_info}
         />
         <CandidatesViewPersonality
           name={this.props.candidate.name}

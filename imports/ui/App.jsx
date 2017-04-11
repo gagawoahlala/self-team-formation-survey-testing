@@ -1,4 +1,3 @@
-import candidatesData from '../../candidates.json';
 import testerData from '../../tester.json';
 
 import * as Const from './Constants/Constants.jsx';
@@ -24,7 +23,8 @@ class App extends Component {
       testerMturkId: "",
       testerName: "",
       selectedOrder: [],
-      showNext: false
+      showNext: false,
+      dataInitialized: false,
     }
 
     this.approveNext = this.approveNext.bind(this);
@@ -37,28 +37,33 @@ class App extends Component {
     this.submitRatingData = this.submitRatingData.bind(this);
   }
 
-  componentDidMount() {
-    this.prepareData();
-    // DataManager.prepareCandidates();
+  componentDidUpdate() {
+    if(!this.state.dataInitialized) {
+      if (this.props.stage1candidates &&
+            this.props.stage1candidates.length == Const.CANDIDATES_COUNT) {
+        this.prepareData();
+      }
+    }
   }
 
   prepareData() {
+    tempRatings = {}
+    for (var i = this.props.stage1candidates.length - 1; i >= 0; i--) {
+      tempRatings[this.props.stage1candidates[i].mturk_id] = 0;
+    }
+
     this.setState({
-      candidates : candidatesData.candidates,
+      candidates : this.props.stage1candidates,
       tester : testerData.tester,
+      ratings: tempRatings,
+      dataInitialized: true,
     });
 
-    tempRatings = {}
-    for (var i = candidatesData.candidates.length - 1; i >= 0; i--) {
-      tempRatings[candidatesData.candidates[i].id] = 0;
-    }
-    this.setState({ratings: tempRatings});
     this.processInparams();
   }
 
   processInparams(){
     query = this.props.location.query;
-    console.log(query);
     this.setState({myanswers: query});
   }
 
@@ -138,8 +143,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.stage1candidates);
-
+    if(!this.state.dataInitialized) {
+      return (<div><b>Loading Data ... </b></div>);
+    }
     return (
       <div className="container">
         {this.determinePage()}
