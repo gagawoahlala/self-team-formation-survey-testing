@@ -4,7 +4,7 @@ import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import IntroPage from './IntroPage.jsx';
+import AgreementPage from './AgreementPage.jsx';
 import PageControl from './PageControl.jsx';
 import CandidatesRatingPage from './CandidatesRatingPage.jsx';
 import SummaryPage from './SummaryPage.jsx';
@@ -108,13 +108,8 @@ class App extends Component {
     }else if(this.state.currentPage === Const.FINISH_PAGE){
       curPage = (<FinishPage />);
     }else {
-      curPage = (<IntroPage
-                  mturkId={this.state.testerMturkId}
-                  name={this.state.testerName}
-                  callBack={this.approveNext}
-                  updateTesterMturkId={this.updateTesterMturkId}
-                  updateTesterName={this.updateTesterName}
-                />);
+      curPage = (<AgreementPage
+                  callBack={this.approveNext} />);
     }
     return curPage;
   }
