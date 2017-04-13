@@ -4,7 +4,7 @@ export default class FinishPage extends Component {
   render(){
     return (
       <div className="finish-page">
-        <h4> This is a Finish Page! </h4>
+        <h4> This is a Finish Page! {this.props.code}</h4>
         <p>
            The Moocita project narrows this gap. Our team works to support
            students attaining online education, earn money while they do,
@@ -23,5 +23,5 @@ export default class FinishPage extends Component {
 }
 
 FinishPage.propTypes = {
-
+  code: React.PropTypes.number.isRequired,
 };
