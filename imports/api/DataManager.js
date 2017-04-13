@@ -73,6 +73,22 @@ export default class DataManager {
     return map;
   }
 
+  static calculateBigFivePoints(questions) {
+    bigFive = {
+      extraversion: 0,
+      agreeableness: 0,
+      conscientiousness: 0,
+      neuroticism: 0,
+      openness: 0
+    }
+
+    for (var key in questions) {
+      tempKey = Number(key.substring(1));
+      bigFive = DataManager.updatePoints(bigFive, tempKey, questions[key])
+    }
+    return bigFive;
+  }
+
   static updatePoints(bigFive, qid, answer) {
     points = 0;
     tempBigFive = bigFive;

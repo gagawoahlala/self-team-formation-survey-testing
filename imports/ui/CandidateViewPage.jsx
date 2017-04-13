@@ -17,7 +17,7 @@ export default class CandidateViewPage extends Component {
         />
         <CandidatesViewPersonality
           name={this.props.candidate.name}
-          testerPersonality={this.props.tester.personality}
+          testerPersonality={this.props.tester}
           candidatePersonality={this.props.candidate.personality}
         />
         <CandidatesViewPerformance

@@ -1,5 +1,3 @@
-import testerData from '../../tester.json';
-
 import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -21,26 +19,27 @@ class App extends Component {
       currentPage: 1,
       ratings: {},
       testerMturkId: "",
-      testerName: "",
+      tester: {},
       selectedOrder: [],
       showNext: false,
       dataInitialized: false,
       code: 0,
+      isParamValid: false,
     }
 
     this.approveNext = this.approveNext.bind(this);
     this.advanceNext = this.advanceNext.bind(this);
     this.prepareData = this.prepareData.bind(this);
-    this.updateTesterMturkId = this.updateTesterMturkId.bind(this);
-    this.updateTesterName = this.updateTesterName.bind(this);
     this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
     this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
     this.submitRatingData = this.submitRatingData.bind(this);
     this.randomNumGenerator = this.randomNumGenerator.bind(this);
+    this.checkParam = this.checkParam.bind(this);
   }
 
   componentDidMount() {
     this.setState({code: this.randomNumGenerator(8)});
+    this.processInparams();
   }
 
   componentDidUpdate() {
@@ -60,25 +59,36 @@ class App extends Component {
 
     this.setState({
       candidates : this.props.stage1candidates,
-      tester : testerData.tester,
       ratings: tempRatings,
       dataInitialized: true,
     });
-
-    this.processInparams();
   }
 
   processInparams(){
     query = this.props.location.query;
-    this.setState({myanswers: query});
+    if (this.checkParam(query)) {
+      tester = {}
+      Const.OCEAN_QUESTION_ID.map(val => tester[val] = query[val]);
+      tester["ocean"] = DataManager.calculateBigFivePoints(tester);
+      this.setState({tester : tester});
+    }
   }
 
-  updateTesterMturkId(mturkId) {
-    this.setState({testerMturkId: mturkId});
-  }
-
-  updateTesterName(name) {
-    this.setState({testerName: name});
+  checkParam(param) {
+    isValid = Const.OCEAN_QUESTION_ID.reduce(
+                (acc=true, val) => acc && param[val] != undefined
+              );
+    isValid = isValid && (param["mturk_id"] != undefined);
+    if (isValid) {
+      this.setState({
+        isParamValid: true,
+        testerMturkId: param["mturk_id"],
+      });
+      return true;
+    } else {
+      this.setState({isParamValid: false})
+      return false;
+    }
   }
 
   updateCandidatesRating(candidateId, rating) {
@@ -152,7 +162,10 @@ class App extends Component {
 
   render() {
     if(!this.state.dataInitialized) {
-      return (<div><b>Loading Data ... </b></div>);
+      return (<div className="announcement"><b>Loading Data ... </b></div>);
+    }
+    if(!this.state.isParamValid) {
+      return (<div className="announcement"><b>Link Error! Please use the complete link.</b></div>);
     }
     return (
       <div className="container">
@@ -173,7 +186,6 @@ App.propTypes = {
 
 export default createContainer(() => {
   return {
-    data: {"intro": {"mturk_id": "", "name": ""}},
     stage1candidates: DataManager.prepareCandidates()
   };
 }, App);
