@@ -7,24 +7,18 @@ export default class AgreementPage extends Component {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.couldNext = this.couldNext.bind(this);
+    this.state = {checked: true};
   }
-  componentDidMount(){
-    this.setState({checked: false});
-  }
-  componentDidUpdate() {
-    if (this.couldNext()){
-      this.props.callBack(true);
-    } else {
-      this.props.callBack(false);
-    }
-  }
+
   handleInputChange(e) {
-    this.setState((prevState, props) => ({
-      checked: !prevState.checked
-    }));
+    this.setState({checked: !this.state.checked});
+    if (this.couldNext()){
+        this.props.callBack(true);
+      } else {
+        this.props.callBack(false);
+      }
   }
   couldNext(){
-    // console.log(this.state.checked);
     return this.state.checked;
   }
   render() {
@@ -34,8 +28,7 @@ export default class AgreementPage extends Component {
         <div className="checkbox">
           <label>
             <input type="checkbox"
-                   name="check"
-                   onChange={this.handleInputChange} />
+                   onChange={this.handleInputChange}/>
                  I agree to the terms and conditions
          </label>
         </div>
