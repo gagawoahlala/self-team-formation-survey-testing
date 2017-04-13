@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as Const from './Constants/Constants.jsx';
 
 export default class PageControl extends Component {
   constructor(props){
@@ -7,7 +8,15 @@ export default class PageControl extends Component {
   }
 
   handleClick(event){
-    this.props.callBack();
+    if(!this.props.showNext) {
+      if (this.props.currentPage === Const.SUMMARY_PAGE) {
+        alert('Please select three potential teamates and rank them.');
+      } else {
+        alert('Please check the "I agree to terms”.');
+      }  
+    } else {
+      this.props.callBack();
+    }
   }
 
   buttonClassName(){
@@ -15,9 +24,9 @@ export default class PageControl extends Component {
     if(this.props.shouldHide){
       defaultClass += " hidden";
     }
-    if(!this.props.showNext){
-      defaultClass += " disabled";
-    }
+    // if(!this.props.showNext){
+    //   defaultClass += " disabled";
+    // }
     return defaultClass;
   }
 
@@ -38,4 +47,5 @@ PageControl.propTypes = {
   shouldHide: React.PropTypes.bool.isRequired,
   showNext: React.PropTypes.bool.isRequired,
   callBack: React.PropTypes.func.isRequired,
+  currentPage: React.PropTypes.number.isRequired
 }

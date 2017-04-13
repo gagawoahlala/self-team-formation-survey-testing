@@ -98,7 +98,7 @@ class App extends Component {
                   candidates={this.state.candidates}
                   tester={this.state.tester}
                   ratings={this.state.ratings}
-                  callBack={this.approveNext}
+                  callBack={this.advanceNext}
                   updateCandidatesRating={this.updateCandidatesRating}
                 />);
     }else if(this.state.currentPage === Const.SUMMARY_PAGE){
@@ -158,9 +158,10 @@ class App extends Component {
       <div className="container">
         {this.determinePage()}
         <PageControl
-          shouldHide={this.state.currentPage===Const.LAST_PAGE}
+          shouldHide={this.state.currentPage===Const.LAST_PAGE || this.state.currentPage===Const.CANDIDATES_RATING_PAGE}
           showNext={this.state.showNext}
           callBack={this.advanceNext}
+          currentPage={this.state.currentPage}
         />
     </div>
     );

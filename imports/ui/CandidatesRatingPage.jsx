@@ -24,19 +24,6 @@ export default class CandidatesRatingPage extends Component {
     this.ratingChanged = this.ratingChanged.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if(this.state.currIndex == nextState.currIndex) {
-      return false;
-    }
-    return true;
-  }
-
-  componentDidUpdate() {
-    if (this.state.currIndex >= this.state.candidates.length - 1){
-      this.props.callBack(true);
-    }
-  }
-
   updatePercentage() {
     var percentage = (this.state.currIndex + 1) * 100 / this.state.candidates.length;
     return Math.floor(percentage);
@@ -48,8 +35,8 @@ export default class CandidatesRatingPage extends Component {
   }
 
   nextBtnClassName() {
-    return "candidates-control-btn btn btn-default " 
-      + (this.state.currIndex >= this.state.candidates.length - 1 ? "disabled" : "");
+    return "candidates-control-btn btn btn-default"; 
+      // + (this.state.currIndex >= this.state.candidates.length - 1 ? "disabled" : "");
   }
 
   ratingChanged(newRating) {
@@ -88,8 +75,16 @@ export default class CandidatesRatingPage extends Component {
           <button 
             className={this.nextBtnClassName()} 
             onClick={() => {
-              this.setState({ currIndex : this.state.currIndex+1 });
-              window.scrollTo(0, 0);
+              if (this.state.currIndex < this.state.candidates.length - 1) {
+                this.setState({ currIndex : this.state.currIndex+1 });
+                window.scrollTo(0, 0);
+              } else {
+                if (!Object.values(this.props.ratings).includes(0)){  
+                  this.props.callBack();
+                } else {
+                  alert("Please Rate all the candidates!");
+                }
+              }
             }}>
             Next
           </button>
