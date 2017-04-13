@@ -25,6 +25,7 @@ class App extends Component {
       selectedOrder: [],
       showNext: false,
       dataInitialized: false,
+      code: 0,
     }
 
     this.approveNext = this.approveNext.bind(this);
@@ -35,6 +36,11 @@ class App extends Component {
     this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
     this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
     this.submitRatingData = this.submitRatingData.bind(this);
+    this.randomNumGenerator = this.randomNumGenerator.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({code: this.randomNumGenerator(8)});
   }
 
   componentDidUpdate() {
@@ -106,7 +112,7 @@ class App extends Component {
                   updateCandidatesOrding={this.updateCandidatesOrding}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
-      curPage = (<FinishPage />);
+      curPage = (<FinishPage code={this.state.code}/>);
     }else {
       curPage = (<AgreementPage
                   callBack={this.approveNext} />);
@@ -125,7 +131,6 @@ class App extends Component {
     }));
 
     if (this.state.currentPage === Const.SUMMARY_PAGE) {
-      console.log("finish");
       this.submitRatingData();
     }
   }
@@ -135,6 +140,14 @@ class App extends Component {
     console.log(this.state.testerName);
     console.log(this.state.selectedOrder);
     console.log(this.state.ratings);
+  }
+
+  randomNumGenerator(n) {
+    num = Math.random();
+    for (var k = 0; k < n; k++) {
+      num *= 10;
+    }
+    return Math.floor(num);
   }
 
   render() {
