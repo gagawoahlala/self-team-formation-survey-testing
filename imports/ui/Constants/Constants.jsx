@@ -26,6 +26,13 @@ export const OCEAN = {
                 		"neuroticism": 40
                 	 }
 
+export const TOOLTIPS = {
+						"openness": "what is openness?",
+                		"conscientiousness": "what is conscientiousness?",
+                		"extraversion": "what is extraversion?",
+                		"agreeableness": "what is agreeableness?",
+                		"neuroticism": "what is neuroticism?"
+					 }
 
 
 export const PERFORMANCE_QUESTION = ["Advertisement slogan", "Found words"]

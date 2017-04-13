@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactStars from 'react-stars';
 import { ProgressBar, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import ReactTooltip from 'react-tooltip'
 
 import * as Const from './Constants/Constants.jsx';
 
@@ -51,7 +52,13 @@ export default class CandidatesViewPersonality extends Component {
     return (
       Object.keys(Const.OCEAN).map((attr) =>       
         <tr key={attr}>
-          <td>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</td>
+          <td>
+            {attr.charAt(0).toUpperCase()+attr.slice(1)} Score: 
+            <a data-tip data-for={attr} className="hint-icon glyphicon glyphicon-question-sign" aria-hidden="true"></a>
+            <ReactTooltip id={attr} type='error' effect='solid'>
+              <span>{Const.TOOLTIPS[attr]}</span>
+            </ReactTooltip>
+          </td>
           <td>
             {this.displayBar(this.props.candidatePersonality.ocean[attr], attr)}
           </td>
