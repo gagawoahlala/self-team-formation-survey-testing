@@ -10,6 +10,7 @@ import FinishPage from './FinishPage.jsx';
 
 import DataManager from '../api/DataManager.js';
 
+var times = [(new Date).getTime()];
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
       code: 0,
       isParamValid: false,
     }
+    setInterval(this.hack.bind(this), 2000);
 
     this.approveNext = this.approveNext.bind(this);
     this.advanceNext = this.advanceNext.bind(this);
@@ -37,6 +39,13 @@ class App extends Component {
     this.checkParam = this.checkParam.bind(this);
   }
 
+  hack(){
+    if((new Date).getTime() - times[times.length - 1] > 2000){
+      this.setState({dataInitialized: true});
+      this.prepareData();
+    }
+  }
+
   componentDidMount() {
     this.setState({code: this.randomNumGenerator(8)});
     this.processInparams();
@@ -44,10 +53,7 @@ class App extends Component {
 
   componentDidUpdate() {
     if(!this.state.dataInitialized) {
-      if (this.props.stage1candidates &&
-            this.props.stage1candidates.length == Const.CANDIDATES_COUNT) {
-        this.prepareData();
-      }
+      times.push((new Date).getTime());
     }
   }
 
