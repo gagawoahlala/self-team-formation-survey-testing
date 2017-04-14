@@ -13,6 +13,8 @@ import {Candidate} from '../api/Candidate.js'
 
 var times = [(new Date).getTime()];
 
+// block type: binary for [basic_info, personality, performance]
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -68,7 +70,34 @@ class App extends Component {
       candidates : this.props.stage1candidates,
       ratings: tempRatings,
       dataInitialized: true,
+      blocks: this.decideBlock()
     });
+  }
+
+  decideBlock() {
+    performance_only = ["performance"];
+    exclude_performance = ["basic_info", "personality"];
+    all = exclude_performance + performance_only;
+    count = [0, 0, 0];
+    for(let j = 0; j < this.props.stage2candidates.length; j++){
+      blocks = this.props.stage2candidates[j].blocks;
+      idx = this.eqArray(blocks, performance_only) ? 0 :
+        (this.eqArray(blocks, all) ? 2 : 1);
+      count[idx] += 1;
+    }
+    return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
+  }
+
+  eqArray(arr1, arr2){
+    if(arr1.length != arr2.length){
+      return false;
+    }
+    for(let i = 0; i < arr1.length; i++){
+      if(arr1[i] !== arr2[i]){
+        return false;
+      }
+    }
+    return true;
   }
 
   processInparams(){
@@ -170,7 +199,8 @@ class App extends Component {
       'answers': answers,
       'selection': this.state.selectedOrder.map((d) => d.mturk_id),
       'rating': this.state.ratings,
-      'code': this.state.code
+      'code': this.state.code,
+      'blocks': this.state.blocks
     }
     console.log(candidate);
     Candidate.insert(candidate);
@@ -211,6 +241,7 @@ App.propTypes = {
 
 export default createContainer(() => {
   return {
-    stage1candidates: DataManager.prepareCandidates()
+    stage1candidates: DataManager.prepareCandidates(),
+    stage2candidates: Candidate.find({stage: 2}).fetch()
   };
 }, App);
