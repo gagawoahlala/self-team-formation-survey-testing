@@ -23,5 +23,5 @@ export default class FinishPage extends Component {
 }
 
 FinishPage.propTypes = {
-  code: React.PropTypes.number.isRequired,
+  code: React.PropTypes.string.isRequired,
 };

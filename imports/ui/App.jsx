@@ -9,6 +9,7 @@ import SummaryPage from './SummaryPage.jsx';
 import FinishPage from './FinishPage.jsx';
 
 import DataManager from '../api/DataManager.js';
+import {Candidate} from '../api/Candidate.js'
 
 var times = [(new Date).getTime()];
 
@@ -40,7 +41,7 @@ class App extends Component {
   }
 
   hack(){
-    if((new Date).getTime() - times[times.length - 1] > 2000){
+    if((new Date).getTime() - times[times.length - 1] > 2000 && !this.state.dataInitialized){
       this.setState({dataInitialized: true});
       this.prepareData();
     }
@@ -156,14 +157,32 @@ class App extends Component {
     console.log(this.state.testerName);
     console.log(this.state.selectedOrder);
     console.log(this.state.ratings);
+    answers = [];
+    keys = Object.keys(this.props.location.query);
+    for(let i = 0; i < keys.length; i++){
+      obj = {};
+      obj[keys[i]] = this.props.location.query[keys[i]];
+      answers.push(obj);
+    }
+    candidate = {
+      'mturk_id': this.state.testerMturkId,
+      'stage': 2,
+      'answers': answers,
+      'selection': this.state.selectedOrder.map((d) => d.mturk_id),
+      'rating': this.state.ratings,
+      'code': this.state.code
+    }
+    console.log(candidate);
+    Candidate.insert(candidate);
   }
 
   randomNumGenerator(n) {
-    num = Math.random();
-    for (var k = 0; k < n; k++) {
-      num *= 10;
-    }
-    return Math.floor(num);
+    // num = Math.random();
+    // for (var k = 0; k < n; k++) {
+    //   num *= 10;
+    // }
+    // return Math.floor(num);
+    return Math.random().toString(36).substring(5);
   }
 
   render() {

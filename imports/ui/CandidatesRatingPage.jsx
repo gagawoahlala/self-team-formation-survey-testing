@@ -30,12 +30,12 @@ export default class CandidatesRatingPage extends Component {
   }
 
   previousBtnClassName() {
-    return "candidates-control-btn btn btn-default " 
+    return "candidates-control-btn btn btn-default "
       + (this.state.currIndex == 0 ? "disabled" : "");
   }
 
   nextBtnClassName() {
-    return "candidates-control-btn btn btn-default"; 
+    return "candidates-control-btn btn btn-default";
       // + (this.state.currIndex >= this.state.candidates.length - 1 ? "disabled" : "");
   }
 
@@ -50,17 +50,17 @@ export default class CandidatesRatingPage extends Component {
         <div className="candidates-rating">
           <h5>How well do you think you can work together?</h5>
           <div className="stars">
-            <ReactStars 
+            <ReactStars
               value={this.props.ratings[this.state.candidates[this.state.currIndex].mturk_id]}
-              count={STAR_AMOUNT} 
-              size={STAR_SIZE} 
+              count={STAR_AMOUNT}
+              size={STAR_SIZE}
               color2={STAR_COLOR}
               onChange={this.ratingChanged}
             />
           </div>
         </div>
         <div className="candidates-control">
-          <button 
+          <button
             className={this.previousBtnClassName()}
             onClick={() => {
               this.setState({ currIndex : this.state.currIndex-1 });
@@ -69,21 +69,21 @@ export default class CandidatesRatingPage extends Component {
             Previous
           </button>
           <ProgressBar className="candidates-progress-bar"
-                       now={this.updatePercentage()} 
-                       label={this.updatePercentage() + "%"} 
+                       now={this.updatePercentage()}
+                       label={this.updatePercentage() + "%"}
           />
-          <button 
-            className={this.nextBtnClassName()} 
+          <button
+            className={this.nextBtnClassName()}
             onClick={() => {
               if (this.state.currIndex < this.state.candidates.length - 1) {
                 this.setState({ currIndex : this.state.currIndex+1 });
                 window.scrollTo(0, 0);
               } else {
-                if (!Object.values(this.props.ratings).includes(0)){  
+                // if (!Object.values(this.props.ratings).includes(0)){
                   this.props.callBack();
-                } else {
-                  alert("Please Rate all the candidates!");
-                }
+                // } else {
+                //   alert("Please Rate all the candidates!");
+                // }
               }
             }}>
             Next
@@ -100,7 +100,7 @@ export default class CandidatesRatingPage extends Component {
   render() {
     return (
       <div className="">
-        <CandidateViewPage 
+        <CandidateViewPage
           candidate={this.state.candidates[this.state.currIndex]}
           tester={this.props.tester}
           rating={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
