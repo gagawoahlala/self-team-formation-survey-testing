@@ -43,7 +43,9 @@ export default class DataManager {
 
         if(qualtricsid in basic_info_q){
           if (qualtricsid == "Q20") {
-            map.basic_info["Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?"] = ans[qualtricsid];
+            answer = ans[qualtricsid].replace("\"", "");
+            answer = "\"" + ans[qualtricsid] + "\"";
+            map.basic_info["Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?"] = answer;
           } else {
             map.basic_info[basic_info_q[qualtricsid]] = ans[qualtricsid];
           }
@@ -52,9 +54,13 @@ export default class DataManager {
           bigFive = DataManager.updatePoints(bigFive, qid, ans[qualtricsid]);
         }else{
           if(qualtricsid == "Q23") {
-            map.performance["Found words"] = ans[qualtricsid];
+            answer = ans[qualtricsid].replace("\"", "").trim();
+            answer = answer + " (Found " + DataManager.countWords(answer) + " words)"; 
+            map.performance["Found words"] = answer;
           } else {
-            map.performance[performance_q[qualtricsid]] = ans[qualtricsid];
+            answer = ans[qualtricsid].replace("\"", "");
+            answer = "\"" + ans[qualtricsid] + "\"";
+            map.performance[performance_q[qualtricsid]] = answer;
           }
         }
       }
@@ -71,6 +77,23 @@ export default class DataManager {
       map[q.qualtricsid] = q.content;
     }
     return map;
+  }
+
+  static countWords(str) {
+    count = 0;
+    flag = false;
+    for (var x = 0; x < str.length; x++)
+    {
+      if(str[x].toLowerCase() != str[x].toUpperCase()) {
+        if(!flag){
+          flag = true;
+          count++;
+        }
+      } else {
+        flag = false;
+      }
+    }
+    return count;
   }
 
   static calculateBigFivePoints(questions) {

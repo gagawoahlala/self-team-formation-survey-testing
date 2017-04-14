@@ -90,7 +90,7 @@ class App extends Component {
   // }
 
   decideBlock() {
-    return ["personal_info", "performance"].sort(() => .5 - Math.random());
+    return ["basic_info", "performance", "personality"].sort(() => .4 - Math.random());
   }
 
   eqArray(arr1, arr2){
@@ -162,6 +162,7 @@ class App extends Component {
                   callBack={this.approveNext}
                   updateCandidatesRating={this.updateCandidatesRating}
                   updateCandidatesOrding={this.updateCandidatesOrding}
+                  blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
       curPage = (<FinishPage code={this.state.code}/>);

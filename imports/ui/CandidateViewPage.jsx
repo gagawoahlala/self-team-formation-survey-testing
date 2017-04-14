@@ -8,7 +8,8 @@ export default class CandidateViewPage extends Component {
     super(props);
 
     this.display = this.display.bind(this);
-    this.displayPersonInfo = this.displayPersonInfo.bind(this);
+    this.displayBasicInfo = this.displayBasicInfo.bind(this);
+    this.displayPersonality = this.displayPersonality.bind(this);
     this.displayPerformance = this.displayPerformance.bind(this);
   }
 
@@ -16,25 +17,29 @@ export default class CandidateViewPage extends Component {
     return (
       this.props.blocks.map((attr) =>
         <div key={this.props.candidate.name+attr}>
-          {(attr === "personal_info") && this.displayPersonInfo()}
+          {(attr === "basic_info") && this.displayBasicInfo()}
+          {(attr === "personality") && this.displayPersonality()}
           {(attr === "performance") && this.displayPerformance()}
         </div> 
       )
     );
   }
 
-  displayPersonInfo() {
+  displayBasicInfo() {
     return (
-      <div>
-        <CandidatesViewBasicInfo
-          basicInfo={this.props.candidate.basic_info}
-        />
-        <CandidatesViewPersonality
-          name={this.props.candidate.name}
-          testerPersonality={this.props.tester}
-          candidatePersonality={this.props.candidate.personality}
-        />
-      </div>
+      <CandidatesViewBasicInfo
+        basicInfo={this.props.candidate.basic_info}
+      />
+    );
+  }
+
+  displayPersonality() {
+    return (
+      <CandidatesViewPersonality
+        name={this.props.candidate.name}
+        testerPersonality={this.props.tester}
+        candidatePersonality={this.props.candidate.personality}
+      />
     );
   }
 

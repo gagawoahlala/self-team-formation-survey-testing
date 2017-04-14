@@ -49,6 +49,7 @@ export default class CandidateViewModal extends Component {
           <CandidateViewPage
             candidate={this.props.candidate}
             tester={this.props.tester}
+            blocks={this.props.blocks}
           />
           <Modal.Footer>
             <div className="starContainer">
@@ -84,4 +85,5 @@ CandidateViewModal.propTypes = {
   show: React.PropTypes.bool.isRequired,
   updateCandidatesRating: React.PropTypes.func.isRequired,
   onModalClose: React.PropTypes.func.isRequired,
+  blocks: React.PropTypes.array.isRequired,
 };

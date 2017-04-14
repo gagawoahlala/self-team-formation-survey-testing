@@ -121,6 +121,7 @@ export default class SummaryPage extends Component {
           rating={this.state.candidate ? this.props.ratings[this.state.candidate.mturk_id] : 0}
           tester={this.props.tester}
           updateCandidatesRating={this.props.updateCandidatesRating}
+          blocks={this.props.blocks}
         />
       </div>
     );
@@ -134,4 +135,5 @@ SummaryPage.propTypes = {
   callBack: React.PropTypes.func.isRequired,
   updateCandidatesRating: React.PropTypes.func.isRequired,
   updateCandidatesOrding: React.PropTypes.func.isRequired,
+  blocks: React.PropTypes.array.isRequired,
 }
