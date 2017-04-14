@@ -8,19 +8,12 @@ export default class Introduction extends Component {
   render() {
     return (
       <div className="intro">
-        <h4> This is a Mock Intro! </h4>
+        <h4> Welcome! </h4>
         <p>
-           The Moocita project narrows this gap. Our team works to support
-           students attaining online education, earn money while they do,
-           and find them a job they love. We help our students to acquire job
-           relevant skills by providing assignments for their courses that
-           are real world job tasks. Students solve these tasks alone or as
-           teams and get paid if the quality of their work meets the necessary
-           requirements. Working on real world tasks helps students to develop
-           their portfolio and keep track of their progress. Instead of grades
-           students see an actual impact on their bank account and receive
-           letters of recommendation from employers.
+           We are looking for the best work and we believe that teamwork produces the best results. We are asking you to take a short survey and do some preliminary work, then select potential team members you believe will be the best partner for you or other workers. You will see information about 10 potential team members and asked to rate each one of them. You will also select the best three and order them in order of preference for working with them. You might then be paired to work with one of them further.
         </p>
+        <h4> Consent </h4>
+        <p>By participating you are agreeing to allow the task owners to use or publish your answers, work product, and demographics for commercial or research purposes. Your name, ID, and other identifying features will be kept private.</p>
       </div>
     );
   }

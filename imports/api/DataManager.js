@@ -58,7 +58,7 @@ export default class DataManager {
           }
         }
       }
-      map.personality["ocean"] = bigFive;
+      map.personality["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
       result_arr.push(map);
     }
     return result_arr;
@@ -86,7 +86,16 @@ export default class DataManager {
       tempKey = Number(key.substring(1));
       bigFive = DataManager.updatePoints(bigFive, tempKey, questions[key])
     }
-    return bigFive;
+    return DataManager.OCEANScoreBaseChange(bigFive);
+  }
+
+  static OCEANScoreBaseChange(bigFive) {
+    newBigFive = bigFive;
+    for (var attr in bigFive) {
+      newScore = Math.round(bigFive[attr] * 50 / Const.OCEAN_SCORE[attr]);
+      newBigFive[attr] = newScore;
+    }
+    return newBigFive
   }
 
   static updatePoints(bigFive, qid, answer) {

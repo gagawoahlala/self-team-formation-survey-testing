@@ -54,10 +54,7 @@ export default class CandidatesViewPersonality extends Component {
         <tr key={attr}>
           <td>
             {attr.charAt(0).toUpperCase()+attr.slice(1)} Score: 
-            <a data-tip data-for={attr} className="hint-icon glyphicon glyphicon-question-sign" aria-hidden="true"></a>
-            <ReactTooltip id={attr} type='error' effect='solid'>
-              <span>{Const.TOOLTIPS[attr]}</span>
-            </ReactTooltip>
+            <p className="ocean-tooltip">&nbsp;&nbsp;&nbsp;&nbsp;{Const.TOOLTIPS[attr]}</p>
           </td>
           <td>
             {this.displayBar(this.props.candidatePersonality.ocean[attr], attr)}

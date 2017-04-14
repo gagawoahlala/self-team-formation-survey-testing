@@ -104,6 +104,7 @@ export default class CandidatesRatingPage extends Component {
           candidate={this.state.candidates[this.state.currIndex]}
           tester={this.props.tester}
           rating={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
+          blocks={this.props.blocks}
         />
         {this.candidatesControl()}
       </div>
@@ -117,4 +118,5 @@ CandidatesRatingPage.propTypes = {
   ratings: React.PropTypes.object.isRequired,
   callBack: React.PropTypes.func.isRequired,
   updateCandidatesRating: React.PropTypes.func.isRequired,
+  blocks: React.PropTypes.array.isRequired,
 }

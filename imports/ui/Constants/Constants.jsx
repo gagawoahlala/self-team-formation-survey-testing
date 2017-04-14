@@ -20,18 +20,18 @@ export const LIKERT_SCALE = {
 							};
 export const OCEAN = {
 						"openness": 50,
-                		"conscientiousness": 45,
-                		"extraversion": 40,
-                		"agreeableness": 45,
-                		"neuroticism": 40
+                		"conscientiousness": 50,
+                		"extraversion": 50,
+                		"agreeableness": 50,
+                		"neuroticism": 50
                 	 }
 
 export const TOOLTIPS = {
-						"openness": "what is openness?",
-                		"conscientiousness": "what is conscientiousness?",
-                		"extraversion": "what is extraversion?",
-                		"agreeableness": "what is agreeableness?",
-                		"neuroticism": "what is neuroticism?"
+						"openness": "Intellectually curious, open to emotion, sensitive to beauty and willing to try new things.  General appreciation for art, emotion, adventure, unusual ideas, imagination, curiosity, and variety of experience.",
+                		"conscientiousness": "Self-discipline, control and regulation of impulses, acting dutifully, planned rather than spontaneous behavior, striving for achievement against measures.",
+                		"extraversion": "Engagement with the external world, breadth of activities, enjoys interacting with people, full of energy, enthusiastic, action-oriented, talkative and assertive.",
+                		"agreeableness": "Concern for social harmony, value getting along with others, optimistic view of human nature, considerate, kind, generous, trusting and trustworthy, helpful, and willing to compromise their interests with others.",
+                		"neuroticism": "tendency to experience negative emotions such as anger, anxiety, or depression. People with Low neuroticism calm, emotionally stable, free from persistent negative feelings, and less emotionally reactive or easily upset."
 					 }
 
 

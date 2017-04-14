@@ -12,7 +12,7 @@ export default class PageControl extends Component {
       if (this.props.currentPage === Const.SUMMARY_PAGE) {
         alert('Please select three potential teamates and rank them.');
       } else {
-        alert('Please check the "I agree to terms”.');
+        alert('Please check the "I agree”.');
       }  
     } else {
       this.props.callBack();

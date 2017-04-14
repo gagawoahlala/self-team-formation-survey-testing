@@ -29,6 +29,7 @@ class App extends Component {
       dataInitialized: false,
       code: 0,
       isParamValid: false,
+      blocks: [],
     }
     setInterval(this.hack.bind(this), 2000);
 
@@ -74,18 +75,22 @@ class App extends Component {
     });
   }
 
+  // decideBlock() {
+  //   performance_only = ["performance"];
+  //   exclude_performance = ["basic_info", "personality"];
+  //   all = exclude_performance.concat(performance_only);
+  //   count = [0, 0, 0];
+  //   for(let j = 0; j < this.props.stage2candidates.length; j++){
+  //     blocks = this.props.stage2candidates[j].blocks;
+  //     idx = this.eqArray(blocks, performance_only) ? 0 :
+  //       (this.eqArray(blocks, all) ? 2 : 1);
+  //     count[idx] += 1;
+  //   }
+  //   return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
+  // }
+
   decideBlock() {
-    performance_only = ["performance"];
-    exclude_performance = ["basic_info", "personality"];
-    all = exclude_performance + performance_only;
-    count = [0, 0, 0];
-    for(let j = 0; j < this.props.stage2candidates.length; j++){
-      blocks = this.props.stage2candidates[j].blocks;
-      idx = this.eqArray(blocks, performance_only) ? 0 :
-        (this.eqArray(blocks, all) ? 2 : 1);
-      count[idx] += 1;
-    }
-    return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
+    return ["personal_info", "performance"].sort(() => .5 - Math.random());
   }
 
   eqArray(arr1, arr2){
@@ -146,6 +151,7 @@ class App extends Component {
                   ratings={this.state.ratings}
                   callBack={this.advanceNext}
                   updateCandidatesRating={this.updateCandidatesRating}
+                  blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.SUMMARY_PAGE){
       curPage = (<SummaryPage
@@ -182,10 +188,10 @@ class App extends Component {
   }
 
   submitRatingData() {
-    console.log(this.state.testerMturkId);
-    console.log(this.state.testerName);
-    console.log(this.state.selectedOrder);
-    console.log(this.state.ratings);
+    // console.log(this.state.testerMturkId);
+    // console.log(this.state.testerName);
+    // console.log(this.state.selectedOrder);
+    // console.log(this.state.ratings);
     answers = [];
     keys = Object.keys(this.props.location.query);
     for(let i = 0; i < keys.length; i++){
@@ -202,16 +208,11 @@ class App extends Component {
       'code': this.state.code,
       'blocks': this.state.blocks
     }
-    console.log(candidate);
+    // console.log(candidate);
     Candidate.insert(candidate);
   }
 
   randomNumGenerator(n) {
-    // num = Math.random();
-    // for (var k = 0; k < n; k++) {
-    //   num *= 10;
-    // }
-    // return Math.floor(num);
     return Math.random().toString(36).substring(5);
   }
 

@@ -29,3 +29,10 @@ export const REV_LIKERT_SCALE = {
 									"Somewhat agree": 4,
 									"Strongly agree": 5
 								};
+export const OCEAN_SCORE = {
+						"openness": 50,
+                		"conscientiousness": 45,
+                		"extraversion": 40,
+                		"agreeableness": 45,
+                		"neuroticism": 40
+                	 }

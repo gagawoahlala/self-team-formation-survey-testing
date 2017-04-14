@@ -12,8 +12,8 @@
 }
 
 .progress-bar-div {
-	height: 5px;
 	width: 200px;
+	margin-top: 30px;
 }
 
 .progress-bar {
@@ -54,6 +54,9 @@
 	background: #5CB85C;
 }
 
-.hint-icon {
+.ocean-tooltip {
+	color: gray;
+	max-width: 300px;
+	font-size: 12px;
 	margin: 5px;
 }

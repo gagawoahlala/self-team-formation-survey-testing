@@ -29,7 +29,7 @@ export default class AgreementPage extends Component {
           <label>
             <input type="checkbox"
                    onChange={this.handleInputChange}/>
-                 I agree to the terms and conditions
+                 I agree
          </label>
         </div>
       </div>
