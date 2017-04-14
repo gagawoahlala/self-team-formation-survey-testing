@@ -75,23 +75,21 @@ class App extends Component {
     });
   }
 
-  // decideBlock() {
-  //   performance_only = ["performance"];
-  //   exclude_performance = ["basic_info", "personality"];
-  //   all = exclude_performance.concat(performance_only);
-  //   count = [0, 0, 0];
-  //   for(let j = 0; j < this.props.stage2candidates.length; j++){
-  //     blocks = this.props.stage2candidates[j].blocks;
-  //     idx = this.eqArray(blocks, performance_only) ? 0 :
-  //       (this.eqArray(blocks, all) ? 2 : 1);
-  //     count[idx] += 1;
-  //   }
-  //   return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
-  // }
-
   decideBlock() {
-    return ["basic_info", "performance", "personality"].sort(() => .4 - Math.random());
+    performance_only = ["performance"];
+    exclude_performance = ["basic_info", "personality"];
+    all = exclude_performance.concat(performance_only);
+    count = [0, 0, 0];
+    for(let j = 0; j < this.props.stage2candidates.length; j++){
+      blocks = this.props.stage2candidates[j].blocks;
+      idx = this.eqArray(blocks, performance_only) ? 0 :
+        (this.eqArray(blocks, all) ? 2 : 1);
+      count[idx] += 1;
+    }
+    console.log(count);
+    return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
   }
+
 
   eqArray(arr1, arr2){
     if(arr1.length != arr2.length){
