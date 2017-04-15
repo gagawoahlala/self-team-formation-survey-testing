@@ -9,8 +9,8 @@ export default class CandidatesViewPerformance extends Component {
 
   displayQuestionAndAnswer() {
     return (
-      Const.PERFORMANCE_QUESTION.map((q) => 
-      <div key={q+this.props.performance[q]}>
+      Const.PERFORMANCE_QUESTION.map((q) =>
+      <div key={q+this.props.performance[q]} className="qa-wrap">
         <p className="question"><strong>{q}</strong></p>
         <p className="answer">{this.props.performance[q]}</p>
       </div>
