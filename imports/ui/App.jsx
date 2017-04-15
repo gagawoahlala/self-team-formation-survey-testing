@@ -61,14 +61,23 @@ class App extends Component {
     }
   }
 
+  sample(candidates, n){
+    let set = new Set();
+    while(set.size < n && set.size < candidates.length){
+      set.add(Math.floor(Math.random()*(candidates.length)));
+    }
+    return Array.from(set).map((idx) => candidates[idx]);
+  }
+
   prepareData() {
+    let cs = this.sample(this.props.stage1candidates, 10);
     tempRatings = {}
-    for (var i = this.props.stage1candidates.length - 1; i >= 0; i--) {
-      tempRatings[this.props.stage1candidates[i].mturk_id] = 0;
+    for (var i = cs.length - 1; i >= 0; i--) {
+      tempRatings[cs[i].mturk_id] = 0;
     }
 
     this.setState({
-      candidates : this.props.stage1candidates,
+      candidates : cs,
       ratings: tempRatings,
       dataInitialized: true,
       blocks: this.decideBlock()
