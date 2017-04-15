@@ -34,6 +34,14 @@ export const TOOLTIPS = {
                 		"neuroticism": "tendency to experience negative emotions such as anger, anxiety, or depression. People with Low neuroticism calm, emotionally stable, free from persistent negative feelings, and less emotionally reactive or easily upset."
 					 }
 
+export const OCEAN_SCALE = {
+	"openness": "Low: Imaginative and Independent  |  High: Down to Earth and Conforming",
+	"conscientiousness": "Low: Organised and Self disciplined  |  High: Disorganised and Weak Willed",
+	"extraversion": "Low: Sociable and Fun loving  |  High: Retiring and Reserved",
+	"agreeableness": "Low: Trusting and Helpful  |  High: Suspicious and Uncooperative",
+	"neuroticism": "Low: Worried and Insecure  |  High: Secure and Calm"
+}
+
 
 export const PERFORMANCE_QUESTION = ["Advertisement slogan", "Found words"]
 

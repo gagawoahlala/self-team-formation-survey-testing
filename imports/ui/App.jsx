@@ -95,7 +95,7 @@ class App extends Component {
         (this.eqArray(blocks, all) ? 2 : 1);
       count[idx] += 1;
     }
-    console.log(count);
+    // console.log(count);
     return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
   }
 

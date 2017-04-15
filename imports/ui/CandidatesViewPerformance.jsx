@@ -21,7 +21,7 @@ export default class CandidatesViewPerformance extends Component {
   render() {
     return (
       <div className="performance">
-        <h5><b>Performance:</b></h5>
+        <h4><b>Performance:</b></h4>
         <div className="question-container">
           {this.displayQuestionAndAnswer()}
         </div>

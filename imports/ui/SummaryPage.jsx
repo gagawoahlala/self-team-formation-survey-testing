@@ -22,6 +22,9 @@ export default class SummaryPage extends Component {
     this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
     this.onCandidateViewClick = this.onCandidateViewClick.bind(this);
     this.onCandidateModalClose = this.onCandidateModalClose.bind(this);
+    this.isTaskFinished = this.isTaskFinished.bind(this);
+    this.getTodoClassName = this.getTodoClassName.bind(this);
+    this.getTodoSymbol = this.getTodoSymbol.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -103,15 +106,49 @@ export default class SummaryPage extends Component {
     this.props.updateCandidatesOrding(tempSelection);
   }
 
+  isTaskFinished(todo) {
+    if (todo === "rate") {
+      if (!Object.values(this.props.ratings).includes(0))
+        return true;
+      else 
+        return false;
+    } else {
+      if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE)
+        return true;
+      else
+        return false;
+    }
+  }
+
+  getTodoClassName(todo) {
+    return this.isTaskFinished(todo) ? "todo-finish" : "todo-not-finish";
+  }
+
+  getTodoSymbol(todo) {
+    return this.isTaskFinished(todo) ? (<span>&nbsp;&#10004;</span>) : (<span>&nbsp;&#10008;</span>);
+  }
+
   render() {
     return (
       <div className="summary-page">
+        <div className="todo-list">
+          <h4>Please Finish the Following:</h4>
+          <ul>
+            <li className={this.getTodoClassName("rate")}>
+              Rate all candidates (you can click view and rate them). 
+              {this.getTodoSymbol("rate")}
+            </li>
+            <li className={this.getTodoClassName("select")}>
+              Choose 3 potential teamates and sort them based on how well do you think you can work together.  
+              {this.getTodoSymbol("select")}
+            </li>
+          </ul>
+        </div>
         <div className="candidate-cards-container">
-          <h4>Please Rate All Candidates and Choose 3 Potential Teamates:</h4>
           {this.showCandidates()}
         </div>
         <div className="candidates-order-container">
-          <h4>Please Drag and Drop Ranking (Most Favourite On Left):</h4>
+          <h5>Please Drag and Drop Ranking (Most Favourite On Left):</h5>
           {this.orderSelectedCandidates()}
         </div>
         <CandidateViewModal

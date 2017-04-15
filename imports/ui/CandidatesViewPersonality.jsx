@@ -28,14 +28,16 @@ export default class CandidatesViewPersonality extends Component {
   }
 
   displayBar(value, attr, label) {
+    color = "progress-bar-"+label
     return(
       <div className="progress-bar-div">
         <div>
-          <span className="progress-label">{label}</span>
+          <span className="progress-label">{label.charAt(0).toUpperCase()+label.slice(1)}</span>
           <ProgressBar
             now={value}
             label={`${value} / ${Const.OCEAN[attr]}`}
             max={Const.OCEAN[attr]}
+            bsStyle={label == "you" ? "warning" : "info"}
           />
         </div>
       </div>
@@ -56,13 +58,15 @@ export default class CandidatesViewPersonality extends Component {
       Object.keys(Const.OCEAN).map((attr) =>
         <tr key={attr}>
           <td>
-            {attr.charAt(0).toUpperCase()+attr.slice(1)} Score:
-            <p className="ocean-tooltip">&nbsp;&nbsp;&nbsp;&nbsp;{Const.TOOLTIPS[attr]}</p>
+            <div className="ocean-description">
+              <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
+              <p className="ocean-tooltip">&nbsp;&nbsp;&nbsp;&nbsp;{Const.TOOLTIPS[attr]}</p>
+              <p className="ocean-tooltip">{Const.OCEAN_SCALE[attr]}</p>
+            </div>
           </td>
           <td>
-            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "Candidate")}
-
-            {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "You    ")}
+            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "candidate")}
+            {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "you")}
           </td>
         </tr>
       )
@@ -108,7 +112,7 @@ export default class CandidatesViewPersonality extends Component {
   render() {
     return (
       <div className="personality">
-        <h5><b>Personality:</b></h5>
+        <h4><b>Personality:</b></h4>
         <table className="table table-striped table-hover">
           <thead>
             <tr>

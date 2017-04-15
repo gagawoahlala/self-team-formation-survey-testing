@@ -10,7 +10,7 @@ export default class PageControl extends Component {
   handleClick(event){
     if(!this.props.showNext) {
       if (this.props.currentPage === Const.SUMMARY_PAGE) {
-        alert('Please select three potential teamates and rank them.');
+        alert('Please rate all candidates and select three potential teamates!');
       } else {
         alert('Please check the "I agree”.');
       }  
