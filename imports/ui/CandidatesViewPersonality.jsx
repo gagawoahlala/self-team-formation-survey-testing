@@ -27,14 +27,17 @@ export default class CandidatesViewPersonality extends Component {
     );
   }
 
-  displayBar(value, attr) {
+  displayBar(value, attr, label) {
     return(
       <div className="progress-bar-div">
-        <ProgressBar
-          now={value}
-          label={`${value} / ${Const.OCEAN[attr]}`}
-          max={Const.OCEAN[attr]}
-        />
+        <div>
+          <span className="progress-label">{label}</span>
+          <ProgressBar
+            now={value}
+            label={`${value} / ${Const.OCEAN[attr]}`}
+            max={Const.OCEAN[attr]}
+          />
+        </div>
       </div>
     );
   }
@@ -50,17 +53,16 @@ export default class CandidatesViewPersonality extends Component {
 
   displayOCEAN() {
     return (
-      Object.keys(Const.OCEAN).map((attr) =>       
+      Object.keys(Const.OCEAN).map((attr) =>
         <tr key={attr}>
           <td>
-            {attr.charAt(0).toUpperCase()+attr.slice(1)} Score: 
+            {attr.charAt(0).toUpperCase()+attr.slice(1)} Score:
             <p className="ocean-tooltip">&nbsp;&nbsp;&nbsp;&nbsp;{Const.TOOLTIPS[attr]}</p>
           </td>
           <td>
-            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr)}
-          </td>
-          <td>
-            {this.displayBar(this.props.testerPersonality.ocean[attr], attr)}
+            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "Candidate")}
+
+            {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "You    ")}
           </td>
         </tr>
       )
@@ -84,7 +86,7 @@ export default class CandidatesViewPersonality extends Component {
                     .specially_designed_questions))
             }
           </td>
-        </tr>  
+        </tr>
       )
     );
   }
@@ -98,7 +100,7 @@ export default class CandidatesViewPersonality extends Component {
           <td>{q.answer}</td>
           <td>{this.getAnswer(q.question_content,
                 this.props.testerPersonality.other_questions)}</td>
-        </tr>  
+        </tr>
       )
     );
   }
@@ -111,8 +113,7 @@ export default class CandidatesViewPersonality extends Component {
           <thead>
             <tr>
               <th>Question</th>
-              <th>{this.props.name+"'"}s Score</th>
-              <th>My Answer</th>
+              <th>Score</th>
             </tr>
           </thead>
           <tbody>
