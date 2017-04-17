@@ -36,7 +36,7 @@ export default class PageControl extends Component {
         <button
           type="submit"
           className={this.buttonClassName()}
-          onClick={this.handleClick}>Submit
+          onClick={this.handleClick}>Next
         </button>
       </div>
     )
