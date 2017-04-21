@@ -121,28 +121,32 @@ export default class DataManager {
   }
 
   static updatePoints(bigFive, qid, answer) {
-    points = 0;
-    tempBigFive = bigFive;
-    if (Const.POS_POINTS.indexOf(qid) > -1) {
-      points = Const.POS_LIKERT_SCALE[answer];
-    } else {
-      points = Const.REV_LIKERT_SCALE[answer];
-    }
+    if (qid <= 44) {
+      points = 0;
+      tempBigFive = bigFive;
+      if (Const.POS_POINTS.indexOf(qid) > -1) {
+        points = Const.POS_LIKERT_SCALE[answer];
+      } else {
+        points = Const.REV_LIKERT_SCALE[answer];
+      }
 
-    if (Const.O.indexOf(qid) > -1) {
-      tempBigFive.openness += points;
-    } else if (Const.C.indexOf(qid) > -1) {
-      tempBigFive.conscientiousness += points;
-    } else if (Const.E.indexOf(qid) > -1) {
-      tempBigFive.extraversion += points;
-    } else if (Const.A.indexOf(qid) > -1) {
-      tempBigFive.agreeableness += points;
-    } else if (Const.N.indexOf(qid) > -1) {
-      tempBigFive.neuroticism += points;
-    } else {
-      console.log("alert something went wrong!");
-    }
+      if (Const.O.indexOf(qid) > -1) {
+        tempBigFive.openness += points;
+      } else if (Const.C.indexOf(qid) > -1) {
+        tempBigFive.conscientiousness += points;
+      } else if (Const.E.indexOf(qid) > -1) {
+        tempBigFive.extraversion += points;
+      } else if (Const.A.indexOf(qid) > -1) {
+        tempBigFive.agreeableness += points;
+      } else if (Const.N.indexOf(qid) > -1) {
+        tempBigFive.neuroticism += points;
+      } else {
+        console.log("alert something went wrong!");
+      }
 
-    return tempBigFive;
+      return tempBigFive;
+    } else {
+      console.log("Wrong qid for big five questions");
+    }
   }
 }
