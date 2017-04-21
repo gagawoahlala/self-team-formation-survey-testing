@@ -61,12 +61,17 @@ export default class CandidatesViewPersonality extends Component {
             <div className="ocean-description">
               <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
               <p className="ocean-tooltip">&nbsp;&nbsp;&nbsp;&nbsp;{Const.TOOLTIPS[attr]}</p>
-              <p className="ocean-tooltip">{Const.OCEAN_SCALE[attr]}</p>
             </div>
+          </td>
+          <td>
+            <b><p className="ocean-score-label">{Const.OCEAN_SCALE_LOW[attr]}</p></b>
           </td>
           <td>
             {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "candidate")}
             {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "you")}
+          </td>
+          <td>
+            <b><p className="ocean-score-label">{Const.OCEAN_SCALE_HIGH[attr]}</p></b>
           </td>
         </tr>
       )
@@ -117,7 +122,9 @@ export default class CandidatesViewPersonality extends Component {
           <thead>
             <tr>
               <th>Question</th>
+              <th></th>
               <th>Score</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
