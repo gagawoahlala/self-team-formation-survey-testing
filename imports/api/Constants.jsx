@@ -4,15 +4,15 @@ export const POS_POINTS = [1, 11, 16, 26, 36,
 						   	39, 5, 10, 15, 20, 25, 30, 40,
 						   	44]
 
-export const O = [15, 20, 25, 30, 35, 40, 45, 50, 51, 54]
+export const O = [5, 10, 15, 20, 25, 30, 35, 40, 41, 44]
 
-export const C = [13, 18, 23, 28, 33, 38, 43, 48, 53]
+export const C = [3, 8, 13, 18, 23, 28, 33, 38, 43]
 
-export const E = [11, 16, 21, 26, 31, 36, 41, 46]
+export const E = [1, 6, 11, 16, 21, 26, 31, 36]
 
-export const A = [12, 17, 22, 27, 32, 37, 42, 47, 52]
+export const A = [2, 7, 12, 17, 22, 27, 32, 37, 42]
 
-export const N = [14, 19, 24, 29, 34, 39, 44, 49]
+export const N = [4, 9, 14, 19, 24, 29, 34, 39]
 
 export const POS_LIKERT_SCALE = {
 									"Strongly disagree": 5,

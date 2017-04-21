@@ -40,7 +40,6 @@ export default class DataManager {
         q = Question.find({qualtricsid: qualtricsid}).fetch()[0];
         qid = undefined;
         if(q) qid = Number(q.qid.substring(1));
-
         if(qualtricsid in basic_info_q){
           if (qualtricsid == "Q20") {
             answer = ans[qualtricsid].replace("\"", "");
@@ -51,7 +50,7 @@ export default class DataManager {
           }
         }else if(qualtricsid in personality_q){
           map.personality[personality_q[qualtricsid]] = ans[qualtricsid];
-          bigFive = DataManager.updatePoints(bigFive, qid, ans[qualtricsid]);
+          bigFive = DataManager.updatePoints(bigFive, qid-10, ans[qualtricsid]);
         }else{
           if(qualtricsid == "Q23") {
             answer = ans[qualtricsid].replace("\"", "").trim();
