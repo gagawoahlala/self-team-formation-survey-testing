@@ -60,7 +60,7 @@ export default class CandidatesViewPersonality extends Component {
           <td>
             <div className="ocean-description">
               <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
-              <p className="ocean-tooltip">&nbsp;&nbsp;&nbsp;&nbsp;{Const.TOOLTIPS[attr]}</p>
+              <p className="ocean-tooltip">{Const.TOOLTIPS[attr]}</p>
             </div>
           </td>
           <td>
