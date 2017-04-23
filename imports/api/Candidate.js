@@ -10,8 +10,9 @@ Candidate.schema = new SimpleSchema({
   stage: {type: Number},
   answers: {type: [Object], blackbox: true},
   selection: {type: [String], optional: true},
-  rating: {type: [Object], blackbox: true, optional: true},  // [{userId: rating, block_order: [2,1,3]}]
-  blocks: {type: [String], optional: true}
+  rating: {type: Object, blackbox: true, optional: true},  // [{userId: rating, block_order: [2,1,3]}]
+  blocks: {type: [String], optional: true},
+  code: {type: String, optional: true}
 });
 
 Candidate.randGen = {

@@ -19,7 +19,9 @@ export default class MongoConsole extends Component {
     }
   }
   deleteItem(id){
-    this.props.model.remove(id);
+    if(confirm("This will permanently delete this datum!")){
+      this.props.model.remove(id);
+    }
   }
   renderItems(){
     return this.props.items.map((c) =>
@@ -30,8 +32,10 @@ export default class MongoConsole extends Component {
     FileSaver.saveAs(blob, "result.json");
   }
   removeAll(){
-    for(let i = 0; i < this.props.items.length; i ++){
-      this.deleteItem(this.props.items[i]._id);
+    if(confirm("This will permanently delete all the data!!")){
+      for(let i = 0; i < this.props.items.length; i ++){
+        this.deleteItem(this.props.items[i]._id);
+      }
     }
   }
   render() {

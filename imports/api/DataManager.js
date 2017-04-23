@@ -54,7 +54,7 @@ export default class DataManager {
         }else{
           if(qualtricsid == "Q23") {
             answer = ans[qualtricsid].replace("\"", "").trim();
-            answer = answer + " (Found " + DataManager.countWords(answer) + " words)"; 
+            answer = answer + " (Found " + DataManager.countWords(answer) + " words)";
             map.performance["Found words"] = answer;
           } else {
             answer = ans[qualtricsid].replace("\"", "");
@@ -106,7 +106,9 @@ export default class DataManager {
 
     for (var key in questions) {
       tempKey = Number(key.substring(1));
-      bigFive = DataManager.updatePoints(bigFive, tempKey, questions[key])
+      bigFive = DataManager.updatePoints(bigFive, tempKey, questions[key]);
+      // console.log(questions[key]);
+      // console.log(bigFive);
     }
     return DataManager.OCEANScoreBaseChange(bigFive);
   }
@@ -124,6 +126,7 @@ export default class DataManager {
     if (qid <= 44) {
       points = 0;
       tempBigFive = bigFive;
+      console.log(tempBigFive);
       if (Const.POS_POINTS.indexOf(qid) > -1) {
         points = Const.POS_LIKERT_SCALE[answer];
       } else {
