@@ -80,7 +80,8 @@ class App extends Component {
       candidates : cs,
       ratings: tempRatings,
       dataInitialized: true,
-      blocks: this.decideBlock()
+      blocks: this.decideBlock(),
+      meta_rating: {}
     });
   }
 
@@ -214,7 +215,8 @@ class App extends Component {
       'selection': this.state.selectedOrder.map((d) => d.mturk_id),
       'rating': this.state.ratings,
       'code': this.state.code,
-      'blocks': this.state.blocks
+      'blocks': this.state.blocks,
+      'meta_rating': this.state.meta_rating
     }
     // console.log(candidate);
     Candidate.insert(candidate);
