@@ -126,7 +126,6 @@ export default class DataManager {
     if (qid <= 44) {
       points = 0;
       tempBigFive = bigFive;
-      console.log(tempBigFive);
       if (Const.POS_POINTS.indexOf(qid) > -1) {
         points = Const.POS_LIKERT_SCALE[answer];
       } else {

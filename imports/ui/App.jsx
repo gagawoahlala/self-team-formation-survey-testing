@@ -30,12 +30,14 @@ class App extends Component {
       code: 0,
       isParamValid: false,
       blocks: [],
+      metaRating: {},
     }
     setInterval(this.hack.bind(this), 2000);
 
     this.approveNext = this.approveNext.bind(this);
     this.advanceNext = this.advanceNext.bind(this);
     this.prepareData = this.prepareData.bind(this);
+    this.updateOtherQuestionRating = this.updateOtherQuestionRating.bind(this);
     this.updateCandidatesRating = this.updateCandidatesRating.bind(this);
     this.updateCandidatesOrding = this.updateCandidatesOrding.bind(this);
     this.submitRatingData = this.submitRatingData.bind(this);
@@ -76,12 +78,17 @@ class App extends Component {
       tempRatings[cs[i].mturk_id] = 0;
     }
 
+    tempMetaRating = {};
+    Const.EXTRA_QUESTIONS.map((q) => {
+      tempMetaRating[q] = 0; 
+    });
+
     this.setState({
       candidates : cs,
       ratings: tempRatings,
       dataInitialized: true,
       blocks: this.decideBlock(),
-      meta_rating: {}
+      metaRating: tempMetaRating,
     });
   }
 
@@ -140,6 +147,12 @@ class App extends Component {
     }
   }
 
+  updateOtherQuestionRating(question, rating) {
+    tempMetaRating = this.state.metaRating;
+    tempMetaRating[question] = rating;
+    this.setState({metaRating: tempMetaRating});
+  }
+
   updateCandidatesRating(candidateId, rating) {
     var tempRatings = this.state.ratings;
     tempRatings[candidateId] = rating;
@@ -168,8 +181,10 @@ class App extends Component {
                   tester={this.state.tester}
                   selection={this.state.selection}
                   callBack={this.approveNext}
+                  updateOtherQuestionRating={this.updateOtherQuestionRating}
                   updateCandidatesRating={this.updateCandidatesRating}
                   updateCandidatesOrding={this.updateCandidatesOrding}
+                  metaRating={this.state.metaRating}
                   blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
@@ -216,7 +231,7 @@ class App extends Component {
       'rating': this.state.ratings,
       'code': this.state.code,
       'blocks': this.state.blocks,
-      'meta_rating': this.state.meta_rating
+      'metaRating': this.state.metaRating
     }
     // console.log(candidate);
     Candidate.insert(candidate);

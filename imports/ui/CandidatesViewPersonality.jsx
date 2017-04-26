@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import ReactStars from 'react-stars';
 import { ProgressBar, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import ReactTooltip from 'react-tooltip'
 

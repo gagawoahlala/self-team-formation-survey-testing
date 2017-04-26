@@ -4,6 +4,11 @@ import * as Const from './Constants/Constants.jsx';
 import CandidateCard from './CandidateCard.jsx';
 import CandidateDNDTag from './CandidateDNDTag.jsx';
 import CandidateViewModal from './CandidateViewModal.jsx';
+import OtherQuestion from './OtherQuestion';
+
+const OTHER_QUESTION_STAR_AMOUNT = 7;
+const STAR_SIZE = 26;
+const STAR_COLOR = "#E46D74";
 
 export default class SummaryPage extends Component {
   constructor(props){
@@ -13,6 +18,7 @@ export default class SummaryPage extends Component {
       currSelection: 0,
       show: false,
       candidate: null,
+      flag: 0,
     };
 
     this.showCandidates = this.showCandidates.bind(this);
@@ -25,10 +31,13 @@ export default class SummaryPage extends Component {
     this.isTaskFinished = this.isTaskFinished.bind(this);
     this.getTodoClassName = this.getTodoClassName.bind(this);
     this.getTodoSymbol = this.getTodoSymbol.bind(this);
+    this.showExtraQuestions = this.showExtraQuestions.bind(this);
+    this.HackOtherQuestionCallback = this.HackOtherQuestionCallback.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     if(this.state.selection == nextState.selection &&
+        this.state.flag == nextState.flag &&
         this.state.currSelection == nextState.currSelection &&
         this.state.show == nextState.show &&
         this.state.candidate == nextState.candidate &&
@@ -42,11 +51,17 @@ export default class SummaryPage extends Component {
 
   componentDidUpdate() {
     if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE &&
-        !Object.values(this.props.ratings).includes(0)) {
+        !Object.values(this.props.ratings).includes(0) &&
+        !Object.values(this.props.metaRating).includes(0)) {
       this.props.callBack(true);
     } else {
       this.props.callBack(false);
     }
+  }
+
+  HackOtherQuestionCallback(question, newRating) {
+    this.setState({flag: this.state.flag+1});
+    this.props.updateOtherQuestionRating(question, newRating);
   }
 
   showCandidates() {
@@ -62,6 +77,18 @@ export default class SummaryPage extends Component {
         updateCandidatesRating={this.props.updateCandidatesRating}
         onCandidateViewClick={this.onCandidateViewClick}
       />
+    ));
+  }
+
+  showExtraQuestions() {
+    return (Const.EXTRA_QUESTIONS.map((question) =>
+      <div key={question} className="extra-question-block">
+        <OtherQuestion
+          question={question}
+          metaRating={this.props.metaRating}
+          HackOtherQuestionCallback={this.HackOtherQuestionCallback}
+        />
+      </div>
     ));
   }
 
@@ -112,6 +139,11 @@ export default class SummaryPage extends Component {
         return true;
       else 
         return false;
+    } else if (todo === "other") {
+      if (!Object.values(this.props.metaRating).includes(0))
+        return true;
+      else 
+        return false;
     } else {
       if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE)
         return true;
@@ -142,6 +174,10 @@ export default class SummaryPage extends Component {
               Choose 3 potential teamates and sort them based on how well do you think you can work together.  
               {this.getTodoSymbol("select")}
             </li>
+            <li className={this.getTodoClassName("other")}>
+              Finish all survey satisfaction questions.  
+              {this.getTodoSymbol("other")}
+            </li>
           </ul>
         </div>
         <div className="candidate-cards-container">
@@ -150,6 +186,10 @@ export default class SummaryPage extends Component {
         <div className="candidates-order-container">
           <h5>Please Drag and Drop Ranking (Most Favourite On Left):</h5>
           {this.orderSelectedCandidates()}
+        </div>
+        <div className="other-question-container">
+          <h5>Please Finish the Following Survey Satisfaction Questions:</h5> 
+          {this.showExtraQuestions()}     
         </div>
         <CandidateViewModal
           candidate={this.state.candidate}
@@ -170,7 +210,9 @@ SummaryPage.propTypes = {
   ratings: React.PropTypes.object.isRequired,
   tester: React.PropTypes.object.isRequired,
   callBack: React.PropTypes.func.isRequired,
+  updateOtherQuestionRating: React.PropTypes.func.isRequired,
   updateCandidatesRating: React.PropTypes.func.isRequired,
   updateCandidatesOrding: React.PropTypes.func.isRequired,
+  metaRating: React.PropTypes.object.isRequired,
   blocks: React.PropTypes.array.isRequired,
 }

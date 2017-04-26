@@ -50,6 +50,12 @@ export const OCEAN_SCALE_HIGH = {
 	"neuroticism": "Sensitive / Nervous"
 }
 
+export const EXTRA_QUESTIONS = ["Judging by the given information, how confident do you feel to have picked a good teammate?",
+								"How much would more personality information have helped you make a better decision about teammate selection?",
+								"How much would more information about performance and ability have helped you make a better decision about teammate selection?",
+								"How much would more demographic information have helped you make a better decision about teammate selection?"]
+
+export const EXTRA_QUESTION_TOOL_TIP = "1=not at all; 7 = very much";
 
 export const PERFORMANCE_QUESTION = ["Advertisement slogan", "Found words"]
 
