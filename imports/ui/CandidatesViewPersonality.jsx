@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import ReactStars from 'react-stars';
 import { ProgressBar, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import ReactTooltip from 'react-tooltip'
 
 import * as Const from './Constants/Constants.jsx';
 
@@ -26,14 +26,19 @@ export default class CandidatesViewPersonality extends Component {
     );
   }
 
-  displayBar(value) {
+  displayBar(value, attr, label) {
+    color = "progress-bar-"+label
     return(
       <div className="progress-bar-div">
-        <ProgressBar
-          now={value}
-          label={`${value} / 5`}
-          max={5}
-        />
+        <div>
+          <span className="progress-label">{label.charAt(0).toUpperCase()+label.slice(1)}</span>
+          <ProgressBar
+            now={value}
+            label={`${value} / ${Const.OCEAN[attr]}`}
+            max={Const.OCEAN[attr]}
+            bsStyle={label == "you" ? "warning" : "info"}
+          />
+        </div>
       </div>
     );
   }
@@ -49,14 +54,23 @@ export default class CandidatesViewPersonality extends Component {
 
   displayOCEAN() {
     return (
-      Const.OCEAN.map((attr) =>       
+      Object.keys(Const.OCEAN).map((attr) =>
         <tr key={attr}>
-          <td>{attr} Score:</td>
           <td>
-            {this.displayBar(this.props.candidatePersonality.ocean[attr])}
+            <div className="ocean-description">
+              <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
+              <p className="ocean-tooltip">{Const.TOOLTIPS[attr]}</p>
+            </div>
           </td>
           <td>
-            {this.displayBar(this.props.testerPersonality.ocean[attr])}
+            <b><p className="ocean-score-label">{Const.OCEAN_SCALE_LOW[attr]}</p></b>
+          </td>
+          <td>
+            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "candidate")}
+            {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "you")}
+          </td>
+          <td>
+            <b><p className="ocean-score-label">{Const.OCEAN_SCALE_HIGH[attr]}</p></b>
           </td>
         </tr>
       )
@@ -80,7 +94,7 @@ export default class CandidatesViewPersonality extends Component {
                     .specially_designed_questions))
             }
           </td>
-        </tr>  
+        </tr>
       )
     );
   }
@@ -94,7 +108,7 @@ export default class CandidatesViewPersonality extends Component {
           <td>{q.answer}</td>
           <td>{this.getAnswer(q.question_content,
                 this.props.testerPersonality.other_questions)}</td>
-        </tr>  
+        </tr>
       )
     );
   }
@@ -102,19 +116,18 @@ export default class CandidatesViewPersonality extends Component {
   render() {
     return (
       <div className="personality">
-        <h5><b>Personality:</b></h5>
+        <h4><b>Personality:</b></h4>
         <table className="table table-striped table-hover">
           <thead>
             <tr>
               <th>Question</th>
-              <th>{this.props.name+"'"}s Answer</th>
-              <th>My Answer</th>
+              <th></th>
+              <th>Score</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {this.displayOCEAN()}
-            {this.displaySpeciallyDesignedQuestions()}
-            {this.displayOtherQuestions()}
           </tbody>
         </table>
       </div>

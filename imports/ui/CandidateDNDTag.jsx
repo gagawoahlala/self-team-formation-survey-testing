@@ -2,13 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import {SortableContainer, SortableElement, SortableHandle, arrayMove} from 'react-sortable-hoc';
 
 const SortableItem = SortableElement(({value}) =>
-		<li className='candidate-tag'>{value}</li>);
+		<li className='candidate-tag'><b>{value}</b></li>);
 
 const SortableList = SortableContainer(({items}) => {
 	return (
 		<ul>
 			{items.map((c, index) =>
-				<SortableItem key={c.id} index={index} value={c.name} />
+				<SortableItem key={c.mturk_id} index={index} value={(index+1)+": "+c.name} />
 				)}
 		</ul>
 	);

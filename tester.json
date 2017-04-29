@@ -20,11 +20,11 @@
         },
         "personality" : {         
             "ocean": {
-                "Openness" : 1,
-                "Conscientiousness" : 2,
-                "Extraversion" : 3,
-                "Agreeableness" : 4,
-                "Neuroticism" : 5,
+                "openness" : 30,
+                "conscientiousness" : 20,
+                "extraversion" : 30,
+                "agreeableness" : 40,
+                "neuroticism" : 15,
                 "questions" : [
                     {
                         "question_content": "Is talkative",

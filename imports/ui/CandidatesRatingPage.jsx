@@ -24,38 +24,23 @@ export default class CandidatesRatingPage extends Component {
     this.ratingChanged = this.ratingChanged.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if(this.state.currIndex == nextState.currIndex) {
-      return false;
-    }
-    return true;
-  }
-
-  componentDidUpdate() {
-    if (this.state.currIndex >= this.state.candidates.length - 1){
-      this.props.callBack(true);
-    }
-  }
-
   updatePercentage() {
-    var percentage = (this.state.currIndex + 1) / this.state.candidates.length;
-    percentage = percentage.toFixed(2);
-    percentage *= 100;
-    return percentage;
+    var percentage = (this.state.currIndex + 1) * 100 / this.state.candidates.length;
+    return Math.floor(percentage);
   }
 
   previousBtnClassName() {
-    return "candidates-control-btn btn btn-default " 
+    return "candidates-control-btn btn btn-default "
       + (this.state.currIndex == 0 ? "disabled" : "");
   }
 
   nextBtnClassName() {
-    return "candidates-control-btn btn btn-default " 
-      + (this.state.currIndex >= this.state.candidates.length - 1 ? "disabled" : "");
+    return "candidates-control-btn btn btn-default";
+      // + (this.state.currIndex >= this.state.candidates.length - 1 ? "disabled" : "");
   }
 
   ratingChanged(newRating) {
-    this.props.updateCandidatesRating(this.state.candidates[this.state.currIndex].id,
+    this.props.updateCandidatesRating(this.state.candidates[this.state.currIndex].mturk_id,
                                       newRating);
   }
 
@@ -65,17 +50,17 @@ export default class CandidatesRatingPage extends Component {
         <div className="candidates-rating">
           <h5>How well do you think you can work together?</h5>
           <div className="stars">
-            <ReactStars 
-              value={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
-              count={STAR_AMOUNT} 
-              size={STAR_SIZE} 
+            <ReactStars
+              value={this.props.ratings[this.state.candidates[this.state.currIndex].mturk_id]}
+              count={STAR_AMOUNT}
+              size={STAR_SIZE}
               color2={STAR_COLOR}
               onChange={this.ratingChanged}
             />
           </div>
         </div>
         <div className="candidates-control">
-          <button 
+          <button
             className={this.previousBtnClassName()}
             onClick={() => {
               this.setState({ currIndex : this.state.currIndex-1 });
@@ -84,14 +69,22 @@ export default class CandidatesRatingPage extends Component {
             Previous
           </button>
           <ProgressBar className="candidates-progress-bar"
-                       now={this.updatePercentage()} 
-                       label={this.updatePercentage() + "%"} 
+                       now={this.updatePercentage()}
+                       label={this.updatePercentage() + "%"}
           />
-          <button 
-            className={this.nextBtnClassName()} 
+          <button
+            className={this.nextBtnClassName()}
             onClick={() => {
-              this.setState({ currIndex : this.state.currIndex+1 });
-              window.scrollTo(0, 0);
+              if (this.state.currIndex < this.state.candidates.length - 1) {
+                this.setState({ currIndex : this.state.currIndex+1 });
+                window.scrollTo(0, 0);
+              } else {
+                // if (!Object.values(this.props.ratings).includes(0)){
+                  this.props.callBack();
+                // } else {
+                //   alert("Please Rate all the candidates!");
+                // }
+              }
             }}>
             Next
           </button>
@@ -107,10 +100,11 @@ export default class CandidatesRatingPage extends Component {
   render() {
     return (
       <div className="">
-        <CandidateViewPage 
+        <CandidateViewPage
           candidate={this.state.candidates[this.state.currIndex]}
           tester={this.props.tester}
           rating={this.props.ratings[this.state.candidates[this.state.currIndex].id]}
+          blocks={this.props.blocks}
         />
         {this.candidatesControl()}
       </div>
@@ -124,4 +118,5 @@ CandidatesRatingPage.propTypes = {
   ratings: React.PropTypes.object.isRequired,
   callBack: React.PropTypes.func.isRequired,
   updateCandidatesRating: React.PropTypes.func.isRequired,
+  blocks: React.PropTypes.array.isRequired,
 }

@@ -12,11 +12,19 @@
 }
 
 .progress-bar-div {
-	height: 5px;
+	width: 300px;
+	margin-top: 10px;
 }
 
-.progress-bar {
-	background: #E46D74;
+// .progress-bar {
+// 	background: #E46D74;
+// }
+
+.progress-label {
+    // float: left;
+    // margin-right: 1em;
+	// margin-top: -20px;
+	width: 65px;
 }
 
 .likert-scale-container {
@@ -51,4 +59,23 @@
 
 .likert-scale-container-5 {
 	background: #5CB85C;
+}
+
+.ocean-description {
+	margin-top: 15px;
+	width: 100%;
+}
+
+.ocean-tooltip {
+	color: gray;
+	max-width: 500px;
+	font-size: 12px;
+	margin: 5px;
+	margin-left: 15px;
+}
+
+.ocean-score-label {
+	color: gray;
+	margin-top: 49px;
+	width: 100px;
 }

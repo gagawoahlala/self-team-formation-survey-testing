@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import * as Const from './Constants/Constants.jsx';
 
 export default class CandidatesViewPerformance extends Component {
   constructor(props){
@@ -6,26 +7,23 @@ export default class CandidatesViewPerformance extends Component {
     this.displayQuestionAndAnswer = this.displayQuestionAndAnswer.bind(this);
   }
 
-  displayQuestionAndAnswer(question, answer) {
+  displayQuestionAndAnswer() {
     return (
-      <div>
-        <p className="question"><strong>{question}</strong></p>
-        <p className="answer">{answer}</p>
+      Const.PERFORMANCE_QUESTION.map((q) =>
+      <div key={q+this.props.performance[q]} className="qa-wrap">
+        <p className="question"><strong>{q}</strong></p>
+        <p className="answer">{this.props.performance[q]}</p>
       </div>
+      )
     );
   }
 
   render() {
     return (
       <div className="performance">
-        <h5><b>Performance:</b></h5>
+        <h4><b>Performance:</b></h4>
         <div className="question-container">
-          {this.displayQuestionAndAnswer(this.props.performance.future.question_diplay,
-                                          this.props.performance.future.answer)}
-          {this.displayQuestionAndAnswer(this.props.performance.words.question_diplay,
-                                          this.props.performance.words.words_found.toString())}
-          {this.displayQuestionAndAnswer(this.props.performance.advertisement.question_diplay,
-                                          this.props.performance.advertisement.answer)}
+          {this.displayQuestionAndAnswer()}
         </div>
       </div>
     );
