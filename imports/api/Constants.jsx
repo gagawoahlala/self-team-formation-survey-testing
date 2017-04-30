@@ -14,7 +14,7 @@ export const A = [2, 7, 12, 17, 22, 27, 32, 37, 42]
 
 export const N = [4, 9, 14, 19, 24, 29, 34, 39]
 
-export const POS_LIKERT_SCALE = {
+export const REV_LIKERT_SCALE = {
 									"Strongly disagree": 5,
 									"Somewhat disagree": 4,
 									"Neither agree nor disagree": 3,
@@ -22,7 +22,7 @@ export const POS_LIKERT_SCALE = {
 									"Strongly agree": 1
 								};
 
-export const REV_LIKERT_SCALE = {
+export const POS_LIKERT_SCALE = {
 									"Strongly disagree": 1,
 									"Somewhat disagree": 2,
 									"Neither agree nor disagree": 3,
