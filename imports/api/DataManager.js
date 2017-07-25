@@ -68,6 +68,46 @@ export default class DataManager {
     }
     return result_arr;
   }
+
+  static prepareTesters(mturk_id) {
+    stage1C = Candidate.find({"mturk_id": mturk_id, "stage": 1}).fetch();
+    console.log("This is inside datamanger");
+    console.log(stage1C);
+    questions = Question.find({}).fetch();
+    basic_info_q = DataManager.q4block(questions, "basic_info");
+    personality_q = DataManager.q4block(questions, "personality");
+    performance_q = DataManager.q4block(questions, "performance");
+
+    candidate = stage1C[0];
+    map = {};
+
+    bigFive = {
+      extraversion: 0,
+      agreeableness: 0,
+      conscientiousness: 0,
+      neuroticism: 0,
+      openness: 0
+    }
+
+    for(let j = 0; j < candidate.answers.length; j ++){
+      ans = candidate.answers[j];
+      qualtricsid = Object.keys(ans)[0];
+      q = Question.find({qualtricsid: qualtricsid}).fetch()[0];
+      qid = undefined;
+      if(q) qid = Number(q.qid.substring(1));
+      if(qualtricsid in personality_q){
+        map["q"+`${qid-10}`] = ans[qualtricsid];
+        // map[personality_q[qualtricsid]] = ans[qualtricsid];
+
+        bigFive = DataManager.updatePoints(bigFive, qid-10, ans[qualtricsid]);
+      }
+    }
+    map["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
+
+    return map;
+  }
+
+
   static q4block(questions, block){
     qs = questions.filter((q) => q.block === block);
     map = {};

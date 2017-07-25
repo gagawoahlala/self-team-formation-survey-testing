@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Survey from 'survey-react';
-import {Candidate} from '../api/Candidate.js'
+import {Candidate} from '../api/Candidate.js';
+import { browserHistory } from 'react-router';
+
 
 
 Survey.Survey.cssType = "bootstrap";
@@ -21,11 +23,7 @@ function sendDataToServer(survey) {
     "mturk_id" : resultAsJSON.mturk_id,
     "stage" : 1
   }
-  // for(var i in resultAsJSON) {
-  //   var tempObj = {};
-  //   tempObj[0] =
-  //   answers.push([i, resultAsJSON [i]]);
-  // }
+
 
   delete resultAsJSON.mturk_id;
   delete resultAsJSON.Example;
@@ -47,15 +45,13 @@ function sendDataToServer(survey) {
   candidate.answers = answers;
   console.log(candidate);
   Candidate.insert(candidate);
-
+  browserHistory.push(`/?mturk_id=${candidate.mturk_id}`);
 
 
 
 }
 
-// survey.onComplete.add(function(result) {
-// 	document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
-// });
+
 
 
 export default class SurveyStage extends React.Component {

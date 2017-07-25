@@ -48,13 +48,14 @@ class App extends Component {
   hack(){
     if((new Date).getTime() - times[times.length - 1] > 2000 && !this.state.dataInitialized){
       this.setState({dataInitialized: true});
+      this.processInparams();
       this.prepareData();
     }
   }
 
   componentDidMount() {
     this.setState({code: this.randomNumGenerator(8)});
-    this.processInparams();
+    // this.processInparams();
   }
 
   componentDidUpdate() {
@@ -72,7 +73,14 @@ class App extends Component {
   }
 
   prepareData() {
-    let cs = this.sample(this.props.stage1candidates, 10);
+    let tempcandidate = this.state.testerMturkId;
+    console.log(tempcandidate);
+    let candiateToShow = this.props.stage1candidates.filter(function(obj) {
+      return obj.mturk_id !== tempcandidate;
+    });
+    console.log(candiateToShow);
+    // let cs = this.sample(this.props.stage1candidates, 10);
+    let cs = this.sample(candiateToShow, 10);
     tempRatings = {}
     for (var i = cs.length - 1; i >= 0; i--) {
       tempRatings[cs[i].mturk_id] = 0;
@@ -80,7 +88,7 @@ class App extends Component {
 
     tempMetaRating = {};
     Const.EXTRA_QUESTIONS.map((q) => {
-      tempMetaRating[q] = 0; 
+      tempMetaRating[q] = 0;
     });
 
     this.setState({
@@ -122,12 +130,31 @@ class App extends Component {
 
   processInparams(){
     query = this.props.location.query;
-    if (this.checkParam(query)) {
-      tester = {}
-      Const.OCEAN_QUESTION_ID.map(val => tester[val] = query[val]);
-      tester["ocean"] = DataManager.calculateBigFivePoints(tester);
-      this.setState({tester : tester});
+
+    let userInDatabase = DataManager.prepareTesters(`${query["mturk_id"]}`);
+    // console.log(testertest);
+
+    // console.log(resultAfterProcess);
+    if(userInDatabase != null){
+      this.setState({
+        isParamValid: true,
+        testerMturkId: query["mturk_id"],
+        tester : userInDatabase
+      });
+    } else {
+      this.setState({isParamValid: false});
     }
+
+
+    // if (this.checkParam(query)) {
+    //   tester = {}
+    //   Const.OCEAN_QUESTION_ID.map(val => tester[val] = query[val]);
+    //   tester["ocean"] = DataManager.calculateBigFivePoints(tester);
+    //   this.setState({tester : tester});
+    // }
+
+    // console.log(tester);
+
   }
 
   checkParam(param) {
