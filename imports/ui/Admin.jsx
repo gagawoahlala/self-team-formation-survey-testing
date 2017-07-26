@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 
 import AdminCandidate from './AdminCandidate.jsx';
 import AdminQuestion from './AdminQuestion.jsx';
+import AdminTeamFormation from './AdminTeamFormation.jsx';
 
 
 const mapping = {"Candidates": <AdminCandidate />,
-                "Questions": <AdminQuestion />};
+                "Questions": <AdminQuestion />,
+                "TeamFormation": <AdminTeamFormation/>
+                };
 // const mapping = {"Candidates": <MongoConsole model={Candidate}/>, "Questions": <MongoConsole />};
 
 export default class Admin extends Component {

@@ -31,6 +31,7 @@ class App extends Component {
       isParamValid: false,
       blocks: [],
       metaRating: {},
+      isOverMinNumber: false
     }
     setInterval(this.hack.bind(this), 2000);
 
@@ -79,6 +80,11 @@ class App extends Component {
       return obj.mturk_id !== tempcandidate;
     });
     console.log(candiateToShow);
+    if(candiateToShow.length >= Const.MAX_CANDIDATES_CHOOSE) {
+      this.setState({
+        isOverMinNumber : true
+      });
+    }
     // let cs = this.sample(this.props.stage1candidates, 10);
     let cs = this.sample(candiateToShow, 10);
     tempRatings = {}
@@ -274,6 +280,9 @@ class App extends Component {
     }
     if(!this.state.isParamValid) {
       return (<div className="announcement"><b>Link Error! Please use the complete link.</b></div>);
+    }
+    if(!this.state.isOverMinNumber) {
+      return (<div className="announcement"><b>Please wait enough number of participants to fill in the survey. Try to refresh later.</b></div>);
     }
     return (
       <div className="container">
