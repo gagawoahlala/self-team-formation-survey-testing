@@ -1,12 +1,48 @@
 import {Candidate} from './Candidate.js';
 import {Question} from './Question.js';
+import {Team} from './Team.js';
 import * as Const from './Constants.jsx';
+faker = require('faker');
+
 
 export default class DataManager {
   fakeData() {
     return {
       "intro": {"mturk_id": "", "name": ""},
     };
+  }
+
+  static shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+  static randomlyAssign(teamSize) {
+    let candidateToForm =  Candidate.find({stage: 2}).fetch();
+    candidateToForm = candidateToForm.map(function (candidate) { return candidate.mturk_id});
+    candidateToForm = DataManager.shuffle(candidateToForm);
+    console.log(candidateToForm);
+    if (candidateToForm.length % teamSize != 0) {
+      Team.insert({team_id: faker.finance.account(), members: candidateToForm.splice(0,teamSize+1)});
+    }
+    while (candidateToForm.length > 0) {
+      Team.insert({team_id: faker.finance.account(), members: candidateToForm.splice(0,teamSize)});
+    }
+
   }
 
   static prepareCandidates() {
@@ -108,7 +144,7 @@ export default class DataManager {
   }
 
 
-  static q4block(questions, block){
+  static q4block(questions, block) {
     qs = questions.filter((q) => q.block === block);
     map = {};
     for(let i = 0; i < qs.length; i++){

@@ -29,7 +29,9 @@ export default class CandidateSelection extends Component {
   render() {
     return (
       <div>
-        {this.renderSelection()}
+        <ul className="list-group">
+          {this.renderSelection()}
+        </ul>
       </div>
     );
   }
