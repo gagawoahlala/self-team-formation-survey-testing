@@ -7,6 +7,7 @@ export const Candidate = new Mongo.Collection('candidates');
 Candidate.schema = new SimpleSchema({
   // name: {type: String},
   mturk_id: {type: String},
+  team_id: {type: String},
   stage: {type: Number},
   answers: {type: [Object], blackbox: true},
   selection: {type: [String], optional: true},

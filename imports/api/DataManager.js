@@ -33,14 +33,28 @@ export default class DataManager {
 
   static randomlyAssign(teamSize) {
     let candidateToForm =  Candidate.find({stage: 2}).fetch();
-    candidateToForm = candidateToForm.map(function (candidate) { return candidate.mturk_id});
+    candidateToForm = candidateToForm.map(function (candidate) { return [candidate._id ,candidate.mturk_id]});
     candidateToForm = DataManager.shuffle(candidateToForm);
     console.log(candidateToForm);
     if (candidateToForm.length % teamSize != 0) {
-      Team.insert({team_id: faker.finance.account(), members: candidateToForm.splice(0,teamSize+1)});
+      let team_id = faker.finance.account();
+      let candidateToFormModified = candidateToForm.splice(0,teamSize+1).map(function (candidate) {
+        Candidate.update({_id: candidate[0]},{$set: {team_id: team_id}});
+        return candidate[1];
+      });
+      // Team.insert({team_id: team_id, members: candidateToForm.splice(0,teamSize+1)});
+      Team.insert({team_id: team_id, members: candidateToFormModified});
+
     }
     while (candidateToForm.length > 0) {
-      Team.insert({team_id: faker.finance.account(), members: candidateToForm.splice(0,teamSize)});
+      let team_id = faker.finance.account();
+      let candidateToFormModified = candidateToForm.splice(0,teamSize).map(function (candidate) {
+        Candidate.update({_id: candidate[0]},{$set: {team_id: team_id}});
+        return candidate[1];
+      });
+      // Team.insert({team_id: faker.finance.account(), members: candidateToForm.splice(0,teamSize)});
+      Team.insert({team_id: team_id, members: candidateToFormModified});
+
     }
 
   }

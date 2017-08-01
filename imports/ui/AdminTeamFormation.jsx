@@ -4,14 +4,19 @@ import { createContainer } from 'meteor/react-meteor-data';
 import {Candidate} from '../api/Candidate.js';
 import MongoConsole from './MongoConsole.jsx';
 import CandidateSelection from './CandidateSelection.jsx';
+import TeamFormationResult from './TeamFormationResult.jsx';
 import DataManager from '../api/DataManager.js';
+import {Team} from '../api/Team.js';
 
 
 class AdminTeamFormation extends Component{
   constructor(props){
     super(props);
     this.state = {
-      selectedOption: 'Random'
+      selectedOption: 'Random',
+      disableFormation: true
+
+
     }
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.runTeamFormation = this.runTeamFormation.bind(this);
@@ -19,7 +24,8 @@ class AdminTeamFormation extends Component{
 
   handleOptionChange (e) {
     this.setState({
-      selectedOption: e.target.value
+      selectedOption: e.target.value,
+      disableFormation: false
     });
   }
 
@@ -27,6 +33,9 @@ class AdminTeamFormation extends Component{
     if(this.state.selectedOption === 'Random') {
       //Need to change here later
       DataManager.randomlyAssign(2);
+      this.setState({
+        disableFormation: true
+      });
     } else {
       //Do Nothing here,need to modifiy
     }
@@ -46,23 +55,19 @@ class AdminTeamFormation extends Component{
               <input type="radio" value="Algorithmic" name="Options" onChange={this.handleOptionChange}/>
                 Team Formation based on Algorithm
             </label>
-            <Button name="startToFormTeams" onClick={this.runTeamFormation}>Start to create teams</Button>
-            {/* <ButtonGroup>
-              <Radio value="Random" onChange={this.handleOptionChange}>Randomly formed teams</Radio>
-              <Radio value="Algorithmic" onChange={this.handleOptionChange}>Team Formation based on Algorithm</Radio>
-              <Button name="startToFormTeams" onClick={this.runTeamFormation}>Start to create teams</Button>
-            </ButtonGroup> */}
+            <Button name="startToFormTeams" onClick={this.runTeamFormation} bsStyle="danger"
+              disabled={this.state.disableFormation}>Start to create teams</Button>
+
           </div>
           <div>
             <div className="col-sm-6">
               <CandidateSelection candidates={this.props.stage2candidates}/>
             </div>
             <div className="col-sm-6">
-              This is where the result of team formation goes
+              <TeamFormationResult teams={this.props.teams}/>
             </div>
 
           </div>
-        {/* <MongoConsole model={Candidate} items={this.props.candidates}/> */}
       </div>
     );
   }
@@ -71,6 +76,7 @@ class AdminTeamFormation extends Component{
 
 export default createContainer(() => {
   return {
-    stage2candidates: Candidate.find({stage: 2}).fetch()
+    stage2candidates: Candidate.find({stage: 2}).fetch(),
+    teams: Team.find({}).fetch()
   };
 }, AdminTeamFormation);
