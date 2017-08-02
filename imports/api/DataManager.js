@@ -157,6 +157,18 @@ export default class DataManager {
     return map;
   }
 
+  static getTeamId(mturk_id) {
+    if (mturk_id == null) {
+      return null;
+    }
+    let result = Candidate.find({mturk_id: mturk_id, stage: 2},{fields: {'team_id': 1}}).fetch();
+    console.log(result[0]);
+    if (result[0].team_id != null) {
+      return result[0].team_id;
+    } else {
+      return null;
+    }
+  }
 
   static q4block(questions, block) {
     qs = questions.filter((q) => q.block === block);

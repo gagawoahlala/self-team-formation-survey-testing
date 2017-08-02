@@ -9,7 +9,8 @@ export default class TeamTask extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        isButtonOff: true
+        isButtonOff: true,
+        link: `https://beta.etherpad.org/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
       }
       this.showButton = this.showButton.bind(this);
     }
@@ -39,7 +40,7 @@ export default class TeamTask extends Component {
     			</div>
 
           <div id="frame">
-            <Iframe url="https://beta.etherpad.org/p/Test1?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false"  width="1280px" height="720px" display="initial" position="relative" allowFullScreen/>
+            <Iframe url={this.state.link}  width="1280px" height="720px" display="initial" position="relative" allowFullScreen/>
           </div>
         </div>
 
@@ -47,3 +48,7 @@ export default class TeamTask extends Component {
   	}
 
 }
+
+TeamTask.propTypes = {
+  teamId: React.PropTypes.string.isRequired,
+};

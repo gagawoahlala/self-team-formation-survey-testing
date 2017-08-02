@@ -58,8 +58,11 @@ export default class SurveyStage extends React.Component {
   render() {
     return (
       <div>
+        <div className="survey-header">
+          <h2 className="survey-site-logo">Background Survey</h2>
+        </div>
       {/* <Survey.Survey json={surveyJSON} onComplete={sendDataToServer}/> */}
-      <Survey.Survey model={survey} onComplete={sendDataToServer}/>
+        <Survey.Survey model={survey} onComplete={sendDataToServer}/>
       </div>
     );
   }

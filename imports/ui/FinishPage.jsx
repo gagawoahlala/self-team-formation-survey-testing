@@ -1,37 +1,37 @@
 import React, { Component, PropTypes } from 'react';
 import { browserHistory } from 'react-router';
+import DataManager from '../api/DataManager.js';
+import TeamTask from './TeamTask.jsx';
 
 
 export default class FinishPage extends Component {
-  processInparams(){
-    let query = this.props.location.query;
 
-    let userInDatabase = query["mturk_id"];
-    // console.log(testertest);
+  // processStates(){
+  //
+  //   if(this.props.teamforcandidates.length != 0){
+  //     browserHistory.push(`/Teamtask/?mturk_id=${this.props.teamforcandidates[0]}`);
+  //   } else {
+  //     return(
+  //       <div>
+  //         Team Formation is in the process. Please hold on a couple of seconds and refresh
+  //       </div>
+  //     );
+  //   }
+  // }
 
-    // console.log(resultAfterProcess);
-    if(userInDatabase != null){
-      this.setState({
-        isParamValid: true,
-        testerMturkId: query["mturk_id"],
-        tester : userInDatabase
-      });
+  render() {
+    if(DataManager.getTeamId(this.props.testerId) != null){
+    // if(true){
+      // browserHistory.push(`/Teamtask/?team_id=${DataManager.getTeamId(this.props.testerId)}`);
+      return (<TeamTask teamId={DataManager.getTeamId(this.props.testerId)}/>);
     } else {
-      this.setState({isParamValid: false});
+      return (<div>Team Formation is in the process. Please hold on a couple of seconds and refresh.</div>);
     }
   }
-  render(){
-    return (
-      <div className="finish-page">
-        <h4>You're finished!</h4>
-        <p>
-          Please copy this code <b>({this.props.code})</b> and place it into the text box in Mechanical Turk in order to get paid.  Thank you for your participation.
-        </p>
-      </div>
-    )
-  }
+
 }
 
 FinishPage.propTypes = {
   code: React.PropTypes.string.isRequired,
+  testerId: React.PropTypes.string.isRequired,
 };

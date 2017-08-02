@@ -221,7 +221,7 @@ class App extends Component {
                   blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
-      curPage = (<FinishPage code={this.state.code}/>);
+      curPage = (<FinishPage code={this.state.code} testerId={this.state.testerMturkId}/>);
     }else {
       curPage = (<AgreementPage
                   callBack={this.approveNext} />);
@@ -285,15 +285,21 @@ class App extends Component {
       return (<div className="announcement"><b>Please wait enough number of participants to fill in the survey. Try to refresh later.</b></div>);
     }
     return (
-      <div className="container">
-        {this.determinePage()}
-        <PageControl
-          shouldHide={this.state.currentPage===Const.LAST_PAGE || this.state.currentPage===Const.CANDIDATES_RATING_PAGE}
-          showNext={this.state.showNext}
-          callBack={this.advanceNext}
-          currentPage={this.state.currentPage}
-        />
-    </div>
+      <div>
+        <div className="header">
+          <h2 className="site-logo">Teammates Selection</h2>
+        </div>
+        <div className="container">
+          {this.determinePage()}
+          <PageControl
+            shouldHide={this.state.currentPage===Const.LAST_PAGE || this.state.currentPage===Const.CANDIDATES_RATING_PAGE}
+            showNext={this.state.showNext}
+            callBack={this.advanceNext}
+            currentPage={this.state.currentPage}
+          />
+        </div>
+        <footer className="footer"></footer>
+      </div>
     );
   }
 }
