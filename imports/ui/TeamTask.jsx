@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Iframe from 'react-iframe';
 import ReactCountdownClock from 'react-countdown-clock';
 import {Button} from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 
 export default class TeamTask extends Component {
@@ -20,6 +21,9 @@ export default class TeamTask extends Component {
   		this.setState({isButtonOff: false});
   	}
 
+    goToExitSurvey() {
+      browserHistory.push('/exitsurvey');
+    }
   	render(){
   		return(
         <div>
@@ -32,7 +36,7 @@ export default class TeamTask extends Component {
       			</div>
       			<div id="next" className="col-md-2">
               <Button name="goToNextPage" bsStyle="danger"
-                disabled={this.state.isButtonOff}> Next >> </Button>
+                disabled={this.state.isButtonOff} onClick={this.goToExitSurvey}> Next >> </Button>
               {/* <button disabled={this.state.isButtonOn}> Next >> </button> */}
 
       			</div>

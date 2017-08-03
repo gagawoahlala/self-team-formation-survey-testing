@@ -13,5 +13,6 @@ export const renderRoutes = () => (
     <Route path="/" component={App} />
     <Route path="/admin" component={Admin}/>
     <Route path='/survey' component={SurveyStage}/>
+    <Route path='/exitsurvey' component={() => window.location='https://ucsdsocialsciences.co1.qualtrics.com/jfe/form/SV_3PBujRi8JEVD4ot'}/>
   </Router>
 );
