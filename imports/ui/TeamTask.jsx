@@ -27,21 +27,35 @@ export default class TeamTask extends Component {
   	render(){
   		return(
         <div>
-    			<div id="whole" >
+    			<div className="container">
       			<div id="counter" className="col-md-2">
       				<ReactCountdownClock  seconds={10} color="#000" alpha={1.0} size={70} onComplete={this.showButton} />
       			</div>
-      			<div id="paragraph" className="col-md-2">
-      				<p>Insert Pararaph here</p>
-      			</div>
+
       			<div id="next" className="col-md-2">
               <Button name="goToNextPage" bsStyle="danger"
                 disabled={this.state.isButtonOff} onClick={this.goToExitSurvey}> Next >> </Button>
               {/* <button disabled={this.state.isButtonOn}> Next >> </button> */}
-
       			</div>
-
     			</div>
+          <div className="container">
+            <p>Task</p><br/>
+            <p>Write a television advertisement for the transporation device you described in the earlier task. </p><br/>
+            <p>- the television advertisement should be 30 seconds</p><br/>
+            <p>- it should highlight the product's main benefits and ultimately persuade people to buy it</p><br/>
+            <p>- you can make up a new name and invent realistic features that it should have Photo of the transportation device</p><br/>
+            <img src="http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg" alt="smart eBike" /><br/>
+            <p>Teamwork Directions</p><br/>
+            <p>You will work collaboratively to develop a great creative advertisement. Since this is teamwork, you must do all of the following to receive credit. We are monitoring your work so we can tell.</p><br/>
+            <ul>At the beginning, introduce yourself to your teammate using the chat window on the lower right side. Click the word “Chat” to open it.</ul><br/>
+            <ul>Start combining your ideas after 2 minutes.</ul><br/>
+            <ul>Each teammate must contribute at least 35% of the work - in term of words, ideas, suggestion. We want to see you combining ideas in real time</ul><br/>
+            <ul>You must agree that you both like the direction of the work after 4 minutes. This can be in the form of writing anywhere - “I like this idea” or something similar.</ul><br/>
+            <ul>You must complete the task by 8 minutes. At 8 minutes you will automatically progress to the next task.</ul><br/>
+            <p>Example</p><br/>
+            <p>Television advertisement for a new type of beverage:</p><br/>
+            <p>"Scopa: Live life, one bean at a time A rugged man is free-climbing up Puncak Jaya, the highest mountain in New Guinea. He climbs effortlessly and quickly reaches the summit. Once at the top he takes a moment to admire the view surrounded by clouds and then removes a flask from his backpack, swiftly pouring a brown liquid into the cup of the flask.  Last, the scene cuts to a blank screen with writing saying: “2 beans, 2 sides, which side will you be today?”</p><br/>
+          </div>
 
           <div id="frame">
             <Iframe url={this.state.link}  width="1280px" height="720px" display="initial" position="relative" allowFullScreen/>

@@ -65,8 +65,8 @@ export default class SummaryPage extends Component {
   }
 
   showCandidates() {
-    return (this.props.candidates.map((candidate) => 
-      <CandidateCard 
+    return (this.props.candidates.map((candidate) =>
+      <CandidateCard
         key={candidate.mturk_id}
         candidate={candidate}
         rating={this.props.ratings[candidate.mturk_id]}
@@ -137,12 +137,12 @@ export default class SummaryPage extends Component {
     if (todo === "rate") {
       if (!Object.values(this.props.ratings).includes(0))
         return true;
-      else 
+      else
         return false;
     } else if (todo === "other") {
       if (!Object.values(this.props.metaRating).includes(0))
         return true;
-      else 
+      else
         return false;
     } else {
       if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE)
@@ -162,44 +162,49 @@ export default class SummaryPage extends Component {
 
   render() {
     return (
-      <div className="summary-page">
-        <div className="todo-list">
-          <h4>Please Finish the Following:</h4>
-          <ul>
-            <li className={this.getTodoClassName("rate")}>
-              Rate all candidates (you can click view and rate them). 
-              {this.getTodoSymbol("rate")}
-            </li>
-            <li className={this.getTodoClassName("select")}>
-              Choose 3 potential teamates and sort them based on how well do you think you can work together.  
-              {this.getTodoSymbol("select")}
-            </li>
-            <li className={this.getTodoClassName("other")}>
-              Finish all survey satisfaction questions.  
-              {this.getTodoSymbol("other")}
-            </li>
-          </ul>
+      <div>
+        <div className="header">
+          <h2 className="site-logo">Teammates Selection</h2>
         </div>
-        <div className="candidate-cards-container">
-          {this.showCandidates()}
+        <div className="summary-page">
+          <div className="todo-list">
+            <h4>Please Finish the Following:</h4>
+            <ul>
+              <li className={this.getTodoClassName("rate")}>
+                Rate all candidates (you can click view and rate them).
+                {this.getTodoSymbol("rate")}
+              </li>
+              <li className={this.getTodoClassName("select")}>
+                Choose 3 potential teamates and sort them based on how well do you think you can work together.
+                {this.getTodoSymbol("select")}
+              </li>
+              <li className={this.getTodoClassName("other")}>
+                Finish all survey satisfaction questions.
+                {this.getTodoSymbol("other")}
+              </li>
+            </ul>
+          </div>
+          <div className="candidate-cards-container">
+            {this.showCandidates()}
+          </div>
+          <div className="candidates-order-container">
+            <h5>Please Drag and Drop Ranking (Most Favourite On Left):</h5>
+            {this.orderSelectedCandidates()}
+          </div>
+          <div className="other-question-container">
+            <h5>Please Finish the Following Survey Satisfaction Questions:</h5>
+            {this.showExtraQuestions()}
+          </div>
+          <CandidateViewModal
+            candidate={this.state.candidate}
+            show={this.state.show}
+            onModalClose={this.onCandidateModalClose}
+            rating={this.state.candidate ? this.props.ratings[this.state.candidate.mturk_id] : 0}
+            tester={this.props.tester}
+            updateCandidatesRating={this.props.updateCandidatesRating}
+            blocks={this.props.blocks}
+          />
         </div>
-        <div className="candidates-order-container">
-          <h5>Please Drag and Drop Ranking (Most Favourite On Left):</h5>
-          {this.orderSelectedCandidates()}
-        </div>
-        <div className="other-question-container">
-          <h5>Please Finish the Following Survey Satisfaction Questions:</h5> 
-          {this.showExtraQuestions()}     
-        </div>
-        <CandidateViewModal
-          candidate={this.state.candidate}
-          show={this.state.show}
-          onModalClose={this.onCandidateModalClose}
-          rating={this.state.candidate ? this.props.ratings[this.state.candidate.mturk_id] : 0}
-          tester={this.props.tester}
-          updateCandidatesRating={this.props.updateCandidatesRating}
-          blocks={this.props.blocks}
-        />
       </div>
     );
   }

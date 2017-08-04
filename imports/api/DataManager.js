@@ -31,6 +31,10 @@ export default class DataManager {
     return array;
   }
 
+  static removeAllTeams() {
+    Team.remove({});
+  }
+  
   static randomlyAssign(teamSize) {
     let candidateToForm =  Candidate.find({stage: 2}).fetch();
     candidateToForm = candidateToForm.map(function (candidate) { return [candidate._id ,candidate.mturk_id]});

@@ -20,6 +20,11 @@ class AdminTeamFormation extends Component{
     }
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.runTeamFormation = this.runTeamFormation.bind(this);
+    this.clearTeam = this.clearTeam.bind(this);
+  }
+
+  clearTeam() {
+    DataManager.removeAllTeams();
   }
 
   handleOptionChange (e) {
@@ -57,6 +62,8 @@ class AdminTeamFormation extends Component{
             </label>
             <Button name="startToFormTeams" onClick={this.runTeamFormation} bsStyle="danger"
               disabled={this.state.disableFormation}>Start to create teams</Button>
+            <Button name="clearTeams" onClick={this.clearTeam} bsStyle="danger"
+              >clear teams</Button>
 
           </div>
           <div>

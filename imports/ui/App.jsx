@@ -199,7 +199,8 @@ class App extends Component {
   determinePage() {
     let curPage;
     if(this.state.currentPage === Const.CANDIDATES_RATING_PAGE){
-      curPage = (<CandidatesRatingPage
+      curPage = (
+                  <CandidatesRatingPage
                   candidates={this.state.candidates}
                   tester={this.state.tester}
                   ratings={this.state.ratings}
@@ -276,19 +277,22 @@ class App extends Component {
 
   render() {
     if(!this.state.dataInitialized) {
-      return (<div className="announcement"><b>Loading Data ... </b></div>);
+      return (
+        <div className="announcement"><b>Loading Data ... </b></div>
+      );
     }
     if(!this.state.isParamValid) {
-      return (<div className="announcement"><b>Link Error! Please use the complete link.</b></div>);
+      return (
+        <div className="announcement"><b>Link Error! Please use the complete link.</b></div>
+      );
     }
     if(!this.state.isOverMinNumber) {
-      return (<div className="announcement"><b>Please wait enough number of participants to fill in the survey. Try to refresh later.</b></div>);
+      return (
+        <div className="announcement"><b>Please wait enough number of participants to fill in the survey. Try to refresh later.</b></div>
+      );
     }
     return (
       <div>
-        <div className="header">
-          <h2 className="site-logo">Teammates Selection</h2>
-        </div>
         <div className="container">
           {this.determinePage()}
           <PageControl

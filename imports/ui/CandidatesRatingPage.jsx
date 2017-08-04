@@ -100,6 +100,9 @@ export default class CandidatesRatingPage extends Component {
   render() {
     return (
       <div className="">
+        <div className="header">
+          <h2 className="site-logo">Teammates Selection</h2>
+        </div>
         <CandidateViewPage
           candidate={this.state.candidates[this.state.currIndex]}
           tester={this.props.tester}
