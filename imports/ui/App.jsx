@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   hack(){
-    if((new Date).getTime() - times[times.length - 1] > 2000 && !this.state.dataInitialized){
+    if((new Date).getTime() - times[times.length - 1] > 5000 && !this.state.dataInitialized){
       this.setState({dataInitialized: true});
       this.processInparams();
       this.prepareData();
