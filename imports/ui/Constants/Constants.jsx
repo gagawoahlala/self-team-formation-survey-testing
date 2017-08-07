@@ -57,6 +57,9 @@ export const EXTRA_QUESTIONS = ["Judging by the given information, how confident
 
 export const EXTRA_QUESTION_TOOL_TIP = "1=not at all; 7 = very much";
 
-export const PERFORMANCE_QUESTION = ["Advertisement slogan", "Found words"]
+// export const PERFORMANCE_QUESTION = ["Advertisement slogan", "Found words"]
+export const PERFORMANCE_QUESTION = ["Advertisement slogan"]
 
-export const BIO = "Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?";
+
+// export const BIO = "Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?";
+export const BIO = "";

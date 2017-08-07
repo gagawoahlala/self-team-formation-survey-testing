@@ -21,10 +21,17 @@ class AdminTeamFormation extends Component{
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.runTeamFormation = this.runTeamFormation.bind(this);
     this.clearTeam = this.clearTeam.bind(this);
+    this.deleteTeam = this.deleteTeam.bind(this);
+  }
+
+  deleteTeam(id) {
+    this.props.teamModal.remove(id);
   }
 
   clearTeam() {
-    DataManager.removeAllTeams();
+    for(let i = 0; i < this.props.teams.length; i ++){
+      this.deleteTeam(this.props.teams[i]._id);
+    }
   }
 
   handleOptionChange (e) {
@@ -84,6 +91,7 @@ class AdminTeamFormation extends Component{
 export default createContainer(() => {
   return {
     stage2candidates: Candidate.find({stage: 2}).fetch(),
-    teams: Team.find({}).fetch()
+    teams: Team.find({}).fetch(),
+    teamModal: Team
   };
 }, AdminTeamFormation);
