@@ -283,7 +283,8 @@ class App extends Component {
     }
     if(!this.state.isParamValid) {
       return (
-        <div className="announcement"><b>Link Error! Please use the complete link.</b></div>
+        // <div className="announcement"><b>Link Error! Please use the complete link.</b></div>
+        <div className="announcement"><b>It seems that you didn't complete the survey on time. Thanks for your participation.</b></div>
       );
     }
     if(!this.state.isOverMinNumber) {

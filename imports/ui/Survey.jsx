@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Survey from 'survey-react';
 import {Candidate} from '../api/Candidate.js';
 import { browserHistory } from 'react-router';
+import ReactCountdownClock from 'react-countdown-clock';
 
 
 
@@ -1041,53 +1042,79 @@ window.survey = new Survey.Model({
 // );
 
 
-function sendDataToServer(survey) {
-  var resultAsJSON = survey.data;
-  var answers = [];
-  candidate = {
-    "mturk_id" : resultAsJSON.mturk_id,
-    "stage" : 1
-  }
 
-
-  delete resultAsJSON.mturk_id;
-  delete resultAsJSON.Example;
-
-  var ret = Object.keys(resultAsJSON).map(function(key) {
-    var ret = {};
-    if(typeof resultAsJSON[key] === 'object'){
-      ret[key] = Object.values(resultAsJSON[key])[0];
-    } else if(typeof resultAsJSON[key] === "number") {
-      ret[key] = resultAsJSON[key].toString();
-    } else {
-      ret[key] = resultAsJSON[key];
-
-    }
-    return ret;
-  });
-
-  answers = ret;
-  candidate.answers = answers;
-  console.log(candidate);
-  Candidate.insert(candidate);
-  browserHistory.push(`/?mturk_id=${candidate.mturk_id}`);
-
-
-
-}
 
 
 
 
 export default class SurveyStage extends React.Component {
+  constructor(props){
+    super(props);
+    this.displayPanel = this.displayPanel.bind(this);
+    this.sendDataToServer = this.sendDataToServer.bind(this);
+    this.goToApp = this.goToApp.bind(this);
+    this.state = {
+      isFinished: false,
+      mturk_id: ""
+    }
+  }
+
+
+
+  sendDataToServer() {
+    var resultAsJSON = survey.data;
+    var answers = [];
+    candidate = {
+      "mturk_id" : resultAsJSON.mturk_id,
+      "stage" : 1
+    }
+    delete resultAsJSON.mturk_id;
+    delete resultAsJSON.Example;
+
+    var ret = Object.keys(resultAsJSON).map(function(key) {
+      var ret = {};
+      if(typeof resultAsJSON[key] === 'object'){
+        ret[key] = Object.values(resultAsJSON[key])[0];
+      } else if(typeof resultAsJSON[key] === "number") {
+        ret[key] = resultAsJSON[key].toString();
+      } else {
+        ret[key] = resultAsJSON[key];
+
+      }
+      return ret;
+    });
+
+    answers = ret;
+    candidate.answers = answers;
+    console.log(candidate);
+    Candidate.insert(candidate);
+    this.setState({isFinished: true, mturk_id: candidate.mturk_id});
+    // browserHistory.push(`/?mturk_id=${candidate.mturk_id}`);
+  }
+
+  displayPanel() {
+    if (this.state.isFinished) {
+      return(<div>Please wait until the timer goes off. You will be automatically redirected shortly</div>);
+    } else {
+      return(<Survey.Survey model={survey} onComplete={this.sendDataToServer}/>);
+    }
+  }
+
+  goToApp() {
+    browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
+  }
   render() {
     return (
       <div>
-        <div className="survey-header">
-          <h2 className="survey-site-logo">Background Survey</h2>
+        <div className="container survey-header">
+          <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
+          <div id="counter" className="col-sm-6">
+            Time left:
+            <ReactCountdownClock  seconds={10} color="#000" alpha={1.0} size={70} onComplete={this.goToApp}/>
+          </div>
         </div>
-      {/* <Survey.Survey json={surveyJSON} onComplete={sendDataToServer}/> */}
-        <Survey.Survey model={survey} onComplete={sendDataToServer}/>
+        {this.displayPanel()}
+        {/* <Survey.Survey model={survey} onComplete={this.sendDataToServer}/> */}
       </div>
     );
   }
