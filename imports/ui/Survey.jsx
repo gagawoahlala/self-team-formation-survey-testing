@@ -1110,7 +1110,7 @@ export default class SurveyStage extends React.Component {
           <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
           <div id="survey-counter" className="col-sm-6">
             Time left:
-            <ReactCountdownClock  seconds={900} color="#000" alpha={1.0} size={70} onComplete={this.goToApp}/>
+            <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={70} onComplete={this.goToApp}/>
           </div>
         </div>
         {this.displayPanel()}

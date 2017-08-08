@@ -42,7 +42,7 @@ export default class TeamTask extends Component {
               <h1 className="col-sm-10">Task</h1><br/>
               <div id="counter" className="col-sm-2">
                 Time left:
-                <ReactCountdownClock  seconds={600} color="#000" alpha={1.0} size={70} onComplete={this.showButton} />
+                <ReactCountdownClock  seconds={60} color="#000" alpha={1.0} size={70} onComplete={this.showButton} />
               </div>
             </div>
             <h2><b>Write a television advertisement for the transporation device you described in the earlier task.</b></h2><br/>
