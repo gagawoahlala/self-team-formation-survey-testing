@@ -37,7 +37,7 @@ export default class TeamTask extends Component {
       			</div>
     			</div>
           {/* <div className="container" id="task-outline"> */}
-          <Panel className="container" id="task-outline">
+          <Panel className="team-container" id="task-outline">
             <div className="row">
               <h1 className="col-sm-10">Task</h1><br/>
               <div id="counter" className="col-sm-2">

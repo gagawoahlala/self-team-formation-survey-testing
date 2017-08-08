@@ -1,6 +1,8 @@
 import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
+import ReactCountdownClock from 'react-countdown-clock';
+
 
 import AgreementPage from './AgreementPage.jsx';
 import PageControl from './PageControl.jsx';
@@ -31,7 +33,8 @@ class App extends Component {
       isParamValid: false,
       blocks: [],
       metaRating: {},
-      isOverMinNumber: false
+      isOverMinNumber: false,
+      isTimeUp: false
     }
     setInterval(this.hack.bind(this), 2000);
 
@@ -44,6 +47,7 @@ class App extends Component {
     this.submitRatingData = this.submitRatingData.bind(this);
     this.randomNumGenerator = this.randomNumGenerator.bind(this);
     this.checkParam = this.checkParam.bind(this);
+    this.goToTeamTask = this.goToTeamTask.bind(this);
   }
 
   hack(){
@@ -222,7 +226,7 @@ class App extends Component {
                   blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
-      curPage = (<FinishPage code={this.state.code} testerId={this.state.testerMturkId}/>);
+      curPage = (<FinishPage code={this.state.code} testerId={this.state.testerMturkId} isTimeUp={this.state.isTimeUp}/>);
     }else {
       curPage = (<AgreementPage
                   callBack={this.approveNext} />);
@@ -275,6 +279,10 @@ class App extends Component {
     return Math.random().toString(36).substring(5);
   }
 
+  goToTeamTask() {
+    this.setState({isTimeUp: true});
+  }
+
   render() {
     if(!this.state.dataInitialized) {
       return (
@@ -294,6 +302,10 @@ class App extends Component {
     }
     return (
       <div>
+        <div id="app-counter">
+          Time left:
+          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={70} onComplete={this.goToTeamTask}/>
+        </div>
         <div className="container">
           {this.determinePage()}
           <PageControl
@@ -303,14 +315,14 @@ class App extends Component {
             currentPage={this.state.currentPage}
           />
         </div>
+
         <footer className="footer"></footer>
       </div>
     );
   }
 }
 
-App.propTypes = {
-}
+
 
 export default createContainer(() => {
   return {

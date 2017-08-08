@@ -6,27 +6,19 @@ import TeamTask from './TeamTask.jsx';
 
 export default class FinishPage extends Component {
 
-  // processStates(){
-  //
-  //   if(this.props.teamforcandidates.length != 0){
-  //     browserHistory.push(`/Teamtask/?mturk_id=${this.props.teamforcandidates[0]}`);
-  //   } else {
-  //     return(
-  //       <div>
-  //         Team Formation is in the process. Please hold on a couple of seconds and refresh
-  //       </div>
-  //     );
-  //   }
-  // }
 
   render() {
-    if(DataManager.getTeamId(this.props.testerId) != null){
-    // if(true){
-      // browserHistory.push(`/Teamtask/?team_id=${DataManager.getTeamId(this.props.testerId)}`);
-      return (<TeamTask teamId={DataManager.getTeamId(this.props.testerId)}/>);
+    if (this.props.isTimeUp) {
+      if(DataManager.getTeamId(this.props.testerId) != null){
+        return (<TeamTask teamId={DataManager.getTeamId(this.props.testerId)}/>);
+      } else {
+        return (<div>It seems that you didn't finish the task on time. Thanks for your participation.</div>);
+        // return (<div>Team Formation is in the process. Please hold on a second</div>);
+      }
     } else {
-      return (<div>Team Formation is in the process. Please hold on a couple of seconds and refresh.</div>);
+      return (<div>Team Formation is in the process. Please hold on a second</div>);
     }
+
   }
 
 }
@@ -34,4 +26,5 @@ export default class FinishPage extends Component {
 FinishPage.propTypes = {
   code: React.PropTypes.string.isRequired,
   testerId: React.PropTypes.string.isRequired,
+  // isTimeUp: React.PropTypes.boolean.isRequired
 };

@@ -1061,7 +1061,7 @@ export default class SurveyStage extends React.Component {
 
 
 
-  sendDataToServer() {
+  sendDataToServer(survey) {
     var resultAsJSON = survey.data;
     var answers = [];
     candidate = {
@@ -1108,7 +1108,7 @@ export default class SurveyStage extends React.Component {
       <div>
         <div className="container survey-header">
           <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
-          <div id="counter" className="col-sm-6">
+          <div id="survey-counter" className="col-sm-6">
             Time left:
             <ReactCountdownClock  seconds={900} color="#000" alpha={1.0} size={70} onComplete={this.goToApp}/>
           </div>
