@@ -4,8 +4,7 @@ import Survey from 'survey-react';
 import {Candidate} from '../api/Candidate.js';
 import { browserHistory } from 'react-router';
 import * as Const from './Constants/SurveyJson.jsx';
-import ReactCountdownClock from 'react-countdown-clock';
-import Countdown from 'react-cntdwn';
+import ReactCountdownClock from 'react-countdown-clock-fork';
 
 
 Survey.Survey.cssType = "bootstrap";
@@ -156,8 +155,8 @@ export default class SurveyStage extends React.Component {
             <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
             <div id="survey-counter-s1" className="col-sm-6">
               Time left:
-              {/* <ReactCountdownClock  seconds={30} color="#000" alpha={1.0} size={70} onComplete={this.goToStage2}/> */}
-              <Countdown targetDate={this.updateTime(30)} onFinished={this.goToStage2} timeSeparator={':'}/>
+              <ReactCountdownClock  seconds={30} color="#000" alpha={1.0} size={70} onComplete={this.goToStage2}/>
+              {/* <Countdown targetDate={this.updateTime(30)} onFinished={this.goToStage2} timeSeparator={':'}/> */}
             </div>
           </div>
           {this.displayPanelStage1()}

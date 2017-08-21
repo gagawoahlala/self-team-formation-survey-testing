@@ -8,7 +8,7 @@ export default class FinishPage extends Component {
 
 
   render() {
-    if (this.props.isTimeUp) {
+    if (true) {
       if(DataManager.getTeamId(this.props.testerId) != null){
         return (<TeamTask teamId={DataManager.getTeamId(this.props.testerId)}/>);
       } else {

@@ -1,7 +1,7 @@
 import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
-import ReactCountdownClock from 'react-countdown-clock';
+// import ReactCountdownClock from 'react-countdown-clock';
 
 
 import AgreementPage from './AgreementPage.jsx';
@@ -302,10 +302,10 @@ class App extends Component {
     }
     return (
       <div>
-        <div id="app-counter">
+        {/* <div id="app-counter">
           Time left:
           <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={70} onComplete={this.goToTeamTask}/>
-        </div>
+        </div> */}
         <div className="container">
           {this.determinePage()}
           <PageControl
