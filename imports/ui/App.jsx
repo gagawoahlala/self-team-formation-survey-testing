@@ -1,7 +1,7 @@
 import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
-// import ReactCountdownClock from 'react-countdown-clock';
+import ReactCountdownClock from 'react-countdown-clock-fork';
 
 
 import AgreementPage from './AgreementPage.jsx';
@@ -79,18 +79,22 @@ class App extends Component {
 
   prepareData() {
     let tempcandidate = this.state.testerMturkId;
-    console.log(tempcandidate);
     let candiateToShow = this.props.stage1candidates.filter(function(obj) {
       return obj.mturk_id !== tempcandidate;
     });
+    console.log("Candidate before sorting");
     console.log(candiateToShow);
     if(candiateToShow.length >= Const.MAX_CANDIDATES_CHOOSE) {
       this.setState({
         isOverMinNumber : true
       });
     }
-    // let cs = this.sample(this.props.stage1candidates, 10);
-    let cs = this.sample(candiateToShow, 10);
+    candiateToShow.sort(function(a, b) {
+      return parseFloat(b.basic_info["Number of approved HITs:"]) - parseFloat(a.basic_info["Number of approved HITs:"]);
+    });
+    console.log("After Sorting");
+    console.log(candiateToShow);
+    let cs = this.sample(candiateToShow, 16);
     tempRatings = {}
     for (var i = cs.length - 1; i >= 0; i--) {
       tempRatings[cs[i].mturk_id] = 0;
@@ -107,6 +111,7 @@ class App extends Component {
       dataInitialized: true,
       blocks: this.decideBlock(),
       metaRating: tempMetaRating,
+      isTimeUp: false
     });
   }
 
@@ -302,10 +307,10 @@ class App extends Component {
     }
     return (
       <div>
-        {/* <div id="app-counter">
+        <div id="app-counter">
           Time left:
-          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={70} onComplete={this.goToTeamTask}/>
-        </div> */}
+          <ReactCountdownClock  seconds={70} color="#000" alpha={1.0} size={70} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+        </div>
         <div className="container">
           {this.determinePage()}
           <PageControl

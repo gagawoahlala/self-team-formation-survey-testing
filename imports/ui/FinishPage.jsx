@@ -5,10 +5,14 @@ import TeamTask from './TeamTask.jsx';
 
 
 export default class FinishPage extends Component {
-
+  constructor(props) {
+    super(props);
+  }
 
   render() {
-    if (true) {
+    if (this.props.isTimeUp === true) {
+      // if (true) {
+
       if(DataManager.getTeamId(this.props.testerId) != null){
         return (<TeamTask teamId={DataManager.getTeamId(this.props.testerId)}/>);
       } else {
@@ -26,5 +30,5 @@ export default class FinishPage extends Component {
 FinishPage.propTypes = {
   code: React.PropTypes.string.isRequired,
   testerId: React.PropTypes.string.isRequired,
-  // isTimeUp: React.PropTypes.boolean.isRequired
+  isTimeUp: React.PropTypes.bool.isRequired
 };

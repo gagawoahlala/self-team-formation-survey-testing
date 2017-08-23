@@ -24,13 +24,21 @@ export default class SurveyStage extends React.Component {
     this.goToStage2 = this.goToStage2.bind(this);
     this.goToApp = this.goToApp.bind(this);
     this.updateTime = this.updateTime.bind(this);
+    this.displayPanel = this.displayPanel.bind(this);
+    this.goToWaitingPage = this.goToWaitingPage.bind(this);
     this.state = {
       isStage2Finished: false,
       isStage1Finished: false,
       mturk_id: "",
-      survey: new Survey.Model(Const.SURVEY_TASK_TEST),
+      survey: new Survey.Model(Const.SURVEY_PERSONALITY),
       stage: 1,
       candidate: {},
+      stage1Length: 120,
+      stage2Length: 20,
+      waitingLength: 20,
+      timer1Visibility: 1.0,
+      timer2Visibility: 0.2,
+      timer3Visibility: 0.2
     }
 
   }
@@ -94,7 +102,11 @@ export default class SurveyStage extends React.Component {
     this.setState({candidate: candidate, mturk_id: candidate.mturk_id});
 
   }
-
+  
+  displayPanelStage3() {
+    return(<div>Woah ! It seems that you finish the survey faster than others! Please hold for a couple of seconds</div>);
+  }
+  
   displayPanelStage2() {
     if (this.state.isStage2Finished) {
       return(<div>Please wait until the timer goes off. You will be automatically redirected shortly</div>);
@@ -116,55 +128,61 @@ export default class SurveyStage extends React.Component {
     browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
   }
 
-  goToStage2() {
-    if (this.state.isStage1Finished) {
-      console.log("about to enter stage 2");
-      this.setState({stage: 2, survey: new Survey.Model(Const.SURVEY_TASK)});
+  goToWaitingPage() {
+    if (this.state.isStage2Finished) {
+      console.log("about to enter stage 3");
+      this.setState({stage: 3, timer2Visibility: 0.2, timer3Visibility: 1.0});
     } else {
       browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
     }
   }
 
+  goToStage2() {
+    if (this.state.isStage1Finished) {
+      this.setState({stage: 2, survey: new Survey.Model(Const.SURVEY_TASK), timer1Visibility: 0.2, timer2Visibility: 1.0});
+    } else {
+      browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
+    }
+  }
+  
   updateTime(offsetInSec) {
     let time1 = new Date();
     time1.setSeconds(time1.getSeconds() + offsetInSec);
     return time1;
   }
+  
 
-  render() {
-    if (this.state.stage === 2) {
-      return (
-        <div>
-          <div className="container survey-header">
-            <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
-            <div id="survey-counter-s2" className="col-sm-6">
-              Time left:
-              <ReactCountdownClock  seconds={20} color="#000" alpha={1.0} size={70} onComplete={this.goToApp}/>
-              {/* <Countdown targetDate={this.updateTime(20)} onFinished={this.goToApp} timeSeparator={':'}/> */}
-
-            </div>
-          </div>
-          {this.displayPanelStage2()}
-          {/* <Survey.Survey model={survey} onComplete={this.sendDataToServer}/> */}
-        </div>
-      );
+  displayPanel() {
+    if (this.state.stage === 1) {
+      return(this.displayPanelStage1());
+    } else if (this.state.stage === 2){
+      return(this.displayPanelStage2());
     } else {
-      return(
-        <div>
-          <div className="container survey-header">
-            <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
-            <div id="survey-counter-s1" className="col-sm-6">
-              Time left:
-              <ReactCountdownClock  seconds={30} color="#000" alpha={1.0} size={70} onComplete={this.goToStage2}/>
-              {/* <Countdown targetDate={this.updateTime(30)} onFinished={this.goToStage2} timeSeparator={':'}/> */}
-            </div>
-          </div>
-          {this.displayPanelStage1()}
-          {/* <Survey.Survey model={survey} onComplete={this.sendDataToServer}/> */}
-        </div>
-      );
+      return(this.displayPanelStage3());
     }
-
+  }
+  
+  render() {
+    
+    return (
+      <div>
+        <div className="container survey-header">
+          <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
+          <div id="survey-counter-s2" className="col-sm-6">
+            Time left:
+            <ReactCountdownClock  seconds={this.state.stage1Length} color="#000" alpha={this.state.timer1Visibility} size={50} onComplete={this.goToStage2} restartOnNewProps={false}/>
+            {/* <Countdown targetDate={this.updateTime(20)} onFinished={this.goToApp} timeSeparator={':'}/> */}
+            Stage2:
+            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length} color="#000" alpha={this.state.timer2Visibility} size={50} onComplete={this.goToWaitingPage} restartOnNewProps={false}/>
+            Waiting:
+            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length + this.state.waitingLength} color="#000" alpha={this.state.timer3Visibility} size={50} onComplete={this.goToApp} restartOnNewProps={false}/>
+          </div>
+        </div>
+        {this.displayPanel()}
+        {/* <Survey.Survey model={survey} onComplete={this.sendDataToServer}/> */}
+      </div>
+    );
+     
   }
 
 }
