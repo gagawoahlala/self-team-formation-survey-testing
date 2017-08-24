@@ -12,9 +12,9 @@ export default class FinishPage extends Component {
   render() {
     if (this.props.isTimeUp === true) {
       // if (true) {
-
-      if(DataManager.getTeamId(this.props.testerId) != null){
-        return (<TeamTask teamId={DataManager.getTeamId(this.props.testerId)}/>);
+      let teamId = DataManager.getTeamId(this.props.testerId);
+      if(teamId != null){
+        return (<TeamTask teamId={teamId} slogans={DataManager.getSloganForTeams(teamId)}/>);
       } else {
         return (<div>It seems that you didn't finish the task on time. Thanks for your participation.</div>);
         // return (<div>Team Formation is in the process. Please hold on a second</div>);

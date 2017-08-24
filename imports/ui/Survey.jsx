@@ -37,8 +37,8 @@ export default class SurveyStage extends React.Component {
       stage2Length: 20,
       waitingLength: 20,
       timer1Visibility: 1.0,
-      timer2Visibility: 0.2,
-      timer3Visibility: 0.2
+      timer2Visibility: 0.1,
+      timer3Visibility: 0.1
     }
 
   }
@@ -131,7 +131,7 @@ export default class SurveyStage extends React.Component {
   goToWaitingPage() {
     if (this.state.isStage2Finished) {
       console.log("about to enter stage 3");
-      this.setState({stage: 3, timer2Visibility: 0.2, timer3Visibility: 1.0});
+      this.setState({stage: 3, timer2Visibility: 0.1, timer3Visibility: 1.0});
     } else {
       browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
     }
@@ -139,7 +139,7 @@ export default class SurveyStage extends React.Component {
 
   goToStage2() {
     if (this.state.isStage1Finished) {
-      this.setState({stage: 2, survey: new Survey.Model(Const.SURVEY_TASK), timer1Visibility: 0.2, timer2Visibility: 1.0});
+      this.setState({stage: 2, survey: new Survey.Model(Const.SURVEY_TASK), timer1Visibility: 0.1, timer2Visibility: 1.0});
     } else {
       browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
     }
@@ -162,20 +162,34 @@ export default class SurveyStage extends React.Component {
     }
   }
   
+  hideOrShowTimer() {
+    var hide = {
+      display: none
+    }
+    
+    return hide;  
+  }
+  
   render() {
+
     
     return (
       <div>
         <div className="container survey-header">
-          <h2 className="survey-site-logo col-sm-6">Background Survey</h2>
-          <div id="survey-counter-s2" className="col-sm-6">
+          <h2 className="survey-site-logo col-sm-3">Background Survey</h2>
+          <div className="col-sm-3 counter-box-survey" >
+            <span className="counter-box-survey-text">
             Time left:
-            <ReactCountdownClock  seconds={this.state.stage1Length} color="#000" alpha={this.state.timer1Visibility} size={50} onComplete={this.goToStage2} restartOnNewProps={false}/>
-            {/* <Countdown targetDate={this.updateTime(20)} onFinished={this.goToApp} timeSeparator={':'}/> */}
+            </span>
+            <ReactCountdownClock  seconds={this.state.stage1Length} color="#000" alpha={this.state.timer1Visibility} size={100} onComplete={this.goToStage2} restartOnNewProps={false}/>
+          </div>
+          <div className="col-sm-3 counter-box-survey">
             Stage2:
-            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length} color="#000" alpha={this.state.timer2Visibility} size={50} onComplete={this.goToWaitingPage} restartOnNewProps={false}/>
+            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length} color="#000" alpha={this.state.timer2Visibility} size={100} onComplete={this.goToWaitingPage} restartOnNewProps={false}/>
+          </div>
+          <div className="col-sm-3 counter-box-survey">
             Waiting:
-            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length + this.state.waitingLength} color="#000" alpha={this.state.timer3Visibility} size={50} onComplete={this.goToApp} restartOnNewProps={false}/>
+            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length + this.state.waitingLength} color="#000" alpha={this.state.timer3Visibility} size={100} onComplete={this.goToApp} restartOnNewProps={false}/>
           </div>
         </div>
         {this.displayPanel()}

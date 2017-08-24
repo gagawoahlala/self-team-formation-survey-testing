@@ -2,11 +2,22 @@
 	padding: 10px;
 	background: #F9F9F9;
 	text-align: left;
-	border-bottom: thick solid #75FF33;
+	border-bottom: thick solid black;
 }
 
 .survey-site-logo {
-	color: #75FF33;
+	color: black;
 	font-family:Arial Black;
 	letter-spacing: 2px;
+}
+
+.counter-box-survey {
+	display: table;
+	text-align: center;
+	font-size: 40px;
+}
+
+.counter-box-survey-text {
+	display: table-cell;
+	vertical-align: middle;
 }

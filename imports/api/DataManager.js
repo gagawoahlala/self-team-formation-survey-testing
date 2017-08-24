@@ -60,6 +60,24 @@ export default class DataManager {
 
   }
 
+  static getSloganForTeams(teamId) {
+    let teams = Team.find({team_id: teamId}).fetch();
+    let membersId = teams.map(function(team) {
+      return team.members;
+    });
+    let members = membersId[0].map(function(memberId) {
+      return Candidate.find({stage: 1, mturk_id: memberId}).fetch();
+    });
+    console.log(members);
+    console.log("get the answer of the candidate");
+    let SloganArray = members.map(function(member) {
+      console.log(member[0].answers[41]);
+      return member[0].answers[41].Q86;
+    });
+    console.log(SloganArray);
+    return SloganArray;
+  }
+
   static prepareCandidates() {
     result_arr = [];
     stage1C = Candidate.find({stage: 1}).fetch();

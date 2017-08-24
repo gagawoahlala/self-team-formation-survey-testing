@@ -17,6 +17,7 @@ export default class TeamTaskView extends Component {
     this.determinePage = this.determinePage.bind(this);
     this.determineEtherpad = this.determineEtherpad.bind(this);
     this.updatePage = this.updatePage.bind(this);
+    this.displaySlogans = this.displaySlogans.bind(this);
   }
 
   determinePage() {
@@ -42,24 +43,51 @@ export default class TeamTaskView extends Component {
             <PopUpButton pageToEmbed={Const.page1}/>
             <PopUpButton pageToEmbed={Const.page2}/>
             {Const.page3}
+            {this.displaySlogans()}
           </div>
         );
         break;
       case 4:
-        page = Const.page4;
+        page = (
+          <div>
+            <PopUpButton pageToEmbed={Const.page1}/>
+            <PopUpButton pageToEmbed={Const.page2}/>
+            {Const.page4}
+            {this.displaySlogans()}
+          </div>
+        );
         break;
       case 5:
-        page = Const.page5;
+        page = (
+          <div>
+            <PopUpButton pageToEmbed={Const.page1}/>
+            <PopUpButton pageToEmbed={Const.page2}/>
+            {Const.page5}
+            {this.displaySlogans()}
+          </div>
+        );
         break;
       case 6:
-        page = Const.page6;
+        page = (
+          <div>
+            <PopUpButton pageToEmbed={Const.page1}/>
+            <PopUpButton pageToEmbed={Const.page2}/>
+            {Const.page6}
+            {this.displaySlogans()}
+          </div>
+        );
         break;
     }
     return page;
 
   }
-
-
+  
+  displaySlogans() {
+    return this.props.slogans.map((slogan) => {
+      return <div>{slogan}</div>;
+    });
+  }
+  
   determineEtherpad() {
     if (this.props.page > 2) {
       return(
@@ -101,5 +129,7 @@ TeamTaskView.propTypes = {
   page: React.PropTypes.number.isRequired,
   teamId: React.PropTypes.string.isRequired,
   pageCallBack: React.PropTypes.func.isRequired,
-  timeToCount: React.PropTypes.number.isRequired
+  timeToCount: React.PropTypes.number.isRequired,
+  slogans: React.PropTypes.array.isRequired
+
 };

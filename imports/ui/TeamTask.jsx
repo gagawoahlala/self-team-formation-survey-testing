@@ -53,8 +53,6 @@ export default class TeamTask extends Component {
       // return 10000;
     }
 
-
-
     getPageCallBack(pageNumber) {
       console.log(pageNumber);
       this.setState({currentPage: pageNumber});
@@ -68,7 +66,7 @@ export default class TeamTask extends Component {
 
             <TeamTaskView page={this.state.currentPage} teamId={this.props.teamId}
               timeToCount={this.determineTime()}
-              pageCallBack={this.getPageCallBack}/>
+              pageCallBack={this.getPageCallBack} slogans={this.props.slogans}/>
     			</div>
 
 
@@ -79,6 +77,8 @@ export default class TeamTask extends Component {
 
 }
 
+
 TeamTask.propTypes = {
   teamId: React.PropTypes.string.isRequired,
+  slogans: React.PropTypes.array.isRequired
 };
