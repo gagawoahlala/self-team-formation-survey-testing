@@ -34,7 +34,7 @@ export default class SurveyStage extends React.Component {
       stage: 1,
       candidate: {},
       stage1Length: 240,
-      stage2Length: 20,
+      stage2Length: 60,
       waitingLength: 20,
       timer1Visibility: 1.0,
       timer2Visibility: 0.1,
