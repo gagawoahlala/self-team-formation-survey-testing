@@ -334,7 +334,7 @@ class App extends Component {
           <span className="counter-box-app-text">
           Time to wait:
           </span>
-          <ReactCountdownClock  seconds={500} color="#000" alpha={1.0} size={200} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={200} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
         </div>
 
 
