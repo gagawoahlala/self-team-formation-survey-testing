@@ -33,7 +33,7 @@ export default class SurveyStage extends React.Component {
       survey: new Survey.Model(Const.SURVEY_PERSONALITY),
       stage: 1,
       candidate: {},
-      stage1Length: 120,
+      stage1Length: 240,
       stage2Length: 20,
       waitingLength: 20,
       timer1Visibility: 1.0,
