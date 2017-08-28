@@ -4,6 +4,7 @@ import Iframe from 'react-iframe';
 import ReactCountdownClock from 'react-countdown-clock-fork';
 import PopUpButton from './PopUpButton.jsx';
 import { browserHistory } from 'react-router';
+faker = require('faker');
 
 
 export default class TeamTaskView extends Component {
@@ -26,11 +27,8 @@ export default class TeamTaskView extends Component {
       case 1:
         page = (
           <div>
-            {Const.page1}
-            <div>
-              <img
-                src="http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg"/>
-            </div>
+            {Const.page1WithImg}
+
           </div>
         );
         break;
@@ -81,13 +79,13 @@ export default class TeamTaskView extends Component {
     return page;
 
   }
-  
+
   displaySlogans() {
     return this.props.slogans.map((slogan) => {
-      return <div>{slogan}</div>;
+      return <div key={faker.finance.account()}>{slogan}</div>;
     });
   }
-  
+
   determineEtherpad() {
     if (this.props.page > 2) {
       return(
@@ -112,8 +110,8 @@ export default class TeamTaskView extends Component {
     return(
       <div>
         <div>
-          <ReactCountdownClock  seconds={this.props.timeToCount} onComplete={this.updatePage} color="#000"
-            timeFormat="hms" alpha={1.0} size={70}/>
+          {/* <ReactCountdownClock  seconds={this.props.timeToCount} onComplete={this.updatePage} color="#000"
+            timeFormat="hms" alpha={1.0} size={70}/> */}
           {this.determinePage()}
         </div>
         <div>

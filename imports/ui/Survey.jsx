@@ -104,12 +104,16 @@ export default class SurveyStage extends React.Component {
   }
   
   displayPanelStage3() {
-    return(<div>Woah ! It seems that you finish the survey faster than others! Please hold for a couple of seconds</div>);
+    return(
+      <div className="announcement"><b>Woah ! It seems that you finish the survey faster than others! Please hold for a couple of seconds</b></div>
+    );
   }
   
   displayPanelStage2() {
     if (this.state.isStage2Finished) {
-      return(<div>Please wait until the timer goes off. You will be automatically redirected shortly</div>);
+      return(
+        <div className="announcement"><b>Please wait until the timer goes off. You will be automatically redirected shortly</b></div>
+      );
     } else {
       return(<Survey.Survey model={this.state.survey} onComplete={this.sendDataToServer}/>);
     }
@@ -118,7 +122,9 @@ export default class SurveyStage extends React.Component {
 
   displayPanelStage1() {
     if (this.state.isStage1Finished) {
-      return(<div>Please wait until the timer goes off. You will be automatically redirected to the next page.</div>);
+      return(
+        <div className="announcement"><b>Please wait until the timer goes off. You will be automatically redirected to the next page.</b></div>
+      );
     } else {
       return(<Survey.Survey model={this.state.survey} onComplete={this.storeDataAtLocal}/>);
     }
@@ -177,18 +183,24 @@ export default class SurveyStage extends React.Component {
       <div>
         <div className="container survey-header">
           <h2 className="survey-site-logo col-sm-3">Background Survey</h2>
-          <div className="col-sm-3 counter-box-survey" >
+          <div className={this.state.isStage1Finished === true && this.state.stage === 1 ? 'counter-center-box' : 'disable-display'} >
             <span className="counter-box-survey-text">
             Time left:
             </span>
             <ReactCountdownClock  seconds={this.state.stage1Length} color="#000" alpha={this.state.timer1Visibility} size={100} onComplete={this.goToStage2} restartOnNewProps={false}/>
           </div>
-          <div className="col-sm-3 counter-box-survey">
-            Stage2:
-            <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length} color="#000" alpha={this.state.timer2Visibility} size={100} onComplete={this.goToWaitingPage} restartOnNewProps={false}/>
+          <div className={this.state.stage === 2 ? '' : 'disable-display'}>
+            <div className={this.state.isStage2Finished === true && this.state.stage === 2 ? 'counter-center-box' : 'counter-box-survey'}>
+              <span className="counter-box-survey-text">
+              Time left:
+              </span>
+              <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length} color="#000" alpha={this.state.timer2Visibility} size={100} onComplete={this.goToWaitingPage} restartOnNewProps={false}/>
+            </div>
           </div>
-          <div className="col-sm-3 counter-box-survey">
-            Waiting:
+          <div className={this.state.isStage2Finished === true && this.state.stage === 3 ? 'counter-center-box' : 'disable-display'}>
+            <span className="counter-box-survey-text">
+            Time of Waiting:
+            </span>
             <ReactCountdownClock  seconds={this.state.stage1Length + this.state.stage2Length + this.state.waitingLength} color="#000" alpha={this.state.timer3Visibility} size={100} onComplete={this.goToApp} restartOnNewProps={false}/>
           </div>
         </div>

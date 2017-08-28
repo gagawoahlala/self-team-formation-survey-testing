@@ -17,7 +17,17 @@
 	font-size: 40px;
 }
 
+.center-timer-survey {
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	z-index: 15;
+	top: 50%;
+	left: 50%;
+	margin: -100px 0 0 -150px;
+}
+
 .counter-box-survey-text {
-	display: table-cell;
+	display: block;
 	vertical-align: middle;
 }

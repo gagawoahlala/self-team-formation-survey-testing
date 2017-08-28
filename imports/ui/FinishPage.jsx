@@ -9,18 +9,25 @@ export default class FinishPage extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.showTimerCallBack(true);
+  }
+
+
   render() {
     if (this.props.isTimeUp === true) {
-      // if (true) {
-      let teamId = DataManager.getTeamId(this.props.testerId);
-      if(teamId != null){
-        return (<TeamTask teamId={teamId} slogans={DataManager.getSloganForTeams(teamId)}/>);
-      } else {
-        return (<div>It seems that you didn't finish the task on time. Thanks for your participation.</div>);
-        // return (<div>Team Formation is in the process. Please hold on a second</div>);
-      }
+      return(<div className="announcement"><b>Loading Data ... </b></div>);
+      // let teamId = DataManager.getTeamId(this.props.testerId);
+      // if(teamId != null){
+      //   return (<TeamTask teamId={teamId} />);
+      // } else {
+      //   return (<div>It seems that you didn't finish the task on time. Thanks for your participation.</div>);
+      // }
     } else {
-      return (<div>Team Formation is in the process. Please hold on a second</div>);
+      return (
+        <div className="announcement"><b>Team Formation is in the process. Please hold on a second. Thanks for your patients :)</b></div>
+
+      );
     }
 
   }
@@ -29,6 +36,6 @@ export default class FinishPage extends Component {
 
 FinishPage.propTypes = {
   code: React.PropTypes.string.isRequired,
-  testerId: React.PropTypes.string.isRequired,
-  isTimeUp: React.PropTypes.bool.isRequired
+  isTimeUp: React.PropTypes.bool.isRequired,
+  showTimerCallBack: React.PropTypes.func.isRequired,
 };

@@ -2,23 +2,63 @@ import React, { Component, PropTypes } from 'react';
 import ReactCountdownClock from 'react-countdown-clock-fork';
 import {Button, Panel} from 'react-bootstrap';
 import TeamTaskView from './TeamTaskView.jsx';
+import DataManager from '../api/DataManager.js';
 
 
+var times = [(new Date).getTime()];
 
 
 export default class TeamTask extends Component {
 
     constructor(props) {
       super(props);
+
       this.state = {
         currentPage: 1,
+        teamId: "",
+        slogans: [],
+        dataInitialized: false,
+        dataLoaded: false
       }
+      setInterval(this.hack.bind(this), 2000);
       this.getPageCallBack = this.getPageCallBack.bind(this);
       this.determineTime = this.determineTime.bind(this);
+      this.processInparams = this.processInparams.bind(this);
+    }
+
+    componentWillMount() {
+
     }
 
     goToExitSurvey() {
       browserHistory.push('/exitsurvey');
+    }
+
+    processInparams(){
+      query = this.props.location.query;
+      let teamId = query["team_id"];
+      console.log("the obtained teamId is:");
+      console.log(teamId);
+      if(teamId != null){
+        this.setState({
+          teamId: teamId,
+          slogans: DataManager.getSloganForTeams(teamId),
+          dataLoaded: true
+        });
+      }
+    }
+
+    hack(){
+      if((new Date).getTime() - times[times.length - 1] > 2000 && !this.state.dataInitialized){
+        this.setState({dataInitialized: true});
+        this.processInparams();
+      }
+    }
+
+    componentDidUpdate() {
+      if(!this.state.dataInitialized) {
+        times.push((new Date).getTime());
+      }
     }
 
     updateTime(offsetInSec) {
@@ -60,25 +100,24 @@ export default class TeamTask extends Component {
 
 
   	render(){
-  		return(
+      if (!this.state.dataInitialized) {
+        return(<div className="announcement"><b>Loading Data ... </b></div>);
+      }
+      if (!this.state.dataLoaded) {
+        return(
+          <div className="announcement"><b>It seems that you didn't finish the task on time. Thanks for your participation.</b></div>
+        );
+      }
+      return(
         <div>
-    			<div className="container">
-
-            <TeamTaskView page={this.state.currentPage} teamId={this.props.teamId}
+          <div className="container">
+            {/* <TeamTaskView page={this.state.currentPage} teamId={this.state.teamId} */}
+            <TeamTaskView page={2} teamId={this.state.teamId}
               timeToCount={this.determineTime()}
-              pageCallBack={this.getPageCallBack} slogans={this.props.slogans}/>
-    			</div>
-
-
+              pageCallBack={this.getPageCallBack} slogans={this.state.slogans}/>
+          </div>
         </div>
+        );
 
-  			);
   	}
-
 }
-
-
-TeamTask.propTypes = {
-  teamId: React.PropTypes.string.isRequired,
-  slogans: React.PropTypes.array.isRequired
-};

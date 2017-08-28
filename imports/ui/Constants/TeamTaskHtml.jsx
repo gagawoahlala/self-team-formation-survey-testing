@@ -1,10 +1,49 @@
 import React from 'react';
+export const page1WithImg = (
+  <div className = "row team-task-box">
+
+    <div id="demo">
+      <div>
+        <h3 className="centerdiv"><u><b>Task</b></u></h3>
+      </div>
+      <br/>
+      <br/>
+      <div className="paragraph">
+        <u><b>Write a television advertisement for the transportation device you described in the earlier task.</b></u>
+        <br></br>
+
+        <p>- the television advertisement should be 30 seconds</p>
+        <p>- it should highlight the product 's main benefits and ultimately persuade people to buy it</p>
+        <p>- you can make up a new name and invent realistic features that it should have </p>
+        <br></br>
+        <b>You have 1:00 minute</b> to read these directions before you 're automatically moved to the next section. Scroll to the bottom of the page to see all of the directions and the photo.
+        <br/>
+        <br/>
+        <p><u><b>Sample advertisement</b></u></p>
+      </div>
+      <div className="tab">
+
+        <p>Television advertisement for a new type of beverage:</p>
+
+        <p> "Scopa: Live life, one bean at a time A rugged man is free-climbing up Puncak Jaya, the highest mountain in New Guinea. He climbs effortlessly and quickly reaches the summit. Once at the top he takes a moment to admire the view surrounded by clouds and then removes a flask from his backpack, swiftly pouring a brown liquid into the cup of the flask. Last, the scene cuts to a blank screen with writing saying: “2 beans, 2 sides, which side will you be today?”
+        </p>
+        
+      </div>
+      <br/>
+      <div className="centerdiv">
+        <img
+          src="http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg"/>
+      </div>
+    </div>
+  </div>
+);
+
 export const page1 = (
   <div className = "row">
 
     <div id="demo">
       <div>
-        <h3><u><b>Task</b></u></h3>
+        <h3 className="centerdiv"><u><b>Task</b></u></h3>
       </div>
 
       <div>
@@ -30,16 +69,13 @@ export const page1 = (
 
 export const page2 = (
 
-  <div id = "demo">
-    
-      <center>
-        <h3>
-          <b><u>Teamwork Directions</u></b>
-        </h3>
-      </center>
+  <div id = "demo" className = "row team-task-box">
+    <div>
+      <h3 className="centerdiv"><u><b>Teamwork Directions</b></u></h3>
+    </div>
 
 
-    <p><b>You have 1:00 minute </b> to read these directions before you 're automatically moved to the first part of the task. There are 4 sections to the the task: work on each section in the appropriate area on the collaborative workspace.<br></br>
+    <p className="page2-intro"><b>You have 1:00 minute </b> to read these directions before you 're automatically moved to the first part of the task. There are 4 sections to the the task: work on each section in the appropriate area on the collaborative workspace.<br></br>
     Important : <b> DO NOT COPY AN ADVERTISEMENT FROM ELSEWHERE ON WEB
     DO NOT REFRESH YOUR WEBPAGE DURING THE TASK</b></p>
 
@@ -104,7 +140,7 @@ export const page3 = (
       <li><p><b>Introduce yourself to your teammate
       </b>by writing anywhere in the collaborative workspace.</p></li>
       <li><p>Read each other’s slogans written during the individual task.</p></li>
-      <li><p><b>Write down</b>all your ideas for features of the transportation device<b>as a list.
+      <li><p><b>Write down</b> all your ideas for features of the transportation device<b> as a list. 
       </b>Record them under “Part 1” heading of the collaborative workspace.
       </p></li>
     </ul>

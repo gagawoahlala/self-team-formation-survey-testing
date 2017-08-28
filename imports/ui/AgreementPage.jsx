@@ -20,6 +20,7 @@ export default class AgreementPage extends Component {
         <div className="intro-page">
           <Introduction />
         </div>
+
       </div>
     );
   }

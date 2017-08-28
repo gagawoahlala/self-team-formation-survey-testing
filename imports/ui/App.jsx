@@ -2,6 +2,7 @@ import * as Const from './Constants/Constants.jsx';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactCountdownClock from 'react-countdown-clock-fork';
+import ToggleDisplay from 'react-toggle-display';
 
 
 import AgreementPage from './AgreementPage.jsx';
@@ -34,7 +35,8 @@ class App extends Component {
       blocks: [],
       metaRating: {},
       isOverMinNumber: false,
-      isTimeUp: false
+      isTimeUp: false,
+      showTimer: false,
     }
     setInterval(this.hack.bind(this), 2000);
 
@@ -48,6 +50,7 @@ class App extends Component {
     this.randomNumGenerator = this.randomNumGenerator.bind(this);
     this.checkParam = this.checkParam.bind(this);
     this.goToTeamTask = this.goToTeamTask.bind(this);
+    this.determineTimer = this.determineTimer.bind(this);
   }
 
   hack(){
@@ -231,7 +234,7 @@ class App extends Component {
                   blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
-      curPage = (<FinishPage code={this.state.code} testerId={this.state.testerMturkId} isTimeUp={this.state.isTimeUp}/>);
+      curPage = (<FinishPage code={this.state.code}  isTimeUp={this.state.isTimeUp} showTimerCallBack={this.determineTimer}/>);
     }else {
       curPage = (<AgreementPage
                   callBack={this.approveNext} />);
@@ -286,8 +289,28 @@ class App extends Component {
 
   goToTeamTask() {
     this.setState({isTimeUp: true});
+    browserHistory.push(`/team?team_id=${DataManager.getTeamId(this.state.testerMturkId)}`);
   }
 
+  determinFooter() {
+    if (this.state.currentPage != Const.FINISH_PAGE) {
+      return(
+        <div>
+          <footer className="footer"></footer>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <footer className="disable-display"></footer>
+        </div>
+      );
+    }
+  }
+
+  determineTimer(showTimer) {
+    this.setState({showTimer: showTimer});
+  }
   render() {
     if(!this.state.dataInitialized) {
       return (
@@ -307,10 +330,14 @@ class App extends Component {
     }
     return (
       <div>
-        <div id="app-counter">
-          Time left:
-          <ReactCountdownClock  seconds={70} color="#000" alpha={1.0} size={70} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+        <div className={this.state.showTimer ? 'counter-center-box' : 'disable-display'}>
+          <span className="counter-box-app-text">
+          Time to wait:
+          </span>
+          <ReactCountdownClock  seconds={500} color="#000" alpha={1.0} size={200} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
         </div>
+
+
         <div className="container">
           {this.determinePage()}
           <PageControl
@@ -320,8 +347,8 @@ class App extends Component {
             currentPage={this.state.currentPage}
           />
         </div>
+        {this.determinFooter()}
 
-        <footer className="footer"></footer>
       </div>
     );
   }
