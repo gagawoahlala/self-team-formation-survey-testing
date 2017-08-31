@@ -39,7 +39,7 @@ export default class DataManager {
     console.log(candidateToForm);
     if (candidateToForm.length % teamSize != 0) {
       let team_id = faker.finance.account();
-      let candidateToFormModified = candidateToForm.splice(0,teamSize+1).map(function (candidate) {
+      let candidateToFormModified = candidateToForm.splice(0, 1).map(function (candidate) {
         Candidate.update({_id: candidate[0]},{$set: {team_id: team_id}});
         return candidate[1];
       });
@@ -58,6 +58,86 @@ export default class DataManager {
 
     }
 
+  }
+
+  static algorithmAssign(teamSize) {
+    weights = {
+      "extraversion": 0.1,
+      "agreeableness": 0.1,
+      "conscientiousness": 0.1,
+      "neuroticism": 0.1,
+      "openness": 0.3,
+      "popularity_selection": 0.1,
+      "avg_rating": 0.1,
+      "demo_score": 0.1,
+    }
+    let candidateToForm =  Candidate.find({stage: 2}).fetch();
+    candidateToForm = candidateToForm.map(function (candidate) {
+       let instance = Candidate.find({stage: 1, mturk_id: candidate.mturk_id}).fetch()[0];
+       console.log(instance);
+       let score = DataManager.scoreCalculator(weights, instance.score_base);
+       Candidate.update({_id: instance._id},{$set: {score: score}});
+       let instanceObject = {
+         "_id": instance._id,
+         "mturk_id": instance.mturk_id,
+         "score": score
+       }
+       return instanceObject;
+     });
+     console.log("Trying to get score ``````````");
+     console.log(candidateToForm);
+     candidateToForm.sort(function(left, right) {
+       return left.score >= right.score ? -1 : 1;
+     });
+     console.log("After sorting``````````");
+     console.log(candidateToForm);
+     for (var i = 0; i < candidateToForm.length; i++) {
+       Candidate.update({_id: candidateToForm[i]._id},{$set: {rank: i + 1}});
+     }
+
+     if (candidateToForm.length % teamSize != 0) {
+       let team_id = faker.finance.account();
+       let candidateToFormModified = candidateToForm.splice(candidateToForm.length - 1, 1).map(function (candidate) {
+         Candidate.update({_id: candidate._id},{$set: {team_id: team_id}});
+         return candidate.mturk_id;
+       });
+       // Team.insert({team_id: team_id, members: candidateToForm.splice(0,teamSize+1)});
+       Team.insert({team_id: team_id, members: candidateToFormModified});
+
+     }
+
+    while (candidateToForm.length > 0) {
+      let team_id = faker.finance.account();
+      let candidateToFormModified = candidateToForm.splice(0,teamSize).map(function (candidate) {
+        Candidate.update({_id: candidate._id},{$set: {team_id: team_id}});
+        return candidate.mturk_id;
+      });
+      // Team.insert({team_id: faker.finance.account(), members: candidateToForm.splice(0,teamSize)});
+      Team.insert({team_id: team_id, members: candidateToFormModified});
+
+    }
+
+  }
+
+  static scoreCalculator(weights, score_base) {
+    let score = 0;
+    if (score_base === {}) {
+      return 0;
+    }
+    for (var weight in weights) {
+      if (weights.hasOwnProperty(weight)) {
+        if (weight == "avg_rating") {
+          continue;
+        }
+        score += weights[weight] * score_base[weight];
+      }
+    }
+    console.log(score);
+    if (score_base["num_review"] !== 0) {
+      score += weights["avg_rating"] * (score_base["sum_rating"] / score_base["num_review"]);
+    }
+    console.log(score);
+    return score;
   }
 
   static getSloganForTeams(teamId) {
@@ -158,6 +238,18 @@ export default class DataManager {
       openness: 0
     }
 
+    let scoreObject = {
+      "extraversion": 0,
+      "agreeableness": 0,
+      "conscientiousness": 0,
+      "neuroticism": 0,
+      "openness": 0,
+      "popularity_selection": 0,
+      "num_review": 0,
+      "sum_rating": 0,
+      "demo_score": 0,
+    }
+
     for(let j = 0; j < candidate.answers.length; j ++){
       ans = candidate.answers[j];
       qualtricsid = Object.keys(ans)[0];
@@ -172,7 +264,13 @@ export default class DataManager {
       }
     }
     map["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
-
+    let candidateId = Candidate.find({mturk_id: mturk_id, stage: 1},{fields: {'_id': 1}}).fetch()[0]._id;
+    for (var aspect in map["ocean"]) {
+      if (map["ocean"].hasOwnProperty(aspect)) {
+        scoreObject[aspect] = map["ocean"][aspect];
+      }
+    }
+    Candidate.update({_id: candidateId}, {$set: {'score_base': scoreObject}});
     return map;
   }
 

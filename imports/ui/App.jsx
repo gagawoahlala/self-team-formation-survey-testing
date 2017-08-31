@@ -280,6 +280,21 @@ class App extends Component {
       'metaRating': this.state.metaRating
     }
     // console.log(candidate);
+
+    candidate.selection.map(function(selection) {
+      let selectionId = Candidate.find({mturk_id: selection, stage: 1},{fields: {'_id': 1}}).fetch()[0]._id;
+      Candidate.update({_id: selectionId}, {$inc: {'score_base.popularity_selection': 1}});
+      console.log(`updated ${selection}, and its id is ${selectionId}`);
+
+    })
+    for (var reviewee in candidate.rating) {
+      if (candidate.rating.hasOwnProperty(reviewee)) {
+        CandidateId = Candidate.find({mturk_id: reviewee, stage: 1},{fields: {'_id': 1}}).fetch()[0]._id;
+        Candidate.update({_id: CandidateId}, {$inc: {'score_base.num_review': 1}});
+        console.log(candidate.rating[reviewee]);
+        Candidate.update({_id: CandidateId}, {$inc: {'score_base.sum_rating': candidate.rating[reviewee]}});
+      }
+    }
     Candidate.insert(candidate);
   }
 

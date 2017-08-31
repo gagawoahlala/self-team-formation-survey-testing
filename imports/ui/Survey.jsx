@@ -6,7 +6,6 @@ import { browserHistory } from 'react-router';
 import * as Const from './Constants/SurveyJson.jsx';
 import ReactCountdownClock from 'react-countdown-clock-fork';
 
-
 Survey.Survey.cssType = "bootstrap";
 Survey.defaultBootstrapCss.navigationButton = "btn btn-green";
 
@@ -76,9 +75,11 @@ export default class SurveyStage extends React.Component {
     this.setState({isStage1Finished: true});
     var resultAsJSON = this.state.survey.data;
     var answers = [];
+
     candidate = {
       "mturk_id" : resultAsJSON.mturk_id,
-      "stage" : 1
+      "stage" : 1,
+      "score_base" : {}
     }
     delete resultAsJSON.mturk_id;
     delete resultAsJSON.Example;
@@ -98,17 +99,18 @@ export default class SurveyStage extends React.Component {
 
     answers = ret;
     candidate.answers = answers;
+    console.log("Database format of candiate after finish survey");
     console.log(candidate);
     this.setState({candidate: candidate, mturk_id: candidate.mturk_id});
 
   }
-  
+
   displayPanelStage3() {
     return(
       <div className="announcement"><b>Woah ! It seems that you finish the survey faster than others! Please hold for a couple of seconds</b></div>
     );
   }
-  
+
   displayPanelStage2() {
     if (this.state.isStage2Finished) {
       return(
@@ -150,13 +152,13 @@ export default class SurveyStage extends React.Component {
       browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
     }
   }
-  
+
   updateTime(offsetInSec) {
     let time1 = new Date();
     time1.setSeconds(time1.getSeconds() + offsetInSec);
     return time1;
   }
-  
+
 
   displayPanel() {
     if (this.state.stage === 1) {
@@ -167,18 +169,18 @@ export default class SurveyStage extends React.Component {
       return(this.displayPanelStage3());
     }
   }
-  
+
   hideOrShowTimer() {
     var hide = {
       display: none
     }
-    
-    return hide;  
+
+    return hide;
   }
-  
+
   render() {
 
-    
+
     return (
       <div>
         <div className="container survey-header">
@@ -208,7 +210,7 @@ export default class SurveyStage extends React.Component {
         {/* <Survey.Survey model={survey} onComplete={this.sendDataToServer}/> */}
       </div>
     );
-     
+
   }
 
 }

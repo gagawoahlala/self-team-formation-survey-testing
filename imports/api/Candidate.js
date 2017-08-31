@@ -14,7 +14,10 @@ Candidate.schema = new SimpleSchema({
   rating: {type: Object, blackbox: true, optional: true},  // [{userId: rating, block_order: [2,1,3]}]
   blocks: {type: [String], optional: true},
   code: {type: String, optional: true},
-  meta_rating: {type: Object, blackbox: true, optional: true} // how confident are you on rating...
+  meta_rating: {type: Object, blackbox: true, optional: true}, // how confident are you on rating...
+  score_base: {type: Object, blackbox: true, optional: true}, // the criteria for calculating score
+  score: {type: Number, optional: true}, // The score each candidate have based on the criteria
+  rank: {type: Number, optional: true}
 });
 
 Candidate.randGen = {

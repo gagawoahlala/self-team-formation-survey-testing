@@ -46,6 +46,10 @@ export default class TeamTask extends Component {
           dataLoaded: true
         });
       }
+      
+      if(this.state.slogans.length <= 1) {
+        browserHistory.push('/teamSelectionFailsurvey');
+      }
     }
 
     hack(){
@@ -111,8 +115,7 @@ export default class TeamTask extends Component {
       return(
         <div>
           <div className="container">
-            {/* <TeamTaskView page={this.state.currentPage} teamId={this.state.teamId} */}
-            <TeamTaskView page={2} teamId={this.state.teamId}
+            <TeamTaskView page={this.state.currentPage} teamId={this.state.teamId}
               timeToCount={this.determineTime()}
               pageCallBack={this.getPageCallBack} slogans={this.state.slogans}/>
           </div>

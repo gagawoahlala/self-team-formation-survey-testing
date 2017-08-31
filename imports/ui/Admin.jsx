@@ -20,16 +20,16 @@ const mapping = {"Candidates": <AdminCandidate />,
 class Admin extends Component {
   constructor(props){
     super(props);
-    this.state = {active: "Candidates", selectedOption: 'Random'};
+    this.state = {active: "Candidates", selectedOption: 'Algorithmic'};
     this.changeActive = this.changeActive.bind(this);
     this.determineStartTimer = this.determineStartTimer.bind(this);
     this.runTeamFormation = this.runTeamFormation.bind(this);
     this.clearTeam = this.clearTeam.bind(this);
     this.deleteTeam = this.deleteTeam.bind(this);
   }
-  
 
-                  
+
+
   changeActive(k){
     this.setState({active: k});
   }
@@ -56,9 +56,9 @@ class Admin extends Component {
       this.deleteTeam(this.props.teams[i]._id);
     }
   }
-  
+
   runTeamFormation () {
-    
+
     if(this.state.selectedOption === 'Random') {
       //Need to change here later
       console.log("Entered team formation");
@@ -67,10 +67,14 @@ class Admin extends Component {
         disableFormation: true
       });
     } else {
+      DataManager.algorithmAssign(2);
+      this.setState({
+        disableFormation: true
+      });
       //Do Nothing here,need to modifiy
     }
   }
-  
+
   determineStartTimer() {
     if (this.props.stage1candidates.length > 3) {
       return(
@@ -81,7 +85,7 @@ class Admin extends Component {
       );
     }
   }
-  
+
   // componentWillUpdate() {
   //   if (this.props.stage1candidates.length > 3) {
   //     return(
@@ -93,7 +97,7 @@ class Admin extends Component {
   //   }
   // }
 
-  
+
   render() {
     return (
       <div>
