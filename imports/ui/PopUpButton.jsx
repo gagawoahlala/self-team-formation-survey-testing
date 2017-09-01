@@ -28,7 +28,7 @@ export default class PopUpButton extends Component {
           bsStyle="primary"
           bsSize="large"
           onClick={this.open}
-        > Click for instruction
+        > {this.props.textToShow}
         </Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Body>
@@ -50,4 +50,5 @@ PopUpButton.propTypes = {
   // teamId: React.PropTypes.string.isRequired,
   // pageCallBack: React.PropTypes.func.isRequired,
   // timeToCount: React.PropTypes.number.isRequired
+  textToShow: React.PropTypes.string
 };

@@ -20,15 +20,24 @@ const mapping = {"Candidates": <AdminCandidate />,
 class Admin extends Component {
   constructor(props){
     super(props);
-    this.state = {active: "Candidates", selectedOption: 'Algorithmic'};
+    this.state = {active: "Candidates", selectedOption: 'Random'};
     this.changeActive = this.changeActive.bind(this);
     this.determineStartTimer = this.determineStartTimer.bind(this);
     this.runTeamFormation = this.runTeamFormation.bind(this);
     this.clearTeam = this.clearTeam.bind(this);
     this.deleteTeam = this.deleteTeam.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
+  // getInitialState: function () {
+  //   return {
+  //     selectedOption: 'Random'
+  //   }
+  // }
 
+  handleOptionChange(e) {
+    this.setState({selectedOption: e.target.value});
+  }
 
   changeActive(k){
     this.setState({active: k});
@@ -61,17 +70,15 @@ class Admin extends Component {
 
     if(this.state.selectedOption === 'Random') {
       //Need to change here later
-      console.log("Entered team formation");
+      console.log("Entered random formation");
       DataManager.randomlyAssign(2);
-      this.setState({
-        disableFormation: true
-      });
-    } else {
-      DataManager.algorithmAssign(2);
-      this.setState({
-        disableFormation: true
-      });
+    } else if (this.state.selectedOption === 'Algorithmic_pair'){
+      console.log("Enter pairing formation");
+      DataManager.algorithmAssignByPair(2);
       //Do Nothing here,need to modifiy
+    } else {
+      console.log("Entering scoring formation");
+      DataManager.algorithmAssignByScore(2);
     }
   }
 
@@ -108,15 +115,19 @@ class Admin extends Component {
         </div>
         <div>
           <label>
-            <input type="radio" value="Random" name="Options" />
+            <input type="radio" value="Random" name="Options" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'Random'}/>
               Randomly formed teams
           </label>
           <label>
-            <input type="radio" value="Algorithmic" name="Options" />
-              Team Formation based on Algorithm
+            <input type="radio" value="Algorithmic_pair" name="Options" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'Algorithmic_pair'}/>
+              Team Formation based on Pairing Algorithm
+          </label>
+          <label>
+            <input type="radio" value="Algorithmic_score" name="Options" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'Algorithmic_score'}/>
+              Team Formation based on Score Calculating Algorithm
           </label>
           <Button name="startToFormTeams" onClick={this.runTeamFormation} bsStyle="danger"
-            disabled={this.state.disableFormation}>Start to create teams</Button>
+            >Start to create teams</Button>
           <Button name="clearTeams" onClick={this.clearTeam} bsStyle="danger"
             >clear teams</Button>
 

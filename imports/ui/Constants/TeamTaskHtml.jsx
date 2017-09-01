@@ -76,10 +76,14 @@ export const page2 = (
 
 
     <p className="page2-intro"><b>You have 1:00 minute </b> to read these directions before you 're automatically moved to the first part of the task. There are 4 sections to the the task: work on each section in the appropriate area on the collaborative workspace.<br></br>
-    Important : <b> DO NOT COPY AN ADVERTISEMENT FROM ELSEWHERE ON WEB
-    DO NOT REFRESH YOUR WEBPAGE DURING THE TASK</b></p>
+    <br/>
+    Important : <br/>
+    <b> DO NOT COPY AN ADVERTISEMENT FROM ELSEWHERE ON WEB</b><br/>
+    <b>DO NOT REFRESH YOUR WEBPAGE DURING THE TASK</b></p>
 
-    <div className = "row" id = "otherBox" >
+    <br/>
+    <br/>
+    <div  >
       <h4><b>Part 1: FEATURE LIST</b></h4>
       <ul>
         <li><p><b>You have 2 minutes.</b>
@@ -94,7 +98,7 @@ export const page2 = (
       </ul>
     </div>
 
-    <div className = "row" id = "otherBox" >
+    <div  >
       <h4><b>Part 2: FEATURE SELECTION</b></h4>
       <ul>
         <li><p><b>You have 1.5 minutes.</b></p></li>
@@ -105,7 +109,7 @@ export const page2 = (
       </ul>
     </div>
 
-    <div className="row" id="otherBox">
+    <div >
       <b><h4>Part 3: WRITING ADVERTISEMENT</h4></b>
       <ul>
         <li><p><b>You have 5 minutes</b></p></li>
@@ -117,7 +121,7 @@ export const page2 = (
     </ul>
     </div>
 
-    <div className="row" id="otherBox">
+    <div >
       <b><h4>Part 4: FINALZING ADVERTISEMENT</h4></b>
       <ul>
         <li><p><b>You have 1.5 minutes.</b></p></li>
@@ -131,7 +135,7 @@ export const page2 = (
 );
 
 export const page3 = (
-  <div className = "row" id = "otherBox" >
+  <div className = "row" id = "demo" >
     <h4><b>Part 1: FEATURE LIST</b></h4>
     <ul>
       <li><p><b>You have 2 minutes.</b>
@@ -149,7 +153,7 @@ export const page3 = (
 );
 
 export const page4 = (
-  <div className = "row" id = "otherBox" >
+  <div className = "row" id = "demo" >
     <h4><b>Part 2: FEATURE SELECTION</b></h4>
     <ul>
       <li><p><b>You have 1.5 minutes.</b></p></li>
@@ -162,7 +166,7 @@ export const page4 = (
 );
 
 export const page5 = (
-  <div className="row" id="otherBox">
+  <div className="row" id="demo">
     <b><h4>Part 3: WRITING ADVERTISEMENT</h4></b>
     <ul>
       <li><p><b>You have 5 minutes</b></p></li>
@@ -176,7 +180,7 @@ export const page5 = (
 );
 
 export const page6 = (
-  <div className="row" id="otherBox">
+  <div className="row" id="demo">
     <b><h4>Part 4: FINALZING ADVERTISEMENT</h4></b>
     <ul>
       <li><p><b>You have 1.5 minutes.</b></p></li>

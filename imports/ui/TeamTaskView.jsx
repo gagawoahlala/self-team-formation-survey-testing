@@ -37,11 +37,19 @@ export default class TeamTaskView extends Component {
         break;
       case 3:
         page = (
-          <div>
-            <PopUpButton pageToEmbed={Const.page1}/>
-            <PopUpButton pageToEmbed={Const.page2}/>
-            {Const.page3}
-            {this.displaySlogans()}
+          <div className="page-box">
+            <div className="button-box">
+              <PopUpButton pageToEmbed={Const.page1} textToShow={"Click to show task"}/>
+              <PopUpButton pageToEmbed={Const.page2} textToShow={"Click to show directions"}/>
+            </div>
+            <div className="border-box">
+              {Const.page3}
+              <div className="slogan-container">
+                <div className="slogan-box">
+                  {this.displaySlogans()}
+                </div>
+              </div>
+            </div>
           </div>
         );
         break;
@@ -82,7 +90,7 @@ export default class TeamTaskView extends Component {
 
   displaySlogans() {
     return this.props.slogans.map((slogan) => {
-      return <div key={faker.finance.account()}>{slogan}</div>;
+      return <div className="slogan" key={faker.finance.account()}>Candidate {this.props.slogans.indexOf(slogan)}'s response:"{slogan}"</div>;
     });
   }
 
@@ -114,7 +122,7 @@ export default class TeamTaskView extends Component {
             timeFormat="hms" alpha={1.0} size={70}/> */}
           {this.determinePage()}
         </div>
-        <div>
+        <div className="etherpad-box">
           {this.determineEtherpad()}
         </div>
       </div>

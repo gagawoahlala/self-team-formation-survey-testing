@@ -1,9 +1,7 @@
-#demo {
-    border-style: solid;
-}
 
 #demo div {
   display: block;
+  margin-bottom: 36px;
 }
 
 .team-task-box {
@@ -37,4 +35,47 @@
     font-size: 105%;
     margin-left: 2%;
     margin-right: 2%;
+}
+
+#demo ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.button-box {
+  display: inline-flex;
+}
+
+.page-box {
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-right: 5%;
+  margin-bottom: 2%;
+}
+
+.border-box {
+  border-style: solid;
+}
+
+.etherpad-box {
+  width: 100%;
+  text-align: center;
+}
+
+.border-box .slogan-box {
+  text-align: center;
+  border-style: ridge;
+  width: 50%;
+}
+
+.border-box .slogan-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.border-box .slogan-box .slogan{
+  text-align: center;
+  font-size: 26px;
 }
