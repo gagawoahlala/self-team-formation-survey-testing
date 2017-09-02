@@ -78,7 +78,7 @@ export default class DataManager {
        let score = DataManager.scoreCalculator(weights, instance.score_base);
        Candidate.update({_id: instance._id},{$set: {score: score}});
        let instanceObject = {
-         "_id": instance._id,
+         "_id": candidate._id,
          "mturk_id": instance.mturk_id,
          "score": score
        }
@@ -136,6 +136,7 @@ export default class DataManager {
 
       for (var j = i + 1; j < candidateToForm.length; j++) {
         let temp_candidate = {
+          "_ids": [candidateToForm[i]._id, candidateToForm[j]._id],
           "teammates": [],
           "score": 0
         }
@@ -188,6 +189,10 @@ export default class DataManager {
           set.add(tempObj.teammates[j]);
         }
         let team_id = faker.finance.account();
+        for (var j = 0; j < tempObj._ids.length; j++) {
+          console.log(tempObj._ids[j]);
+          Candidate.update({_id: tempObj._ids[j]},{$set: {team_id: team_id}});
+        }
         Team.insert({team_id: team_id, members: tempObj.teammates});
         counter++;
       }
@@ -200,6 +205,7 @@ export default class DataManager {
       for (var i = 0; i < candidateToForm.length; i++) {
         if (!set.has(candidateToForm[i].mturk_id)) {
           let team_id = faker.finance.account();
+          Candidate.update({_id: candidateToForm[i]._id},{$set: {team_id: team_id}});
           Team.insert({team_id: team_id, members: [candidateToForm[i].mturk_id]});
         }
       }
@@ -372,7 +378,7 @@ export default class DataManager {
     if (mturk_id == null) {
       return null;
     }
-    let result = Candidate.find({mturk_id: mturk_id, stage: 1},{fields: {'team_id': 1}}).fetch();
+    let result = Candidate.find({mturk_id: mturk_id, stage: 2},{fields: {'team_id': 1}}).fetch();
     console.log(result[0]);
     if (result[0].team_id != null) {
       return result[0].team_id;

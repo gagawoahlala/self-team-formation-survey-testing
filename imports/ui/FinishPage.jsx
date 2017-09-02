@@ -25,7 +25,7 @@ export default class FinishPage extends Component {
       // }
     } else {
       return (
-        <div className="announcement"><b>Team Formation is in the process. Please hold on a second. Thanks for your patients :)</b></div>
+        <div className="announcement"><b>Team Formation is in the process. Please hold on a minute. Thank you for your patience.</b></div>
 
       );
     }

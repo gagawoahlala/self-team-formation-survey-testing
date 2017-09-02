@@ -26,14 +26,20 @@ export default class TeamTaskView extends Component {
     switch (this.props.page) {
       case 1:
         page = (
-          <div>
+          <div >
             {Const.page1WithImg}
 
           </div>
         );
         break;
       case 2:
-        page = Const.page2;
+      page = (
+        <div className="page-box">
+          <div className="border-box">
+            {Const.page2}
+          </div>
+        </div>
+      );
         break;
       case 3:
         page = (
@@ -55,31 +61,55 @@ export default class TeamTaskView extends Component {
         break;
       case 4:
         page = (
-          <div>
-            <PopUpButton pageToEmbed={Const.page1}/>
-            <PopUpButton pageToEmbed={Const.page2}/>
-            {Const.page4}
-            {this.displaySlogans()}
+          <div className="page-box">
+            <div className="button-box">
+              <PopUpButton pageToEmbed={Const.page1} textToShow={"Click to show task"}/>
+              <PopUpButton pageToEmbed={Const.page2} textToShow={"Click to show directions"}/>
+            </div>
+            <div className="border-box">
+              {Const.page4}
+              <div className="slogan-container">
+                <div className="slogan-box">
+                  {this.displaySlogans()}
+                </div>
+              </div>
+            </div>
           </div>
         );
         break;
       case 5:
         page = (
-          <div>
-            <PopUpButton pageToEmbed={Const.page1}/>
-            <PopUpButton pageToEmbed={Const.page2}/>
-            {Const.page5}
-            {this.displaySlogans()}
+          <div className="page-box">
+            <div className="button-box">
+              <PopUpButton pageToEmbed={Const.page1} textToShow={"Click to show task"}/>
+              <PopUpButton pageToEmbed={Const.page2} textToShow={"Click to show directions"}/>
+            </div>
+            <div className="border-box">
+              {Const.page5}
+              <div className="slogan-container">
+                <div className="slogan-box">
+                  {this.displaySlogans()}
+                </div>
+              </div>
+            </div>
           </div>
         );
         break;
       case 6:
         page = (
-          <div>
-            <PopUpButton pageToEmbed={Const.page1}/>
-            <PopUpButton pageToEmbed={Const.page2}/>
-            {Const.page6}
-            {this.displaySlogans()}
+          <div className="page-box">
+            <div className="button-box">
+              <PopUpButton pageToEmbed={Const.page1} textToShow={"Click to show task"}/>
+              <PopUpButton pageToEmbed={Const.page2} textToShow={"Click to show directions"}/>
+            </div>
+            <div className="border-box">
+              {Const.page6}
+              <div className="slogan-container">
+                <div className="slogan-box">
+                  {this.displaySlogans()}
+                </div>
+              </div>
+            </div>
           </div>
         );
         break;
@@ -118,8 +148,8 @@ export default class TeamTaskView extends Component {
     return(
       <div>
         <div>
-          {/* <ReactCountdownClock  seconds={this.props.timeToCount} onComplete={this.updatePage} color="#000"
-            timeFormat="hms" alpha={1.0} size={70}/> */}
+          <ReactCountdownClock  seconds={this.props.timeToCount} onComplete={this.updatePage} color="#000"
+            timeFormat="hms" alpha={1.0} size={70}/>
           {this.determinePage()}
         </div>
         <div className="etherpad-box">

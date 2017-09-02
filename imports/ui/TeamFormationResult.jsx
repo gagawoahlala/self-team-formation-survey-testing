@@ -4,7 +4,12 @@ import TeamFormationCard from './TeamFormationCard';
 export default class TeamFormationResult extends Component {
   renderTeam() {
     return this.props.teams.map((team) => {
-      return <TeamFormationCard key={team._id} members={team.members}/>;
+      return (
+        <div>
+          {team.team_id}
+          <TeamFormationCard key={team._id} members={team.members}/>
+        </div>
+      );
     });
   }
   render() {

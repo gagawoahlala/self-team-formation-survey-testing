@@ -107,14 +107,14 @@ export default class SurveyStage extends React.Component {
 
   displayPanelStage3() {
     return(
-      <div className="announcement"><b>Woah ! It seems that you finish the survey faster than others! Please hold for a couple of seconds</b></div>
+      <div className="announcement"><b>It seems that you finished the survey faster than others! Please wait for others to finish.</b></div>
     );
   }
 
   displayPanelStage2() {
     if (this.state.isStage2Finished) {
       return(
-        <div className="announcement"><b>Please wait until the timer goes off. You will be automatically redirected shortly</b></div>
+        <div className="announcement"><b>Please wait until the timer goes off. You will be automatically redirected shortly.</b></div>
       );
     } else {
       return(<Survey.Survey model={this.state.survey} onComplete={this.sendDataToServer}/>);

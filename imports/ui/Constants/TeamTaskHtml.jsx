@@ -2,7 +2,7 @@ import React from 'react';
 export const page1WithImg = (
   <div className = "row team-task-box">
 
-    <div id="demo">
+    <div id="demo" className="border-box">
       <div>
         <h3 className="centerdiv"><u><b>Task</b></u></h3>
       </div>
