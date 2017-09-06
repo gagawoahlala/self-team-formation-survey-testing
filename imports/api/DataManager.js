@@ -370,10 +370,12 @@ export default class DataManager {
   }
 
   static getSloganForTeams(teamId) {
-    let teams = Team.find({team_id: teamId}).fetch();
+    let teams = Team.find({team_id: Number(teamId)}).fetch();
+    console.log(teams);
     let membersId = teams.map(function(team) {
       return team.members;
     });
+    console.log(membersId);
     let members = membersId[0].map(function(memberId) {
       return Candidate.find({stage: 1, mturk_id: memberId}).fetch();
     });
@@ -450,6 +452,21 @@ export default class DataManager {
       result_arr.push(map);
     }
     return result_arr;
+  }
+
+  static updateCompatibility(processedCandidatesArray, candidateObj) {
+    for (var i = 0; i < processedCandidatesArray.length; i++) {
+      // console.log(processedCandidatesArray[i]);
+      // console.log(candidateObj);
+      let compScore = 0;
+      for (var key in candidateObj["ocean"]) {
+        if (candidateObj["ocean"].hasOwnProperty(key)) {
+          compScore += (processedCandidatesArray[i].personality["ocean"][key] + candidateObj["ocean"][key]) / 2;
+        }
+      }
+      processedCandidatesArray[i].personality["compatibility"] = compScore / 5;
+    }
+    return processedCandidatesArray;
   }
 
   static prepareTesters(mturk_id) {

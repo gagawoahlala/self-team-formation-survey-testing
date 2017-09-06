@@ -53,27 +53,45 @@ export default class CandidatesViewPersonality extends Component {
   }
 
   displayOCEAN() {
+    let attr = "agreeableness";
     return (
-      Object.keys(Const.OCEAN).map((attr) =>
-        <tr key={attr}>
-          <td>
-            <div className="ocean-description">
-              <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
-              <p className="ocean-tooltip">{Const.TOOLTIPS[attr]}</p>
-            </div>
-          </td>
-          <td>
-            <b><p className="ocean-score-label">{Const.OCEAN_SCALE_LOW[attr]}</p></b>
-          </td>
-          <td>
-            {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "candidate")}
-            {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "you")}
-          </td>
-          <td>
-            <b><p className="ocean-score-label">{Const.OCEAN_SCALE_HIGH[attr]}</p></b>
-          </td>
-        </tr>
-      )
+      // Object.keys(Const.OCEAN).map((attr) =>
+      //   <tr key={attr}>
+      //     <td>
+      //       <div className="ocean-description">
+      //         <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
+      //         <p className="ocean-tooltip">{Const.TOOLTIPS[attr]}</p>
+      //       </div>
+      //     </td>
+      //     <td>
+      //       <b><p className="ocean-score-label">{Const.OCEAN_SCALE_LOW[attr]}</p></b>
+      //     </td>
+      //     <td>
+      //       {this.displayBar(this.props.candidatePersonality.ocean[attr], attr, "candidate")}
+      //       {this.displayBar(this.props.testerPersonality.ocean[attr], attr, "you")}
+      //     </td>
+      //     <td>
+      //       <b><p className="ocean-score-label">{Const.OCEAN_SCALE_HIGH[attr]}</p></b>
+      //     </td>
+      //   </tr>
+      // )
+      <tr key={attr}>
+        <td>
+          <div className="ocean-description">
+            <b>{attr.charAt(0).toUpperCase()+attr.slice(1)} Score:</b>
+            <p className="ocean-tooltip">{Const.TOOLTIPS[attr]}</p>
+          </div>
+        </td>
+        <td>
+          <b><p className="ocean-score-label">{Const.OCEAN_SCALE_LOW[attr]}</p></b>
+        </td>
+        <td>
+          {this.displayBar(this.props.candidatePersonality.compatibility, attr, "your compatibility with this candidate")}
+        </td>
+        <td>
+          <b><p className="ocean-score-label">{Const.OCEAN_SCALE_HIGH[attr]}</p></b>
+        </td>
+      </tr>
     )
   }
 

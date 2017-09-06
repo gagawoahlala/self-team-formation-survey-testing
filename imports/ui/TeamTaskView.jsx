@@ -12,7 +12,8 @@ export default class TeamTaskView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      link: `https://beta.etherpad.org/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
+      link : `http://etherpad.ucsd.edu:9003/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
+      // link: `https://beta.etherpad.org/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
 
     }
     this.determinePage = this.determinePage.bind(this);
@@ -147,11 +148,11 @@ export default class TeamTaskView extends Component {
   render() {
     return(
       <div>
-        <div>
+        <div className="center-timer-teamtask">
           <ReactCountdownClock  seconds={this.props.timeToCount} onComplete={this.updatePage} color="#000"
             timeFormat="hms" alpha={1.0} size={70}/>
-          {this.determinePage()}
         </div>
+        {this.determinePage()}
         <div className="etherpad-box">
           {this.determineEtherpad()}
         </div>

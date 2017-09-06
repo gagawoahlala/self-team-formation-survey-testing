@@ -97,7 +97,10 @@ class App extends Component {
     });
     console.log("After Sorting");
     console.log(candiateToShow);
-    let cs = this.sample(candiateToShow, 16);
+    let cs = this.sample(candiateToShow, 5);
+    console.log(cs);
+    cs = DataManager.updateCompatibility(cs, this.state.tester);
+    console.log(cs);
     tempRatings = {}
     for (var i = cs.length - 1; i >= 0; i--) {
       tempRatings[cs[i].mturk_id] = 0;
@@ -345,11 +348,11 @@ class App extends Component {
     }
     return (
       <div>
-        <div className={this.state.showTimer ? 'counter-center-box' : 'disable-display'}>
-          <span className="counter-box-app-text">
+        <div className={this.state.showTimer ? 'counter-center-box' : 'center-timer-teamselection'}>
+          {/* <span className="counter-box-app-text">
           Time to wait:
-          </span>
-          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={200} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+          </span> */}
+          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={100} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
         </div>
 
 
