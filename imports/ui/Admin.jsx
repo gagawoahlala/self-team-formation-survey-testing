@@ -76,7 +76,10 @@ class Admin extends Component {
       console.log("Enter pairing formation");
       DataManager.algorithmAssignByPair(2);
       //Do Nothing here,need to modifiy
-    } else {
+    } else if (this.state.selectedOption === 'Algorithmic_pair2') {
+      console.log("Enter pairing formationV2.0");
+      DataManager.algorithmAssignByPair2(2);
+    }else {
       console.log("Entering scoring formation");
       DataManager.algorithmAssignByScore(2);
     }
@@ -125,6 +128,10 @@ class Admin extends Component {
           <label>
             <input type="radio" value="Algorithmic_score" name="Options" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'Algorithmic_score'}/>
               Team Formation based on Score Calculating Algorithm
+          </label>
+          <label>
+            <input type="radio" value="Algorithmic_pair2" name="Options" onChange={this.handleOptionChange} checked={this.state.selectedOption === 'Algorithmic_pair2'}/>
+              Team Formation based on Pairing Algorithm v2.0
           </label>
           <Button name="startToFormTeams" onClick={this.runTeamFormation} bsStyle="danger"
             >Start to create teams</Button>

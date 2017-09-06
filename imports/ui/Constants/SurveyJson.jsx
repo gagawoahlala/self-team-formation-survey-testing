@@ -28,11 +28,11 @@ export const SURVEY_PERSONALITY = {
     },
     {
      type: "text",
-     isRequired: true,
      name: "Q3",
      title: {
       en: "Age (in years)"
      },
+     isRequired: true,
      validators: [
       {
        type: "numeric",
@@ -43,11 +43,11 @@ export const SURVEY_PERSONALITY = {
     },
     {
      type: "text",
-     isRequired: true,
      name: "Q5",
      title: {
       en: "Country of Residence"
-     }
+     },
+     isRequired: true
     },
     {
      type: "radiogroup",
@@ -103,11 +103,11 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "text",
-     isRequired: true,
      name: "Q9",
      title: {
       en: "In which field/industry are you working?"
-     }
+     },
+     isRequired: true
     }
    ],
    name: "page3"
@@ -121,11 +121,11 @@ export const SURVEY_PERSONALITY = {
     },
     {
      type: "text",
-     isRequired: true,
      name: "mturk_id",
      title: {
       en: "Mechanical Turk ID"
-     }
+     },
+     isRequired: true
     },
     {
      type: "dropdown",
@@ -152,19 +152,19 @@ export const SURVEY_PERSONALITY = {
     },
     {
      type: "text",
-     isRequired: true,
      name: "Q11",
      title: {
       en: "Number of approved HITs:"
-     }
+     },
+     isRequired: true
     },
     {
      type: "text",
-     isRequired: true,
      name: "Q12",
      title: {
       en: "Rate of approved HITs (in %):"
      },
+     isRequired: true,
      validators: [
       {
        type: "numeric",
@@ -184,8 +184,6 @@ export const SURVEY_PERSONALITY = {
     },
     {
      type: "matrix",
-     name: "Example",
-     title: "Example:\nI see Myself as Someone Who...",
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -193,9 +191,11 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     name: "Example",
      rows: [
       "Likes to work in a team with others"
-     ]
+     ],
+     title: "Example:\nI see Myself as Someone Who..."
     }
    ],
    name: "page5"
@@ -204,9 +204,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q70_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -214,15 +211,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q70_6",
      rows: [
       "Is talkative"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q70_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -230,15 +227,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q70_7",
      rows: [
       "Tends to find fault with others"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q70_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -246,15 +243,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q70_8",
      rows: [
       "Does a thorough job"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q70_9",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -262,15 +259,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q70_9",
      rows: [
       "Is depressed, blue"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q70_10",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -278,9 +275,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q70_10",
      rows: [
       "Is original, comes up with new ideas"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page6"
@@ -289,9 +289,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q71_1",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -299,15 +296,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q71_1",
      rows: [
       "Is reserved"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q71_2",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -315,15 +312,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q71_2",
      rows: [
       "Is helpful and unselfish with others"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q71_3",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -331,15 +328,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q71_3",
      rows: [
       "Can be somewhat careless"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q71_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -347,15 +344,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q71_4",
      rows: [
       "Is relaxed, handles stress well"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q71_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -363,9 +360,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q71_5",
      rows: [
       "Is curious about many different things"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page7"
@@ -374,9 +374,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q78_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -384,15 +381,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q78_4",
      rows: [
       "Is full of energy"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q78_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -400,15 +397,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q78_5",
      rows: [
       "Starts quarrels with others"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q78_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -416,15 +413,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q78_6",
      rows: [
       "Is a reliable worker"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q78_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -432,15 +429,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q78_7",
      rows: [
       "Can be tense"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q78_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -448,9 +445,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q78_8",
      rows: [
       "Is ingenious, a deep thinker"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page8"
@@ -459,9 +459,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q79_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -469,15 +466,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q79_4",
      rows: [
       "Generates a lot of enthusiasm"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q79_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -485,15 +482,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q79_5",
      rows: [
       "Has a forgiving nature"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q79_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -501,15 +498,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q79_6",
      rows: [
       "Tends to be disorganized"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q79_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -517,15 +514,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q79_7",
      rows: [
       "Worries a lot"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q79_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -533,9 +530,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q79_8",
      rows: [
       "Has an active imagination"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page9"
@@ -544,9 +544,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q80_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -554,15 +551,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q80_4",
      rows: [
       "Tends to be quiet"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q80_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -570,15 +567,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q80_5",
      rows: [
       "Is generally trusting"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q80_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -586,15 +583,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q80_6",
      rows: [
       "Tends to be lazy"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q80_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -602,15 +599,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q80_7",
      rows: [
       "Is emotionally stable, not easily upset"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q80_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -618,9 +615,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q80_8",
      rows: [
       "Is inventive"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page10"
@@ -629,9 +629,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q81_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -639,15 +636,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q81_4",
      rows: [
       "Has an assertive personality"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q81_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -655,15 +652,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q81_5",
      rows: [
       "Can be cold and aloof"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q81_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -671,15 +668,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q81_6",
      rows: [
       "Perseveres until the task is finished"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q81_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -687,15 +684,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q81_7",
      rows: [
       "Can be moody"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q81_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -703,9 +700,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q81_8",
      rows: [
       "Values artistic, aesthetic experiences"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page11"
@@ -714,9 +714,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q82_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -724,15 +721,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q82_4",
      rows: [
       "Is sometimes shy, inhibited"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q82_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -740,15 +737,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q82_5",
      rows: [
       "Is considerate and kind to almost everyone"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q82_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -756,15 +753,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q82_6",
      rows: [
       "Does things efficiently"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q82_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -772,15 +769,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q82_7",
      rows: [
       "Remains calm in tense situations"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q82_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -788,9 +785,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q82_8",
      rows: [
       "Prefers work that is routine"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page12"
@@ -799,9 +799,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q83_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -809,15 +806,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q83_4",
      rows: [
       "Is outgoing, sociable"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q83_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -825,15 +822,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q83_5",
      rows: [
       "Is sometimes rude to others"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q83_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -841,15 +838,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q83_6",
      rows: [
       "Makes plans and follows through with them"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q83_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -857,15 +854,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q83_7",
      rows: [
       "Gets nervous easily"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q83_8",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -873,9 +870,12 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q83_8",
      rows: [
       "Likes to reflect, play with ideas"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page13"
@@ -884,9 +884,6 @@ export const SURVEY_PERSONALITY = {
    elements: [
     {
      type: "matrix",
-     name: "Q84_4",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -894,15 +891,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q84_4",
      rows: [
       "Has few artistic interests"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q84_5",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -910,15 +907,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q84_5",
      rows: [
       "Likes to cooperate with others"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q84_6",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -926,15 +923,15 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q84_6",
      rows: [
       "Is easily distracted"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     },
     {
      type: "matrix",
-     name: "Q84_7",
-     title: "I see Myself as Someone Who...",
-     isRequired: true,
      columns: [
       "Strongly disagree",
       "Somewhat disagree",
@@ -942,12 +939,51 @@ export const SURVEY_PERSONALITY = {
       "Somewhat agree",
       "Strongly agree"
      ],
+     isRequired: true,
+     name: "Q84_7",
      rows: [
       "Is sophisticated in art, music, or literature"
-     ]
+     ],
+     title: "I see Myself as Someone Who..."
     }
    ],
    name: "page14"
+  },
+  {
+   elements: [
+    {
+     type: "multipletext",
+     itemSize: 29,
+     items: [
+      {
+       name: "Most Important"
+      },
+      {
+       name: "2nd most important"
+      },
+      {
+       name: "3rd most important"
+      },
+      {
+       name: "4th most important"
+      },
+      {
+       name: "5th most important"
+      },
+      {
+       name: "6th most important"
+      },
+      {
+       name: "7th most important"
+      }
+     ],
+     name: "Q99",
+     title: {
+      en: "What qualities do you look for in a team member? (Fill as many as you need. Write as much as you need for each response, one quality per box.)"
+     }
+    }
+   ],
+   name: "page15"
   },
   {
    elements: [
@@ -958,14 +994,14 @@ export const SURVEY_PERSONALITY = {
     },
     {
      type: "text",
-     isRequired: true,
      name: "Q20",
      title: {
       en: "Writing Task"
-     }
+     },
+     isRequired: true
     }
    ],
-   name: "page15",
+   name: "page16",
    visible: false
   },
   {
@@ -990,7 +1026,7 @@ export const SURVEY_PERSONALITY = {
      }
     }
    ],
-   name: "page16",
+   name: "page17",
    startWithNewLine: false,
    visible: false
   },
@@ -1018,7 +1054,7 @@ export const SURVEY_PERSONALITY = {
      }
     }
    ],
-   name: "page17",
+   name: "page18",
    visible: false
   }
  ],

@@ -87,7 +87,12 @@ export default class SurveyStage extends React.Component {
     var ret = Object.keys(resultAsJSON).map(function(key) {
       var ret = {};
       if(typeof resultAsJSON[key] === 'object'){
-        ret[key] = Object.values(resultAsJSON[key])[0];
+        if (key == 'Q99') {
+          ret[key] = Object.values(resultAsJSON[key]);
+        } else {
+          ret[key] = Object.values(resultAsJSON[key])[0];
+        }
+
       } else if(typeof resultAsJSON[key] === "number") {
         ret[key] = resultAsJSON[key].toString();
       } else {

@@ -6,6 +6,7 @@ import CandidateSelection from './CandidateSelection.jsx';
 import TeamFormationResult from './TeamFormationResult.jsx';
 import {Team} from '../api/Team.js';
 import ReactCountdownClock from 'react-countdown-clock-fork';
+faker = require('faker');
 
 
 
@@ -41,7 +42,7 @@ class AdminTeamFormation extends Component{
               <CandidateSelection candidates={this.props.stage2candidates}/>
             </div>
             <div className="col-sm-6">
-              <TeamFormationResult teams={this.props.teams}/>
+              <TeamFormationResult key={faker.finance.account()} teams={this.props.teams}/>
             </div>
 
           </div>
