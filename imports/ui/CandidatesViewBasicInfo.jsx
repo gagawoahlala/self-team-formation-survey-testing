@@ -10,7 +10,8 @@ export default class CandidatesViewBasicInfo extends Component {
   display() {
     return (
       Object.keys(this.props.basicInfo)
-          .filter((attr) => (attr != Const.BIO))
+          // .filter((attr) => (attr != Const.BIO))
+          .filter((attr) => (Const.DEMO_QUESTION.indexOf(attr) > -1))
           .map((attr) => (
             <div key={attr} className="basic-info-attribute">
               <p><b>{attr} </b></p>  <p>{this.props.basicInfo[attr]}</p>

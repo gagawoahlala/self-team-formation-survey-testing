@@ -245,14 +245,14 @@ export default class DataManager {
 
   static algorithmAssignByPair2(teamSize) {
     weights = {
-      "extraversion": 0.1,
-      "agreeableness": 0.1,
-      "conscientiousness": 0.1,
-      "neuroticism": 0.1,
-      "openness": 0.1,
-      "mutual_rating_average": 0.3,
-      "weight_preference": 0.2,
-      "weight_preference_subweight": [0.5, 0.3, 0.2],
+      "extraversion": 0,
+      "agreeableness": 0,
+      "conscientiousness": 0,
+      "neuroticism": 0,
+      "openness": 0,
+      "mutual_rating_average": 0,
+      "weight_preference": 1,
+      "weight_preference_subweight": [3, 0, 0],
     }
 
     let resultTeam = [];

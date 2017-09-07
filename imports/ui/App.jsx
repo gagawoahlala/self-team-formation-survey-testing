@@ -83,8 +83,8 @@ class App extends Component {
   prepareData() {
     let tempcandidate = this.state.testerMturkId;
     let candiateToShow = this.props.stage1candidates.filter(function(obj) {
-      return obj;
-      // return obj.mturk_id !== tempcandidate;
+      // return obj;
+      return obj.mturk_id !== tempcandidate;
     });
     console.log("Candidate before sorting");
     console.log(candiateToShow);
