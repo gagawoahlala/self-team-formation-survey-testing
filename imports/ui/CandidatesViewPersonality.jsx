@@ -34,7 +34,8 @@ export default class CandidatesViewPersonality extends Component {
           <span className="progress-label">{label.charAt(0).toUpperCase()+label.slice(1)}</span>
           <ProgressBar
             now={value}
-            label={`${value} / ${Const.OCEAN[attr]}`}
+            // label={`${value} / ${Const.OCEAN[attr]}`}
+            label={`${value}%`}
             max={Const.OCEAN[attr]}
             bsStyle={label == "you" ? "warning" : "info"}
           />
@@ -53,7 +54,7 @@ export default class CandidatesViewPersonality extends Component {
   }
 
   displayOCEAN() {
-    let attr = "agreeableness";
+    let attr = "compatibility";
     return (
       // Object.keys(Const.OCEAN).map((attr) =>
       //   <tr key={attr}>

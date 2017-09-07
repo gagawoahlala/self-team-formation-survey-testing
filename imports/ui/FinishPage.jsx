@@ -13,6 +13,11 @@ export default class FinishPage extends Component {
     this.props.showTimerCallBack(true);
   }
 
+  componentWillUpdate() {
+    if (DataManager.getTeamId(this.props.candidateId) !== null) {
+      browserHistory.push(`/team?team_id=${DataManager.getTeamId(this.props.candidateId)}`);
+    }
+  }
 
   render() {
     if (this.props.isTimeUp === true) {
@@ -38,4 +43,5 @@ FinishPage.propTypes = {
   code: React.PropTypes.string.isRequired,
   isTimeUp: React.PropTypes.bool.isRequired,
   showTimerCallBack: React.PropTypes.func.isRequired,
+  candidateId: React.PropTypes.string.isRequired
 };

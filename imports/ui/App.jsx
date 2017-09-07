@@ -97,7 +97,7 @@ class App extends Component {
     });
     console.log("After Sorting");
     console.log(candiateToShow);
-    let cs = this.sample(candiateToShow, 5);
+    let cs = this.sample(candiateToShow, 16);
     console.log(cs);
     cs = DataManager.updateCompatibility(cs, this.state.tester);
     console.log(cs);
@@ -237,7 +237,7 @@ class App extends Component {
                   blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
-      curPage = (<FinishPage code={this.state.code}  isTimeUp={this.state.isTimeUp} showTimerCallBack={this.determineTimer}/>);
+      curPage = (<FinishPage code={this.state.code}  isTimeUp={this.state.isTimeUp} showTimerCallBack={this.determineTimer} candidateId={this.state.testerMturkId}/>);
     }else {
       curPage = (<AgreementPage
                   callBack={this.approveNext} />);

@@ -23,7 +23,8 @@ export const OCEAN = {
                 		"conscientiousness": 50,
                 		"extraversion": 50,
                 		"agreeableness": 50,
-                		"neuroticism": 50
+                		"neuroticism": 50,
+										"compatibility": 100
                 	 }
 
 export const TOOLTIPS = {
@@ -31,7 +32,8 @@ export const TOOLTIPS = {
                 		"conscientiousness": "Self-discipline, control and regulation of impulses, acting dutifully, planned rather than spontaneous behavior, striving for achievement against measures.",
                 		"extraversion": "Engagement with the external world, breadth of activities, enjoys interacting with people, full of energy, enthusiastic, action-oriented, talkative and assertive.",
                 		"agreeableness": "Concern for social harmony, value getting along with others, optimistic view of human nature, considerate, kind, generous, trusting and trustworthy, helpful, and willing to compromise their interests with others.",
-                		"neuroticism": "tendency to experience negative emotions such as anger, anxiety, or depression. People with Low neuroticism calm, emotionally stable, free from persistent negative feelings, and less emotionally reactive or easily upset."
+                		"neuroticism": "tendency to experience negative emotions such as anger, anxiety, or depression. People with Low neuroticism calm, emotionally stable, free from persistent negative feelings, and less emotionally reactive or easily upset.",
+										"compatibility": "Your compatibility with this candidate. This might be an indication how well you are going to work with this person."
 					 }
 
 export const OCEAN_SCALE_LOW = {
@@ -39,7 +41,8 @@ export const OCEAN_SCALE_LOW = {
 	"conscientiousness": "Easy-Going / Unorganized",
 	"extraversion": "Introverted / Composed",
 	"agreeableness": "Analytical / Impartial",
-	"neuroticism": "Secure / Self-Absorbed"
+	"neuroticism": "Secure / Self-Absorbed",
+	"compatibility": "Similar / Agreeable"
 }
 
 export const OCEAN_SCALE_HIGH = {
@@ -47,7 +50,8 @@ export const OCEAN_SCALE_HIGH = {
 	"conscientiousness": "Efficient / Disciplined",
 	"extraversion": "Extraverted / Energetic",
 	"agreeableness": "Compassionate / Empathetic",
-	"neuroticism": "Sensitive / Nervous"
+	"neuroticism": "Sensitive / Nervous",
+	"compatibility": "Different / distinct"
 }
 
 export const EXTRA_QUESTIONS = ["Judging by the given information, how confident do you feel to have picked a good teammate?",

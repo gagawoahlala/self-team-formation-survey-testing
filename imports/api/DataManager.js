@@ -459,12 +459,17 @@ export default class DataManager {
       // console.log(processedCandidatesArray[i]);
       // console.log(candidateObj);
       let compScore = 0;
-      for (var key in candidateObj["ocean"]) {
-        if (candidateObj["ocean"].hasOwnProperty(key)) {
-          compScore += (processedCandidatesArray[i].personality["ocean"][key] + candidateObj["ocean"][key]) / 2;
-        }
-      }
-      processedCandidatesArray[i].personality["compatibility"] = compScore / 5;
+      // for (var key in candidateObj["ocean"]) {
+      //   if (candidateObj["ocean"].hasOwnProperty(key)) {
+      //     compScore += (processedCandidatesArray[i].personality["ocean"][key] + candidateObj["ocean"][key]) / 2;
+      //   }
+      // }
+      compScore = 66 * (45 - Math.abs(
+      processedCandidatesArray[i].personality["ocean"]["conscientiousness"]
+      - candidateObj["ocean"]["conscientiousness"])) / 45 + 34 *
+      (processedCandidatesArray[i].personality["ocean"]["conscientiousness"]
+      + candidateObj["ocean"]["conscientiousness"]) / 90;
+      processedCandidatesArray[i].personality["compatibility"] = Math.ceil(compScore);
     }
     return processedCandidatesArray;
   }
