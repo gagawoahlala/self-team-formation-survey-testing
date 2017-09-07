@@ -121,7 +121,7 @@ export default class TeamTaskView extends Component {
 
   displaySlogans() {
     return this.props.slogans.map((slogan) => {
-      return <div className="slogan" key={faker.finance.account()}>Candidate {this.props.slogans.indexOf(slogan)}:"{slogan}"</div>;
+      return <div className="slogan" key={faker.finance.account()}>Candidate {this.props.slogans.indexOf(slogan) + 1}:"{slogan}"</div>;
     });
   }
 

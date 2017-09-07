@@ -33,7 +33,7 @@ export const TOOLTIPS = {
                 		"extraversion": "Engagement with the external world, breadth of activities, enjoys interacting with people, full of energy, enthusiastic, action-oriented, talkative and assertive.",
                 		"agreeableness": "Concern for social harmony, value getting along with others, optimistic view of human nature, considerate, kind, generous, trusting and trustworthy, helpful, and willing to compromise their interests with others.",
                 		"neuroticism": "tendency to experience negative emotions such as anger, anxiety, or depression. People with Low neuroticism calm, emotionally stable, free from persistent negative feelings, and less emotionally reactive or easily upset.",
-										"compatibility": "Your compatibility with this candidate. This might be an indication how well you are going to work with this person."
+										"compatibility": "Your psychological compatibility with this candidate. This might be an indication how well you are going to work with this person."
 					 }
 
 export const OCEAN_SCALE_LOW = {
@@ -42,7 +42,7 @@ export const OCEAN_SCALE_LOW = {
 	"extraversion": "Introverted / Composed",
 	"agreeableness": "Analytical / Impartial",
 	"neuroticism": "Secure / Self-Absorbed",
-	"compatibility": "Similar / Agreeable"
+	"compatibility": ""
 }
 
 export const OCEAN_SCALE_HIGH = {
@@ -51,7 +51,7 @@ export const OCEAN_SCALE_HIGH = {
 	"extraversion": "Extraverted / Energetic",
 	"agreeableness": "Compassionate / Empathetic",
 	"neuroticism": "Sensitive / Nervous",
-	"compatibility": "Different / distinct"
+	"compatibility": ""
 }
 
 export const EXTRA_QUESTIONS = ["Judging by the given information, how confident do you feel to have picked a good teammate?",
