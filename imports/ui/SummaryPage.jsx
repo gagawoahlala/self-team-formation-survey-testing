@@ -53,7 +53,7 @@ export default class SummaryPage extends Component {
   componentDidUpdate() {
     if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE &&
         !Object.values(this.props.ratings).includes(0) &&
-        !Object.values(this.props.metaRating).includes(0)) {
+        !(Object.values(this.props.metaRating).includes(0) || Object.values(this.props.metaRating).includes(""))) {
       this.props.callBack(true);
     } else {
       this.props.callBack(false);
@@ -155,7 +155,7 @@ export default class SummaryPage extends Component {
       else
         return false;
     } else if (todo === "other") {
-      if (!Object.values(this.props.metaRating).includes(0))
+      if (!(Object.values(this.props.metaRating).includes(0) || Object.values(this.props.metaRating).includes("")))
         return true;
       else
         return false;

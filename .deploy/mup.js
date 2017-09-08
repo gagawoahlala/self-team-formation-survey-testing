@@ -3,7 +3,7 @@ module.exports = {
     one: {
       // TODO: set host address, username, and authentication method
       host: 'etherpad.ucsd.edu',
-      username: 'jtt049',
+      username: 'yih078',
        pem: '~/.ssh/id_rsa'
       // password: 'server-password'
       // or neither for authenticate from ssh-agent
