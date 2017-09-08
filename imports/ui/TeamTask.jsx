@@ -26,13 +26,12 @@ export default class TeamTask extends Component {
       this.processInparams = this.processInparams.bind(this);
     }
 
-    componentWillMount() {
-
+    componentWillUpdate() {
+      if (this.state.currentPage >= 6) {
+        browserHistory.push('/exitsurvey');
+      }
     }
 
-    goToExitSurvey() {
-      browserHistory.push('/exitsurvey');
-    }
 
     processInparams(){
       query = this.props.location.query;
@@ -46,7 +45,7 @@ export default class TeamTask extends Component {
           dataLoaded: true
         });
       }
-      
+
       if(this.state.slogans.length <= 1) {
         browserHistory.push('/teamSelectionFailsurvey');
       }
@@ -76,21 +75,33 @@ export default class TeamTask extends Component {
       switch (this.state.currentPage) {
         case 1:
           length = 60;
+          // length = 5;
+
           break;
         case 2:
           length = 60;
+          // length = 5;
+
           break;
         case 3:
           length = 120;
+          // length = 5;
+
           break;
         case 4:
           length = 90;
+          // length = 5;
+
           break;
         case 5:
           length = 300;
+          // length = 5;
+
           break;
         case 6:
           length = 90;
+          // length = 5;
+
           break;
       }
       return length;
@@ -99,7 +110,7 @@ export default class TeamTask extends Component {
 
     getPageCallBack(pageNumber) {
       console.log(pageNumber);
-      this.setState({currentPage: pageNumber});
+      this.setState({currentPage: this.state.currentPage + 1});
     }
 
 

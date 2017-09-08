@@ -6,6 +6,7 @@ import TeamTask from './TeamTask.jsx';
 
 export default class FinishPage extends Component {
   constructor(props) {
+
     super(props);
   }
 
@@ -20,20 +21,16 @@ export default class FinishPage extends Component {
   }
 
   render() {
-    if (this.props.isTimeUp === true) {
-      return(<div className="announcement"><b>Loading Data ... </b></div>);
+      return(
+        <div className="announcement"><b>Team Formation is in the process. Please hold on a minute. Thank you for your patience.</b></div>
+      );
       // let teamId = DataManager.getTeamId(this.props.testerId);
       // if(teamId != null){
       //   return (<TeamTask teamId={teamId} />);
       // } else {
       //   return (<div>It seems that you didn't finish the task on time. Thanks for your participation.</div>);
       // }
-    } else {
-      return (
-        <div className="announcement"><b>Team Formation is in the process. Please hold on a minute. Thank you for your patience.</b></div>
 
-      );
-    }
 
   }
 
@@ -41,7 +38,7 @@ export default class FinishPage extends Component {
 
 FinishPage.propTypes = {
   code: React.PropTypes.string.isRequired,
-  isTimeUp: React.PropTypes.bool.isRequired,
   showTimerCallBack: React.PropTypes.func.isRequired,
-  candidateId: React.PropTypes.string.isRequired
+  candidateId: React.PropTypes.string.isRequired,
+  isInteam: React.PropTypes.bool.isRequired
 };

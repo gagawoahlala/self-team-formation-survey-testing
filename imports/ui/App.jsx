@@ -35,8 +35,10 @@ class App extends Component {
       blocks: [],
       metaRating: {},
       isOverMinNumber: false,
-      isTimeUp: false,
+      isTimeUpStage1: false,
       showTimer: false,
+      isWaitingForTeamFormation: false,
+      isInteam: false
     }
     setInterval(this.hack.bind(this), 2000);
 
@@ -69,6 +71,13 @@ class App extends Component {
   componentDidUpdate() {
     if(!this.state.dataInitialized) {
       times.push((new Date).getTime());
+    }
+  }
+
+  componentWillUpdate() {
+    // console.log("entered the will update here ----- app?");
+    if (DataManager.isFinishedStage2(this.state.testerMturkId) && DataManager.getTeamId(this.state.testerMturkId) !== null) {
+      this.setState({isInteam: true});
     }
   }
 
@@ -108,8 +117,12 @@ class App extends Component {
     }
 
     tempMetaRating = {};
-    Const.EXTRA_QUESTIONS.map((q) => {
+    Const.EXTRA_QUESTIONS_RATING.map((q) => {
       tempMetaRating[q] = 0;
+    });
+
+    Const.EXTRA_QUESTIONS_TEXT.map((q) => {
+      tempMetaRating[q] = "";
     });
 
     this.setState({
@@ -118,7 +131,7 @@ class App extends Component {
       dataInitialized: true,
       blocks: this.decideBlock(),
       metaRating: tempMetaRating,
-      isTimeUp: false
+      isTimeUpStage1: false
     });
   }
 
@@ -126,15 +139,19 @@ class App extends Component {
     performance_only = ["performance"];
     exclude_performance = ["basic_info", "personality"];
     all = exclude_performance.concat(performance_only);
-    count = [0, 0, 0];
+    // count = [0, 0, 0];
+    count = [0 , 0];
     for(let j = 0; j < this.props.stage2candidates.length; j++){
       blocks = this.props.stage2candidates[j].blocks;
-      idx = this.eqArray(blocks, performance_only) ? 0 :
-        (this.eqArray(blocks, all) ? 2 : 1);
+      // idx = this.eqArray(blocks, performance_only) ? 0 :
+      //   (this.eqArray(blocks, all) ? 2 : 1);
+      idx = this.eqArray(blocks, performance_only) ? 0 : 1;
       count[idx] += 1;
     }
     // console.log(count);
-    return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
+    return [performance_only, all][count.indexOf(Math.min.apply(Math, count))];
+    // return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
+
   }
 
 
@@ -238,7 +255,11 @@ class App extends Component {
                   blocks={this.state.blocks}
                 />);
     }else if(this.state.currentPage === Const.FINISH_PAGE){
-      curPage = (<FinishPage code={this.state.code}  isTimeUp={this.state.isTimeUp} showTimerCallBack={this.determineTimer} candidateId={this.state.testerMturkId}/>);
+      curPage = (<FinishPage
+                  code={this.state.code}
+                  showTimerCallBack={this.determineTimer}
+                  candidateId={this.state.testerMturkId}
+                  isInteam={this.state.isInteam}/>);
     }else {
       curPage = (<AgreementPage
                   callBack={this.approveNext} />);
@@ -307,8 +328,12 @@ class App extends Component {
   }
 
   goToTeamTask() {
-    this.setState({isTimeUp: true});
-    browserHistory.push(`/team?team_id=${DataManager.getTeamId(this.state.testerMturkId)}`);
+    this.setState({isTimeUpStage1: true});
+    if (!DataManager.isFinishedStage2(this.state.testerMturkId)) {
+      browserHistory.push(`/team?team_id=null`);
+    } else {
+      this.setState({isWaitingForTeamFormation: true});
+    }
   }
 
   determinFooter() {
@@ -349,14 +374,18 @@ class App extends Component {
     }
     return (
       <div>
-        <div className={this.state.showTimer ? 'counter-center-box' : 'center-timer-teamselection'}>
-          {/* <span className="counter-box-app-text">
-          Time to wait:
-          </span> */}
-          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={100} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+        <div className={this.state.isWaitingForTeamFormation ? 'disable-display' : ''}>
+          <div className={this.state.showTimer ? 'counter-center-box' : 'center-timer-teamselection'}>
+            {/* <span className="counter-box-app-text">
+            Time to wait:
+            </span> */}
+            <ReactCountdownClock  seconds={60} color="#000" alpha={1.0} size={100} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+          </div>
         </div>
+        <div className={this.state.isWaitingForTeamFormation ? 'counter-center-box' : 'disable-display'}>
 
-
+          <ReactCountdownClock  seconds={1200} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
+        </div>
         <div className="container">
           {this.determinePage()}
           <PageControl

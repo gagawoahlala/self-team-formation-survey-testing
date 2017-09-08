@@ -369,6 +369,16 @@ export default class DataManager {
     return score;
   }
 
+
+  static isFinishedStage2(mturk_id) {
+      let candidate = Candidate.find({mturk_id: mturk_id, stage: 2}).fetch();
+      if (candidate.length === 0) {
+        return false;
+      } else {
+        return true;
+      }
+  }
+
   static getSloganForTeams(teamId) {
     let teams = Team.find({team_id: Number(teamId)}).fetch();
     console.log(teams);
@@ -387,8 +397,15 @@ export default class DataManager {
       //     return answer.Q86;
       //   }
       // });
-      console.log(member[0].answers[54]);
-      return member[0].answers[54].Q86;
+
+
+        for (var i = 0; i < member[0].answers.length; i++) {
+          // console.log(member[0].answers[i]);
+          if (member[0].answers[i].Q86 !== undefined) {
+            return member[0].answers[i].Q86;
+          }
+        }
+      return "None";
     });
     console.log(SloganArray);
     return SloganArray;
@@ -535,7 +552,6 @@ export default class DataManager {
       return null;
     }
     let result = Candidate.find({mturk_id: mturk_id, stage: 2},{fields: {'team_id': 1}}).fetch();
-    console.log(result[0]);
     if (result[0].team_id != null) {
       return result[0].team_id;
     } else {

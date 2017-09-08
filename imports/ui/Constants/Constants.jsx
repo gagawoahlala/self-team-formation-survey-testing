@@ -33,7 +33,7 @@ export const TOOLTIPS = {
                 		"extraversion": "Engagement with the external world, breadth of activities, enjoys interacting with people, full of energy, enthusiastic, action-oriented, talkative and assertive.",
                 		"agreeableness": "Concern for social harmony, value getting along with others, optimistic view of human nature, considerate, kind, generous, trusting and trustworthy, helpful, and willing to compromise their interests with others.",
                 		"neuroticism": "tendency to experience negative emotions such as anger, anxiety, or depression. People with Low neuroticism calm, emotionally stable, free from persistent negative feelings, and less emotionally reactive or easily upset.",
-										"compatibility": "Your psychological compatibility with this candidate. This might be an indication how well you are going to work with this person."
+										"compatibility": "Your personality compatibility with this candidate. This might be an indication how well you are going to work with this person."
 					 }
 
 export const OCEAN_SCALE_LOW = {
@@ -54,10 +54,14 @@ export const OCEAN_SCALE_HIGH = {
 	"compatibility": ""
 }
 
-export const EXTRA_QUESTIONS = ["Judging by the given information, how confident do you feel to have picked a good teammate?",
+export const EXTRA_QUESTIONS_RATING = ["Judging by the given information, how confident do you feel to have picked a good teammate?",
 								"How much would more personality information have helped you make a better decision about teammate selection?",
 								"How much would more information about performance and ability have helped you make a better decision about teammate selection?",
 								"How much would more demographic information have helped you make a better decision about teammate selection?"]
+
+export const EXTRA_QUESTIONS_TEXT = ["Why do you choose the first candidate?",
+								"Why do you choose the second candidate?",
+								"Why do you choose the third candidate?"]
 
 export const EXTRA_QUESTION_TOOL_TIP = "1=not at all; 7 = very much";
 

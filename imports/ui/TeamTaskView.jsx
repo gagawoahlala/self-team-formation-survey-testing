@@ -137,7 +137,7 @@ export default class TeamTaskView extends Component {
   }
 
   updatePage() {
-    if (this.props.page <= 6) {
+    if (this.props.page < 6) {
       this.props.pageCallBack(this.props.page + 1);
     } else {
       browserHistory.push('/exitsurvey');

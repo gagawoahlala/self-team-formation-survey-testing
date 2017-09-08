@@ -31,7 +31,8 @@ export default class SummaryPage extends Component {
     this.isTaskFinished = this.isTaskFinished.bind(this);
     this.getTodoClassName = this.getTodoClassName.bind(this);
     this.getTodoSymbol = this.getTodoSymbol.bind(this);
-    this.showExtraQuestions = this.showExtraQuestions.bind(this);
+    this.showExtraQuestionsRating = this.showExtraQuestionsRating.bind(this);
+    this.showExtraQuestionsText = this.showExtraQuestionsText.bind(this);
     this.HackOtherQuestionCallback = this.HackOtherQuestionCallback.bind(this);
   }
 
@@ -80,13 +81,27 @@ export default class SummaryPage extends Component {
     ));
   }
 
-  showExtraQuestions() {
-    return (Const.EXTRA_QUESTIONS.map((question) =>
+  showExtraQuestionsRating() {
+    return (Const.EXTRA_QUESTIONS_RATING.map((question) =>
       <div key={question} className="extra-question-block">
         <OtherQuestion
           question={question}
           metaRating={this.props.metaRating}
           HackOtherQuestionCallback={this.HackOtherQuestionCallback}
+          questionType = {"rating"}
+        />
+      </div>
+    ));
+  }
+
+  showExtraQuestionsText() {
+    return (Const.EXTRA_QUESTIONS_TEXT.map((question) =>
+      <div key={question} className="extra-question-block">
+        <OtherQuestion
+          question={question}
+          metaRating={this.props.metaRating}
+          HackOtherQuestionCallback={this.HackOtherQuestionCallback}
+          questionType = {"text"}
         />
       </div>
     ));
@@ -193,7 +208,10 @@ export default class SummaryPage extends Component {
           </div>
           <div className="other-question-container">
             <h5>Please Finish the Following Survey Satisfaction Questions:</h5>
-            {this.showExtraQuestions()}
+            {this.showExtraQuestionsRating()}
+            {this.showExtraQuestionsText()}
+
+
           </div>
           <CandidateViewModal
             candidate={this.state.candidate}
