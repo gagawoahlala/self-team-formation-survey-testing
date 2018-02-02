@@ -65,14 +65,8 @@ export default class DataManager {
 
   static algorithmAssignByScore(teamSize) {
     weights = {
-      "extraversion": 0.1,
-      "agreeableness": 0.1,
-      "conscientiousness": 0.1,
-      "neuroticism": 0.1,
-      "openness": 0.3,
-      "popularity_selection": 0.1,
-      "avg_rating": 0.1,
-      "demo_score": 0.1,
+      "avg_rating": 0.5,
+      "var_rating": 0.5,
     }
     let candidateToForm =  Candidate.find({stage: 2}).fetch();
     candidateToForm = candidateToForm.map(function (candidate) {
@@ -126,12 +120,8 @@ export default class DataManager {
 
   static algorithmAssignByPair(teamSize) {
     weights = {
-      "extraversion": 0.1,
-      "agreeableness": 0.1,
-      "conscientiousness": 0.1,
-      "neuroticism": 0.1,
-      "openness": 0.3,
-      "mutual_rating_average": 0.3,
+      "mutual_rating_average": 0.5,
+      "mutual_rating_variance": 0.5
     }
 
     let resultTeam = [];
@@ -150,10 +140,11 @@ export default class DataManager {
         let member2Stage1 = Candidate.find({stage: 1, mturk_id: candidateToForm[j].mturk_id}).fetch()[0];
         let member1Stage2 = candidateToForm[i];
         let member2Stage2 = candidateToForm[j];
-        score += Math.abs(DataManager.scoreCalculator(weights, member1Stage1.score_base) - DataManager.scoreCalculator(weights, member2Stage1.score_base));
-        score += weights["mutual_rating_average"] * (member1Stage2.rating[member2Stage2.mturk_id] + member2Stage2.rating[member1Stage2.mturk_id]) / 2;
+        let average = (member1Stage2.rating[member2Stage2.mturk_id] + member2Stage2.rating[member1Stage2.mturk_id]) / 2;
+        let variance = (Math.pow(member1Stage2.rating[member2Stage2.mturk_id]  - average , 2) + Math.pow(member2Stage2.rating[member1Stage2.mturk_id] - average, 2)) / 2;
+        score += weights["mutual_rating_average"] * average - weights["mutual_rating_variance"] * variance;
         temp_candidate.score = score;
-        // console.log(score);
+        console.log(score);
         temp_candidate.teammates = [member1Stage2.mturk_id,member2Stage2.mturk_id];
         // console.log(temp_candidate);
 
@@ -197,7 +188,7 @@ export default class DataManager {
         // let team_id = faker.finance.account();
         let team_id = ++tempindex;
         for (var j = 0; j < tempObj._ids.length; j++) {
-          console.log(tempObj._ids[j]);
+          // console.log(tempObj._ids[j]);
           Candidate.update({_id: tempObj._ids[j]},{$set: {team_id: team_id}});
         }
         Team.insert({team_id: team_id, members: tempObj.teammates});
@@ -416,7 +407,7 @@ export default class DataManager {
     stage1C = Candidate.find({stage: 1}).fetch();
     questions = Question.find({}).fetch();
     basic_info_q = DataManager.q4block(questions, "basic_info");
-    personality_q = DataManager.q4block(questions, "personality");
+    // personality_q = DataManager.q4block(questions, "personality");
     performance_q = DataManager.q4block(questions, "performance");
     for(let i = 0; i < stage1C.length; i++){
       candidate = stage1C[i];
@@ -424,17 +415,9 @@ export default class DataManager {
         name: "Candidate " + (i+1),
         stage: candidate.stage,
         basic_info: {},
-        personality: {},
+        // personality: {},
         performance: {}
       };
-
-      bigFive = {
-        extraversion: 0,
-        agreeableness: 0,
-        conscientiousness: 0,
-        neuroticism: 0,
-        openness: 0
-      }
 
       for(let j = 0; j < candidate.answers.length; j ++){
         ans = candidate.answers[j];
@@ -446,13 +429,10 @@ export default class DataManager {
           if (qualtricsid == "Q20") {
             answer = ans[qualtricsid].replace("\"", "");
             answer = "\"" + ans[qualtricsid] + "\"";
-            map.basic_info["Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?"] = answer;
+            map.basic_info["Describe your personality strengths and weaknesses 50 words or less."] = answer;
           } else {
             map.basic_info[basic_info_q[qualtricsid]] = ans[qualtricsid];
           }
-        }else if(qualtricsid in personality_q){
-          map.personality[personality_q[qualtricsid]] = ans[qualtricsid];
-          bigFive = DataManager.updatePoints(bigFive, qid-10, ans[qualtricsid]);
         }else{
           if(qualtricsid == "Q23") {
             answer = ans[qualtricsid].replace("\"", "").trim();
@@ -465,7 +445,7 @@ export default class DataManager {
           }
         }
       }
-      map.personality["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
+      // map.personality["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
       result_arr.push(map);
     }
     return result_arr;
@@ -497,26 +477,26 @@ export default class DataManager {
     console.log(stage1C);
     questions = Question.find({}).fetch();
     basic_info_q = DataManager.q4block(questions, "basic_info");
-    personality_q = DataManager.q4block(questions, "personality");
+    // personality_q = DataManager.q4block(questions, "personality");
     performance_q = DataManager.q4block(questions, "performance");
 
     candidate = stage1C[0];
     map = {};
 
-    bigFive = {
-      extraversion: 0,
-      agreeableness: 0,
-      conscientiousness: 0,
-      neuroticism: 0,
-      openness: 0
-    }
+    // bigFive = {
+    //   extraversion: 0,
+    //   agreeableness: 0,
+    //   conscientiousness: 0,
+    //   neuroticism: 0,
+    //   openness: 0
+    // }
 
     let scoreObject = {
-      "extraversion": 0,
-      "agreeableness": 0,
-      "conscientiousness": 0,
-      "neuroticism": 0,
-      "openness": 0,
+      // "extraversion": 0,
+      // "agreeableness": 0,
+      // "conscientiousness": 0,
+      // "neuroticism": 0,
+      // "openness": 0,
       "popularity_selection": 0,
       "num_review": 0,
       "sum_rating": 0,
@@ -529,20 +509,20 @@ export default class DataManager {
       q = Question.find({qualtricsid: qualtricsid}).fetch()[0];
       qid = undefined;
       if(q) qid = Number(q.qid.substring(1));
-      if(qualtricsid in personality_q){
-        map["q"+`${qid-10}`] = ans[qualtricsid];
-        // map[personality_q[qualtricsid]] = ans[qualtricsid];
-
-        bigFive = DataManager.updatePoints(bigFive, qid-10, ans[qualtricsid]);
-      }
+      // if(qualtricsid in personality_q){
+      //   map["q"+`${qid-10}`] = ans[qualtricsid];
+      //   // map[personality_q[qualtricsid]] = ans[qualtricsid];
+      //
+      //   bigFive = DataManager.updatePoints(bigFive, qid-10, ans[qualtricsid]);
+      // }
     }
-    map["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
+    // map["ocean"] = DataManager.OCEANScoreBaseChange(bigFive);
     let candidateId = Candidate.find({mturk_id: mturk_id, stage: 1},{fields: {'_id': 1}}).fetch()[0]._id;
-    for (var aspect in map["ocean"]) {
-      if (map["ocean"].hasOwnProperty(aspect)) {
-        scoreObject[aspect] = map["ocean"][aspect];
-      }
-    }
+    // for (var aspect in map["ocean"]) {
+    //   if (map["ocean"].hasOwnProperty(aspect)) {
+    //     scoreObject[aspect] = map["ocean"][aspect];
+    //   }
+    // }
     Candidate.update({_id: candidateId}, {$set: {'score_base': scoreObject}});
     return map;
   }

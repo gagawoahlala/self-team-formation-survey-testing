@@ -22,9 +22,8 @@ export default class CandidatesViewBasicInfo extends Component {
   render() {
     return (
       <div className="basic-info">
-        <h4><b>Basic Information:</b></h4>
-        {this.display()}
-        <p className="question"><strong>{Const.BIO}</strong></p>
+        <h4><b>Personality Information:</b></h4>
+        <p className="question"><strong>Personality paragraph:</strong></p>
         <p className="answer">{this.props.basicInfo[Const.BIO]}</p>
       </div>
     );
