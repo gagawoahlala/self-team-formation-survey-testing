@@ -110,14 +110,14 @@ export const SURVEY_PERSONALITY = {
      type: "html",
      name: "Mechanical Turk Statistics",
      html: {
-      en: "<h3>Mechanical Turk statistics</h3><br>\n<p>You can look up this information in your MTurk Dashboard:\n<br>\n<a href=\"https://www.mturk.com/mturk/dashboard\">https://www.mturk.com/mturk/dashboard</a></p>"
+      en: "<h3>Mechanical Turk statistics</h3><br>\n<p>You can look up this information in your MTurk Dashboard:\n<br>\n<a href=\"https://www.mturk.com/mturk/dashboard\" target=\"_blank\">https://www.mturk.com/mturk/dashboard</a></p>"
      }
     },
     {
      type: "text",
      name: "mturk_id",
      title: {
-      en: "Please enter your mTurk code"
+      en: "Please enter your mTurk ID"
      },
      isRequired: true
     }
@@ -249,7 +249,7 @@ export const SURVEY_TASK = {
      name: "question10",
      html: {
       default: "<h2>Write an advertisement slogan for this electrical bicycle </h2>\n\n<p>-the slogan should be short (1-2 sentences) <br> -it should highlight the product's main benefits and ultimately persuade people to buy it <br> -you can make up a new name and invent realistic features that the bicycle should have\n<br><br>\nAs an example you can look at these slogans that workers generated for a backpack: \n<br>\n<ul>\n<li>\"Backpacking gear that changes the way you hit the road. Get yours and start a journey of a lifetime!\"</li>\n<li>\"The ultimate drawstring backpack that lets you create more epic moments and crush life\"</li>\n<li>\"Fashion meets functionality in one yoga inspired backpack\"</li>\n</ul>\n<br>\nPlease spend <b> 4 minutes </b> on this task until the countdown runs out. <br>\nThe form will then automatically submit your result \n",
-      en: "<h2>Write an 3 sentence advertising slogan for this transportation device. </h2>\n<h3>This slogan will be shared with your partners for the team task.</h3>\n\n<p>-the slogan should be short (1-2 sentences) <br> -use your imagination <br> -it should highlight the product's main benefits and ultimately persuade people to buy it <br> -you can make up a new name and invent realistic features that the bicycle should have\n<br><br>\nAs an example you can look at these slogans that workers generated for a backpack: \n<br>\n<ul>\n<li>\"Backpacking gear that changes the way you hit the road. Be prepared for new adventures. Get yours and start a journey of a lifetime!\"</li>\n</ul>\n<br>\nYou will spend <b>4 minutes</b> on this task until the countdown runs out.  After the team task, you will automatically be moved to an exit survey."
+      en: "<h3>Write an 3 sentence advertising slogan for this transportation device. </h3>\n<h3>This slogan will be shared with your partners for the team task.</h3>\nYou will spend <b style=\"font-size: 20px;\">4 minutes</b> on this task until the countdown runs out.  After the team task, you will automatically be moved to an exit survey.\n<br><br>\n<p>&nbsp- the slogan should be short (3 sentences) <br>&nbsp - use your imagination <br>&nbsp - it should highlight the product's main benefits and ultimately persuade people to buy it <br>&nbsp - you can make up a new name and invent realistic features that the bicycle should have\n<br><br>\nAs an example you can look at these slogans that workers generated for a backpack: \n<br>\n\n<i style=\"text-decoration: underline;\">\"Backpacking gear that changes the way you hit the road. Be prepared for new adventures. Get yours and start a journey of a lifetime!\"</i>\n\n<br>\n"
      }
     },
     {
@@ -264,7 +264,8 @@ export const SURVEY_TASK = {
      name: "Q86",
      title: {
       en: "Advertisement Slogan"
-     }
+     },
+     isRequired: true
     }
    ]
   }
@@ -292,8 +293,9 @@ export const PERSONALITY_TASK = {
      type: "comment",
      name: "Q98",
      title: {
-      en: "What is your first name or nickname (explain why ...)?"
-     }
+      en: "What is your first name or nickname (we will need it later for the team task)?"
+     },
+     isRequired: true
     }
    ]
   },
@@ -306,7 +308,6 @@ export const PERSONALITY_TASK = {
      title: {
       en: "What qualities do you look for in a team member? (Fill as many as you need. Write as much as you need for each response, one quality per box.)"
      },
-     isRequired: true,
      items: [
       {
        name: "Most Important"

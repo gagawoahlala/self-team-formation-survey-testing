@@ -385,7 +385,7 @@ class App extends Component {
         </div>
         <div className={this.state.isWaitingForTeamFormation ? 'counter-center-box' : 'disable-display'}>
 
-          <ReactCountdownClock  seconds={1200} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
+          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
         </div>
         <div className="container">
           {this.determinePage()}
