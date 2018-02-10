@@ -15,7 +15,7 @@ export const renderRoutes = () => (
     <Route path="/admin" component={Admin}/>
     <Route path='/survey' component={SurveyStage}/>
     <Route path='/team' component={TeamTask}/>
-    <Route path='/exitsurvey' component={() => window.location='https://ucsdsocialsciences.co1.qualtrics.com/jfe/form/SV_beZK1oURqZrAUo5'}/>
+    <Route path='/exitsurvey' component={() => window.location='https://ucsdsocialsciences.co1.qualtrics.com/jfe/form/SV_7OM9dctSPpSKNyl'}/>
     <Route path='/teamSelectionFailsurvey' component={() => window.location='https://ucsdsocialsciences.co1.qualtrics.com/jfe/form/SV_85QMQKKDgURhxZj'}/>
   </Router>
 );

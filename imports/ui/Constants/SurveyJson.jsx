@@ -354,7 +354,7 @@ export const PERSONALITY_TASK = {
      type: "comment",
      name: "Q20",
      title: {
-      en: "Describe your personality strengths and weaknesses 50 words or less."
+      en: "Describe your personality strengths and weaknesses in 50 words or less."
      },
      isRequired: true
     }

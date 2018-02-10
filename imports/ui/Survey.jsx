@@ -36,9 +36,9 @@ export default class SurveyStage extends React.Component {
       survey: new Survey.Model(Const.SURVEY_PERSONALITY),
       stage: 1,
       candidate: {},
-      stage1Length: 30,
-      stage2Length: 30,
-      stage3Length: 30,
+      stage1Length: 90,
+      stage2Length: 240,
+      stage3Length: 300,
       waitingLength: 20,
       timer1Visibility: 1.0,
       timer2Visibility: 0.1,
@@ -185,6 +185,7 @@ export default class SurveyStage extends React.Component {
   goToWaitingPage() {
     if (this.state.isStage3Finished) {
       console.log("about to enter stage 4");
+      browserHistory.push('/exitsurvey');
       this.setState({stage: 4, timer3Visibility: 0.1, timer4Visibility: 1.0});
     } else {
       browserHistory.push(`/?mturk_id=${this.state.mturk_id}`);
