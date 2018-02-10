@@ -109,8 +109,8 @@ class App extends Component {
     console.log(candiateToShow);
     let cs = this.sample(candiateToShow, 16);
     console.log(cs);
-    cs = DataManager.updateCompatibility(cs, this.state.tester);
-    console.log(cs);
+    // cs = DataManager.updateCompatibility(cs, this.state.tester);
+    // console.log(cs);
     tempRatings = {}
     for (var i = cs.length - 1; i >= 0; i--) {
       tempRatings[cs[i].mturk_id] = 0;
@@ -138,6 +138,7 @@ class App extends Component {
   decideBlock() {
     performance_only = ["performance"];
     exclude_performance = ["basic_info", "personality"];
+    exclude_personality = ["basic_info", "performance"];
     all = exclude_performance.concat(performance_only);
     // count = [0, 0, 0];
     count = [0 , 0];
@@ -149,7 +150,7 @@ class App extends Component {
       count[idx] += 1;
     }
     // console.log(count);
-    return [performance_only, all][count.indexOf(Math.min.apply(Math, count))];
+    return [exclude_personality, exclude_personality][count.indexOf(Math.min.apply(Math, count))];
     // return [performance_only, exclude_performance, all][count.indexOf(Math.min.apply(Math, count))];
 
   }
@@ -384,7 +385,7 @@ class App extends Component {
         </div>
         <div className={this.state.isWaitingForTeamFormation ? 'counter-center-box' : 'disable-display'}>
 
-          <ReactCountdownClock  seconds={1200} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
+          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
         </div>
         <div className="container">
           {this.determinePage()}

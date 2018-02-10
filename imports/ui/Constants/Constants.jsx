@@ -55,13 +55,14 @@ export const OCEAN_SCALE_HIGH = {
 }
 
 export const EXTRA_QUESTIONS_RATING = ["Judging by the given information, how confident do you feel to have picked a good teammate?",
-								"How much would more personality information have helped you make a better decision about teammate selection?",
-								"How much would more information about performance and ability have helped you make a better decision about teammate selection?",
-								"How much would more demographic information have helped you make a better decision about teammate selection?"]
+								"How much would more PERSONALITY information have helped you make a better decision about teammate selection?",
+								"How much would more information about PERFORMANCE have helped you make a better decision about teammate selection?"]
 
-export const EXTRA_QUESTIONS_TEXT = ["Why do you choose the first candidate?",
-								"Why do you choose the second candidate?",
-								"Why do you choose the third candidate?"]
+export const EXTRA_QUESTIONS_TEXT = [
+								"What other information would you have wanted to make a better choice of candidates?",
+								"Why did you choose your FIRST choice candidate?",
+								"Why did you choose your SECOND choice candidate? ",
+								"Why did you choose your THIRD choice candidate?"]
 
 export const EXTRA_QUESTION_TOOL_TIP = "1=not at all; 7 = very much";
 
@@ -70,6 +71,6 @@ export const PERFORMANCE_QUESTION = ["Advertisement slogan"]
 
 
 // export const BIO = "Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?";
-export const BIO = "";
+export const BIO = "Describe your personality strengths and weaknesses 50 words or less.";
 
 export const DEMO_QUESTION = ["Gender", "Age (in years)", "What is the highest degree or level of education you have completed?", "Ethnicity", "Do you have a job besides working on Amazon Mechanical Turk?", "In which field/industry are you working?"]

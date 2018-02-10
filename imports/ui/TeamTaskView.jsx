@@ -12,7 +12,8 @@ export default class TeamTaskView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      link : `http://etherpad.ucsd.edu:9006/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
+      // link : `http://etherpad.ucsd.edu:9006/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
+      link : `https://beta.etherpad.org/p/teamformationfebruary2test${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
       // link: `https://beta.etherpad.org/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
 
     }
