@@ -249,23 +249,38 @@ export const SURVEY_TASK = {
      name: "question10",
      html: {
       default: "<h2>Write an advertisement slogan for this electrical bicycle </h2>\n\n<p>-the slogan should be short (1-2 sentences) <br> -it should highlight the product's main benefits and ultimately persuade people to buy it <br> -you can make up a new name and invent realistic features that the bicycle should have\n<br><br>\nAs an example you can look at these slogans that workers generated for a backpack: \n<br>\n<ul>\n<li>\"Backpacking gear that changes the way you hit the road. Get yours and start a journey of a lifetime!\"</li>\n<li>\"The ultimate drawstring backpack that lets you create more epic moments and crush life\"</li>\n<li>\"Fashion meets functionality in one yoga inspired backpack\"</li>\n</ul>\n<br>\nPlease spend <b> 4 minutes </b> on this task until the countdown runs out. <br>\nThe form will then automatically submit your result \n",
-      en: "<h3>Write an 3 sentence advertising slogan for this transportation device. </h3>\n<h3>This slogan will be shared with your partners for the team task.</h3>\nYou will spend <b style=\"font-size: 20px;\">4 minutes</b> on this task until the countdown runs out.  After the team task, you will automatically be moved to an exit survey.\n<br><br>\n<p>&nbsp- the slogan should be short (3 sentences) <br>&nbsp - use your imagination <br>&nbsp - it should highlight the product's main benefits and ultimately persuade people to buy it <br>&nbsp - you can make up a new name and invent realistic features that the bicycle should have\n<br><br>\nAs an example you can look at these slogans that workers generated for a backpack: \n<br>\n\n<i style=\"text-decoration: underline;\">\"Backpacking gear that changes the way you hit the road. Be prepared for new adventures. Get yours and start a journey of a lifetime!\"</i>\n\n<br>\n"
+      en: "<h3>Write a 50 word advertising slogan for this transportation device.<br> \nThis slogan will be shared with your partners for the team task.</h3>\n<br>\n\n<img style= \"width:500px;\" src=\"http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg\"> </img>\n<br>\n<br>\n<div style=\"font-size:15px\">As an example you can look at these slogans that workers generated for a backpack: \n<i style=\"text-decoration: underline;\">\"Backpacking gear that changes the way you hit the road. Be prepared for new adventures. Get yours and start a journey of a lifetime!\"</i></div>\n\n<br>\n"
      }
-    },
+    }
+   ]
+  },
+  {
+   name: "page17",
+   elements: [
     {
      type: "html",
-     name: "question13",
+     name: "question1",
      html: {
-      en: "<img src=\"http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg\"> </img>"
+      default: "<h2>Write an advertisement slogan for this electrical bicycle </h2>\n\n<p>-the slogan should be short (1-2 sentences) <br> -it should highlight the product's main benefits and ultimately persuade people to buy it <br> -you can make up a new name and invent realistic features that the bicycle should have\n<br><br>\nAs an example you can look at these slogans that workers generated for a backpack: \n<br>\n<ul>\n<li>\"Backpacking gear that changes the way you hit the road. Get yours and start a journey of a lifetime!\"</li>\n<li>\"The ultimate drawstring backpack that lets you create more epic moments and crush life\"</li>\n<li>\"Fashion meets functionality in one yoga inspired backpack\"</li>\n</ul>\n<br>\nPlease spend <b> 4 minutes </b> on this task until the countdown runs out. <br>\nThe form will then automatically submit your result \n",
+      en: "<div style=\"font-size:15px\">You have <b style=\"font-size: 20px;\">4 minutes</b> for this task: \n\n\n<p>&nbsp- write a short slogan (50 words max) <br>&nbsp - use your imagination <br>&nbsp - highlight the product's main benefits to ultimately persuade people to buy it<br>&nbsp - (optional) create new name and invent <i style=\"text-decoration: underline;\">realistic</i> features that it should have</div>\n"
      }
     },
     {
      type: "text",
      name: "Q86",
      title: {
-      en: "Advertisement Slogan"
+      en: "Slogan"
      },
-     isRequired: true
+     enableIf: "{Q86} <= 50",
+     isRequired: true,
+     readOnly: true
+    },
+    {
+     type: "html",
+     name: "question2",
+     html: {
+      en: "<p style=\"font-size:15px;\">As a reminder, here’s that bike again:</p>\n<img style= \"width:500px;\" src=\"http://www.electricvelocity.com.au/Upload/Blogs/smart-e-bike-side_2.jpg\"> </img>"
+     }
     }
    ]
   }
